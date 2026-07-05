@@ -1,0 +1,3 @@
+# NeoZ Toolkit — Python dependencies
+# rich powers the entire terminal UI (tables, panels, colors).
+rich>=13.0.0
