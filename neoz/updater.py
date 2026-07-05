@@ -55,6 +55,10 @@ _GROUP_MAP = {
     "api": "api_security", "privesc": "privilege_escalation",
     "threatintel": "threat_intel", "physical": "physical_security",
     "devsecops": "devsecops",
+    # New dedicated categories (2026-07-06)
+    "ctf": "ctf_tools", "gamehacking": "game_hacking", "honeypot": "honeypots",
+    "supplychain": "supply_chain", "threathunt": "threat_hunting",
+    "sandbox": "sandbox_analysis", "exfil": "data_exfiltration", "ics": "ics_scada",
 }
 
 _GROUP_TAG = {
@@ -67,6 +71,9 @@ _GROUP_TAG = {
     "dos": "ddos", "bluetooth": "wireless", "voip": "network", "spoof": "network",
     "decompiler": "reversing", "tunnel": "network", "disassembler": "reversing", "stego": "steganography",
     "database": "web", "hardware": "reversing", "wordlist": "bruteforce", "keylogger": "payload",
+    "ctf": "reversing", "gamehacking": "reversing", "honeypot": "blue_team",
+    "supplychain": "scanner", "threathunt": "forensics", "sandbox": "forensics",
+    "exfil": "network", "ics": "scanner",
 }
 
 _DEFAULT_CATEGORY = "other_tools"
@@ -75,7 +82,7 @@ _KALI_URL = "https://www.kali.org/tools/all-tools/"
 # (raw markdown url, fallback group when the section heading is unclear)
 _AWESOME_URLS = [
     ("https://raw.githubusercontent.com/enaqx/awesome-pentest/master/README.md", "misc"),
-    ("https://raw.githubusercontent.com/apsdehal/awesome-ctf/master/README.md", "reversing"),
+    ("https://raw.githubusercontent.com/apsdehal/awesome-ctf/master/README.md", "ctf"),
     ("https://raw.githubusercontent.com/jivoi/awesome-osint/master/README.md", "recon"),
     ("https://raw.githubusercontent.com/rshipp/awesome-malware-analysis/master/README.md", "malware"),
     ("https://raw.githubusercontent.com/meirwah/awesome-incident-response/master/README.md", "forensic"),
@@ -128,6 +135,27 @@ _AWESOME_URLS = [
     ("https://raw.githubusercontent.com/fabionoth/awesome-cyber-security/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/meitar/awesome-lockpicking/master/README.md", "physical"),
     ("https://raw.githubusercontent.com/sundowndev/hacker-roadmap/master/README.md", "misc"),
+    # ── Batch 3 (2026-07-06): wider tool coverage + new categories ──────────────
+    ("https://raw.githubusercontent.com/We5ter/Scanners-Box/master/README.md", "scanner"),
+    ("https://raw.githubusercontent.com/hslatman/awesome-industrial-control-system-security/master/README.md", "ics"),
+    ("https://raw.githubusercontent.com/Escapingbug/awesome-browser-exploit/master/README.md", "exploitation"),
+    ("https://raw.githubusercontent.com/ashishb/android-security-awesome/master/README.md", "mobile"),
+    ("https://raw.githubusercontent.com/wtsxDev/reverse-engineering/master/README.md", "reversing"),
+    ("https://raw.githubusercontent.com/paragonie/awesome-appsec/master/README.md", "webapp"),
+    ("https://raw.githubusercontent.com/dsasmblr/game-hacking/master/README.md", "gamehacking"),
+    ("https://raw.githubusercontent.com/zardus/ctf-tools/master/README.md", "ctf"),
+    ("https://raw.githubusercontent.com/CyberSecurityUP/Awesome-Red-Team-Operations/main/README.md", "misc"),
+    ("https://raw.githubusercontent.com/hahwul/WebHackersWeapons/main/README.md", "webapp"),
+    ("https://raw.githubusercontent.com/guardrailsio/awesome-golang-security/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/pe3zx/my-infosec-awesome/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/Hack-with-Github/Awesome-Hacking/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/vitalysim/Awesome-Hacking-Resources/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/rmusser01/Infosec_Reference/master/Draft/Sub_Sections/Web.md", "webapp"),
+    ("https://raw.githubusercontent.com/re-cinq/awesome-cloud-native-security/main/README.md", "misc"),
+    ("https://raw.githubusercontent.com/decalage2/awesome-security-hardening/master/README.md", "defensive"),
+    ("https://raw.githubusercontent.com/EnableSecurity/awesome-rtc-hacking/master/README.md", "voip"),
+    ("https://raw.githubusercontent.com/mytechnotalent/Reverse-Engineering/main/README.md", "reversing"),
+    ("https://raw.githubusercontent.com/tanprathan/OWASP-Testing-Checklist/master/README.md", "webapp"),
 ]
 
 # Map an "awesome list" section heading -> a group keyword (fed to _GROUP_MAP).
@@ -157,6 +185,15 @@ def _section_to_group(section: str) -> str:
         ("indicator", "threatintel"), ("threat hunt", "threatintel"),
         ("rfid", "physical"), ("nfc", "physical"), ("physical", "physical"), ("lockpick", "physical"),
         ("sast", "devsecops"), ("dast", "devsecops"), ("devsecops", "devsecops"),
+        ("capture the flag", "ctf"), ("ctf", "ctf"), ("wargame", "ctf"),
+        ("game hack", "gamehacking"), ("game-hack", "gamehacking"), ("game security", "gamehacking"),
+        ("game cheat", "gamehacking"), ("cheat engine", "gamehacking"),
+        ("honeypot", "honeypot"), ("honeynet", "honeypot"), ("deception", "honeypot"),
+        ("supply chain", "supplychain"), ("sbom", "supplychain"), ("dependency confusion", "supplychain"),
+        ("threat hunt", "threathunt"), ("sigma rule", "threathunt"),
+        ("sandbox", "sandbox"), ("detonat", "sandbox"), ("cuckoo", "sandbox"),
+        ("exfiltrat", "exfil"), ("dns tunnel", "exfil"), ("covert channel", "exfil"),
+        ("industrial control", "ics"), ("scada", "ics"), ("ics ", "ics"), ("ot security", "ics"),
     ):
         if kw in s:
             return group

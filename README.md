@@ -24,7 +24,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 11,902 tools across 43 categories, by NeoZ" width="820">
+<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 12,139 tools across 50 categories, by NeoZ" width="820">
 
 </div>
 
@@ -38,7 +38,7 @@ Security professionals waste hours hunting for the right tool, cloning repos, fi
 
 | | |
 |---|---|
-| 🗂️ **The whole ecosystem** | **11,902 tools** across **43 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team & more. |
+| 🗂️ **The whole ecosystem** | **12,139 tools** across **50 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team & more. |
 | ⚙️ **Install & run for you** | Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy‑pasting install snippets. |
 | 🔄 **Always up to date** | A built‑in scanner pulls fresh tools from **BlackArch, Kali & awesome‑lists** so your arsenal keeps growing on its own. |
 | 🔎 **Find anything instantly** | Full‑text search, tag filters (`osint`, `c2`, `web`…) and a task **advisor** that recommends tools for what you're trying to do. |
@@ -111,7 +111,7 @@ Inside the menu:
 ```bash
 python3 neoz.py nmap              # install (if needed) and run a tool by name
 python3 neoz.py search "sql inj"  # list matching tools
-python3 neoz.py list              # list all 43 categories
+python3 neoz.py list              # list all 50 categories
 python3 neoz.py list osint        # list tools in a category
 python3 neoz.py install bloodhound
 python3 neoz.py --update          # pull every tool from online sources
@@ -123,7 +123,7 @@ python3 neoz.py --help            # full CLI help
 
 ## 🗂️ The Arsenal
 
-**43 categories · 11,902 tools** — and growing automatically with every `--update`.
+**50 categories · 12,139 tools** — and growing automatically with every `--update`.
 
 | Category | Tools | Category | Tools |
 |---|:--:|---|:--:|

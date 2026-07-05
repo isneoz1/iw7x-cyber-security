@@ -3,6 +3,22 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [1.10.0] — 2026-07-06
+
+### Added
+- **7 new categories**: Honeypots / Deception, CTF / Wargames, Game Hacking,
+  Supply Chain / SBOM, Threat Hunting, Malware Sandbox / Detonation, Data
+  Exfiltration — the arsenal now spans **50 security categories**.
+- **20 new catalog sources** wired into the auto-updater (Scanners-Box,
+  awesome-industrial-control-system-security, awesome-browser-exploit,
+  android-security-awesome, WebHackersWeapons, ctf-tools, game-hacking and more).
+
+### Changed
+- Catalog grew to **12,139 tools across 50 categories**. Existing tools were
+  reclassified into the new categories with precise patterns
+  (`scripts/expand_arsenal.py`); the online scan then merged 232 net-new tools.
+- Refreshed the site's category grid, all counts and the social image.
+
 ## [1.9.0] — 2026-07-05
 
 ### Added
@@ -65,6 +81,7 @@ All notable changes to **iw7x** are documented here. Format loosely follows
 - Interactive `rich` TUI with gradient banner, search, tag filters and a task advisor.
 - Shell CLI: `iw7x <tool>` installs (if needed) and runs any tool.
 
+[1.10.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.9.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.7.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.6.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
