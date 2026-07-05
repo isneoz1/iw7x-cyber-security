@@ -23,7 +23,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 11 900 outils dans 43 catégories, par NeoZ" width="820">
+<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 11 902 outils dans 43 catégories, par NeoZ" width="820">
 
 </div>
 
@@ -37,7 +37,7 @@ Les professionnels de la sécurité perdent des heures à chercher le bon outil,
 
 | | |
 |---|---|
-| 🗂️ **Tout l'écosystème** | **11 900 outils** répartis en **43 catégories** — OSINT, web, wireless, exploitation, forensic, reverse, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team, et plus. |
+| 🗂️ **Tout l'écosystème** | **11 902 outils** répartis en **43 catégories** — OSINT, web, wireless, exploitation, forensic, reverse, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team, et plus. |
 | ⚙️ **Installe & lance pour vous** | Choisissez un outil → iw7x l'installe (apt / pipx / go / git) et le lance. Fini le copier‑coller de commandes. |
 | 🔄 **Toujours à jour** | Un scanner intégré récupère les nouveaux outils depuis **BlackArch, Kali & awesome‑lists** — votre arsenal grandit tout seul. |
 | 🔎 **Trouvez tout, tout de suite** | Recherche plein‑texte, filtres par tag (`osint`, `c2`, `web`…) et un **conseiller** qui recommande des outils selon votre objectif. |
@@ -111,7 +111,7 @@ python3 neoz.py --help            # aide complète
 
 ## 🗂️ L'Arsenal
 
-**43 catégories · 11 900 outils** — et ça grandit tout seul à chaque `--update`.
+**43 catégories · 11 902 outils** — et ça grandit tout seul à chaque `--update`.
 
 | Catégorie | Outils | Catégorie | Outils |
 |---|:--:|---|:--:|

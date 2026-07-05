@@ -122,7 +122,7 @@ def main() -> None:
 
     # Stats row
     y = 546
-    parts = [("11,900", CYAN, " TOOLS   "), ("43", CYAN, " CATEGORIES   "),
+    parts = [("11,902", CYAN, " TOOLS   "), ("43", CYAN, " CATEGORIES   "),
              ("KALI-READY", DRAGON, "   "), ("MIT · OPEN SOURCE", MUTED, "")]
     x = PAD
     sf_b = font("mono_bold", 30)
