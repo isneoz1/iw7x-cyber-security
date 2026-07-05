@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isneoz1.github.io/iw7x-cyber-security/sitemap.xml
