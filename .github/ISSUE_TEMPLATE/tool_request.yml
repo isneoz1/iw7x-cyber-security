@@ -1,0 +1,76 @@
+name: 🧩 Tool request
+description: Suggest a new security tool to add to the iw7x arsenal
+title: "[Tool] <ToolName> — <Category>"
+labels: ["tool-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping grow the arsenal! Fill this in and a maintainer will add the tool — or open a PR yourself (see [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md), it's a 5‑minute JSON change).
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+      placeholder: e.g. Subfinder
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Project URL
+      placeholder: https://github.com/projectdiscovery/subfinder
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Information Gathering
+        - OSINT / Recon
+        - Web Attack
+        - Wireless Attack
+        - Exploit Framework
+        - Post-Exploitation / C2
+        - Active Directory
+        - Reverse Engineering
+        - Forensics / DFIR
+        - Malware Analysis
+        - Payload Creation
+        - Wordlist / Password
+        - Phishing / Social Engineering
+        - Cloud Security
+        - Container / Kubernetes
+        - Mobile Security
+        - IoT / Firmware / Hardware
+        - Blue Team / Defense
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What does it do?
+      description: One or two clear sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: install
+    attributes:
+      label: Install command(s)
+      render: bash
+      placeholder: go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+  - type: input
+    id: run
+    attributes:
+      label: Example run command
+      placeholder: subfinder -d example.com
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: The tool is actively maintained
+        - label: It isn't already in the catalog (I searched with `python3 neoz.py search`)
+        - label: It is intended for authorized security testing / education
+          required: true
