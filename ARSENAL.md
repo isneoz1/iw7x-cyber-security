@@ -2,7 +2,7 @@
 
 A reference of what ships in [`catalog.json`](catalog.json). Every entry installs and launches straight from the menu or the shell.
 
-> **38 categories · 8,104 tools** in the shipped catalog — and the built‑in scanner (`python3 neoz.py --update`) keeps adding more from BlackArch, Kali and awesome‑lists.
+> **38 categories · 10,068 tools** in the shipped catalog — and the built‑in scanner (`python3 neoz.py --update`) keeps adding more from BlackArch, Kali and dozens of awesome‑lists.
 
 Find any tool instantly:
 
@@ -19,33 +19,33 @@ python3 neoz.py bloodhound            # install (if needed) + run
 
 | # | Category | Tools | A few of what's inside |
 |--:|----------|:-----:|------------------------|
-| 1 | 🔍 Information Gathering | 1342 | Nmap, Masscan, Dracnmap, asnmap, nmapAutomator |
-| 2 | 🌐 Web Attack | 1288 | Burp Suite, Gobuster, wafw00f, ffuf, dirsearch |
-| 3 | 🧰 Other Tools / OSINT | 899 | Utility & niche tooling across domains |
-| 4 | 🔬 Forensics / DFIR | 666 | Autopsy, Wireshark, Volatility 3, Binwalk, Sleuth Kit |
-| 5 | 🧠 Reverse Engineering | 475 | Ghidra, radare2, JadX, Frida |
-| 6 | 🛡️ Blue Team / Defense | 474 | YARA, Sigma, detection & monitoring tooling |
-| 7 | 🕵️ OSINT / Recon | 407 | theHarvester, Amass, SpiderFoot, Subfinder, Sherlock |
+| 1 | 🧰 Other Tools / OSINT | 1576 | Utility & niche tooling across domains |
+| 2 | 🌐 Web Attack | 1498 | Burp Suite, Gobuster, wafw00f, ffuf, dirsearch |
+| 3 | 🔍 Information Gathering | 1342 | Nmap, Masscan, Dracnmap, asnmap, nmapAutomator |
+| 4 | 🕵️ OSINT / Recon | 1297 | theHarvester, Amass, SpiderFoot, Subfinder, Sherlock |
+| 5 | 🔬 Forensics / DFIR | 700 | Autopsy, Wireshark, Volatility 3, Binwalk, Sleuth Kit |
+| 6 | 🧠 Reverse Engineering | 509 | Ghidra, radare2, JadX, Frida |
+| 7 | 🛡️ Blue Team / Defense | 474 | YARA, Sigma, detection & monitoring tooling |
 | 8 | 📶 Sniffing & Network MITM | 369 | Bettercap, Responder, Wireshark, Hydra |
-| 9 | 🔌 IoT / Firmware / Hardware | 226 | Firmware extraction & hardware hacking tools |
+| 9 | 🔌 IoT / Firmware / Hardware | 234 | Firmware extraction & hardware hacking tools |
 | 10 | 🏰 Active Directory | 214 | BloodHound, NetExec, Impacket, Responder, Certipy |
-| 11 | 🧬 Malware Analysis | 201 | Sandboxes, unpackers, static/dynamic analysis |
-| 12 | 💥 Exploit Framework | 200 | Metasploit, Impacket, Pacu |
-| 13 | 🔑 Wordlist / Password | 198 | Hashcat, John the Ripper, THC‑Hydra |
+| 11 | 🔑 Wordlist / Password | 210 | Hashcat, John the Ripper, THC‑Hydra |
+| 12 | 💥 Exploit Framework | 204 | Metasploit, Impacket, Pacu |
+| 13 | 🧬 Malware Analysis | 201 | Sandboxes, unpackers, static/dynamic analysis |
 | 14 | 🧨 Binary Exploitation / CTF | 149 | pwn tooling, ROP, heap, CTF helpers |
-| 15 | 📡 Wireless Attack | 123 | Wifite, Aircrack‑ng, Bettercap |
-| 16 | 🩻 Vulnerability Scanning | 93 | Nuclei, Nikto, WPScan |
-| 17 | 📱 Mobile Security | 85 | MobSF, Frida, objection |
-| 18 | 🎯 Payload Creation | 84 | msfvenom‑style generators & obfuscators |
+| 15 | 📱 Mobile Security | 131 | MobSF, Frida, objection |
+| 16 | 📡 Wireless Attack | 127 | Wifite, Aircrack‑ng, Bettercap |
+| 17 | 🎯 Payload Creation | 105 | msfvenom‑style generators & obfuscators |
+| 18 | 🩻 Vulnerability Scanning | 93 | Nuclei, Nikto, WPScan |
 | 19 | 🐝 Fuzzing | 75 | Coverage‑guided & protocol fuzzers |
 | 20 | 🎛️ Post‑Exploitation / C2 | 68 | Sliver, Havoc, PowerShell Empire |
 | 21 | 🎣 Phishing | 61 | Campaign frameworks & credential harvesters |
-| 22 | 🚗 Automotive / CAN | 50 | CAN bus & vehicle security tooling |
-| 23 | 💣 DDoS / Stress Test | 44 | Load & stress‑testing utilities |
-| 24 | 🖼️ Steganography | 44 | Hide/extract data in media |
-| 25 | 📦 Container / Kubernetes | 38 | Trivy, kube‑hunter, kube‑bench |
-| 26 | ☁️ Cloud Security | 36 | Prowler, Pacu |
-| 27 | 🎭 Social Engineering | 33 | SET & pretext tooling |
+| 22 | 🖼️ Steganography | 55 | Hide/extract data in media |
+| 23 | 🚗 Automotive / CAN | 50 | CAN bus & vehicle security tooling |
+| 24 | 🎭 Social Engineering | 46 | SET & pretext tooling |
+| 25 | 💣 DDoS / Stress Test | 44 | Load & stress‑testing utilities |
+| 26 | 📦 Container / Kubernetes | 38 | Trivy, kube‑hunter, kube‑bench |
+| 27 | ☁️ Cloud Security | 36 | Prowler, Pacu |
 | 28 | 📻 Radio / SDR / RF | 31 | SDR & RF analysis |
 | 29 | ⛓️ Blockchain / Web3 | 26 | Smart‑contract & chain analysis |
 | 30 | 💉 SQL Injection | 21 | SQLmap, NoSQLMap |

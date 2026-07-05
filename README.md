@@ -4,7 +4,7 @@
 
 ### Every cybersecurity tool in the world. One terminal. One command.
 
-**iw7x** unifies **8,000+** offensive & defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command‑line arsenal that installs, updates and launches anything for you.
+**iw7x** unifies **10,000+** offensive & defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command‑line arsenal that installs, updates and launches anything for you.
 
 <br/>
 
@@ -13,7 +13,7 @@
 [![Issues](https://img.shields.io/github/issues/isneoz1/iw7x-cyber-security?style=for-the-badge&color=48DCFF&labelColor=1a1a2e&logo=github)](https://github.com/isneoz1/iw7x-cyber-security/issues)
 [![License](https://img.shields.io/badge/License-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
-[![Tools](https://img.shields.io/badge/Tools-8%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
+[![Tools](https://img.shields.io/badge/Tools-10%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
 [![Categories](https://img.shields.io/badge/Categories-38-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-the-arsenal)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
@@ -31,7 +31,7 @@
      ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
      ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝
       C Y B E R S E C U R I T Y   A R S E N A L
-        8104 TOOLS · 38 CATEGORIES · BY NeoZ
+       10068 TOOLS · 38 CATEGORIES · BY NeoZ
 ```
 
 > ⚠️ **For authorized security testing and education only.** See the [Legal & Ethical Use](#-legal--ethical-use) section before you begin.
@@ -129,25 +129,25 @@ python3 neoz.py --help            # full CLI help
 
 ## 🗂️ The Arsenal
 
-**38 categories · 8,104 curated tools** — and growing automatically.
+**38 categories · 10,068 tools** — and growing automatically with every `--update`.
 
 | Category | Tools | Category | Tools |
 |---|:--:|---|:--:|
-| 🔍 Information Gathering | 1342 | 🧬 Malware Analysis | 201 |
-| 🌐 Web Attack | 1288 | 💥 Exploit Framework | 200 |
-| 🕵️ OSINT & Recon | 407 | 🔑 Wordlist / Password | 198 |
-| 🛡️ Blue Team / Defense | 474 | 🧨 Binary Exploitation / CTF | 149 |
-| 🔬 Forensics / DFIR | 666 | 📡 Wireless Attack | 123 |
-| 🧠 Reverse Engineering | 475 | 🩻 Vulnerability Scanning | 93 |
-| 📶 Sniffing & Network MITM | 369 | 📱 Mobile Security | 85 |
-| 🔌 IoT / Firmware / Hardware | 226 | 🎯 Payload Creation | 84 |
-| 🏰 Active Directory | 214 | 🐝 Fuzzing | 75 |
-| 🧰 Other Tools / OSINT | 899 | 🎛️ Post‑Exploitation / C2 | 68 |
-| 🎣 Phishing | 61 | 🚗 Automotive / CAN | 50 |
-| 💣 DDoS / Stress Test | 44 | 🖼️ Steganography | 44 |
-| 📦 Container / Kubernetes | 38 | ☁️ Cloud Security | 36 |
-| 🎭 Social Engineering | 33 | 📻 Radio / SDR / RF | 31 |
-| ⛓️ Blockchain / Web3 | 26 | 💉 SQL Injection | 21 |
+| 🧰 Other Tools / OSINT | 1576 | 🧬 Malware Analysis | 201 |
+| 🌐 Web Attack | 1498 | 🧨 Binary Exploitation / CTF | 149 |
+| 🔍 Information Gathering | 1342 | 📱 Mobile Security | 131 |
+| 🕵️ OSINT & Recon | 1297 | 📡 Wireless Attack | 127 |
+| 🔬 Forensics / DFIR | 700 | 🎯 Payload Creation | 105 |
+| 🧠 Reverse Engineering | 509 | 🩻 Vulnerability Scanning | 93 |
+| 🛡️ Blue Team / Defense | 474 | 🐝 Fuzzing | 75 |
+| 📶 Sniffing & Network MITM | 369 | 🎛️ Post‑Exploitation / C2 | 68 |
+| 🔌 IoT / Firmware / Hardware | 234 | 🎣 Phishing | 61 |
+| 🏰 Active Directory | 214 | 🖼️ Steganography | 55 |
+| 🔑 Wordlist / Password | 210 | 🚗 Automotive / CAN | 50 |
+| 💥 Exploit Framework | 204 | 🎭 Social Engineering | 46 |
+| 💣 DDoS / Stress Test | 44 | 📻 Radio / SDR / RF | 31 |
+| 📦 Container / Kubernetes | 38 | ⛓️ Blockchain / Web3 | 26 |
+| ☁️ Cloud Security | 36 | 💉 SQL Injection | 21 |
 | ☎️ VoIP Security | 18 | 🩹 XSS Attack | 14 |
 | 🥷 Anonymity / Hiding | 13 | 🖥️ Remote Admin (RAT) | 11 |
 | 🤖 AI / ML Security | 9 | 🛰️ Satellite / GNSS / Space | 9 |

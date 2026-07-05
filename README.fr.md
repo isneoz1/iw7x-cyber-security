@@ -4,7 +4,7 @@
 
 ### Tous les outils de cybersécurité du monde. Un terminal. Une commande.
 
-**iw7x** réunit **plus de 8 000** outils de sécurité offensive et défensive — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande, qui installe, met à jour et lance n'importe quel outil à votre place.
+**iw7x** réunit **plus de 10 000** outils de sécurité offensive et défensive — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande, qui installe, met à jour et lance n'importe quel outil à votre place.
 
 <br/>
 
@@ -13,7 +13,7 @@
 [![Issues](https://img.shields.io/github/issues/isneoz1/iw7x-cyber-security?style=for-the-badge&color=48DCFF&labelColor=1a1a2e&logo=github)](https://github.com/isneoz1/iw7x-cyber-security/issues)
 [![Licence](https://img.shields.io/badge/Licence-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
-[![Outils](https://img.shields.io/badge/Outils-8%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
+[![Outils](https://img.shields.io/badge/Outils-10%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
 [![Catégories](https://img.shields.io/badge/Cat%C3%A9gories-38-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-larsenal)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Pr%C3%AAt-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
@@ -30,7 +30,7 @@
      ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
      ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝
       A R S E N A L   C Y B E R S É C U R I T É
-        8104 OUTILS · 38 CATÉGORIES · PAR NeoZ
+       10068 OUTILS · 38 CATÉGORIES · PAR NeoZ
 ```
 
 > ⚠️ **Réservé aux tests de sécurité autorisés et à l'éducation.** Lisez la section [Cadre légal & éthique](#-cadre-légal--éthique) avant de commencer.
@@ -117,25 +117,25 @@ python3 neoz.py --help            # aide complète
 
 ## 🗂️ L'Arsenal
 
-**38 catégories · 8 104 outils sélectionnés** — et ça grandit tout seul.
+**38 catégories · 10 068 outils** — et ça grandit tout seul à chaque `--update`.
 
 | Catégorie | Outils | Catégorie | Outils |
 |---|:--:|---|:--:|
-| 🔍 Information Gathering | 1342 | 🧬 Analyse de malware | 201 |
-| 🌐 Web Attack | 1288 | 💥 Frameworks d'exploit | 200 |
-| 🕵️ OSINT & Recon | 407 | 🔑 Wordlists / Mots de passe | 198 |
-| 🛡️ Blue Team / Défense | 474 | 🧨 Binary Exploitation / CTF | 149 |
-| 🔬 Forensic / DFIR | 666 | 📡 Attaques Wireless | 123 |
-| 🧠 Reverse Engineering | 475 | 🩻 Scan de vulnérabilités | 93 |
-| 📶 Sniffing & MITM réseau | 369 | 📱 Sécurité mobile | 85 |
-| 🔌 IoT / Firmware / Hardware | 226 | 🎯 Création de payloads | 84 |
-| 🏰 Active Directory | 214 | 🐝 Fuzzing | 75 |
-| 🧰 Autres outils / OSINT | 899 | 🎛️ Post‑Exploitation / C2 | 68 |
-| 🎣 Phishing | 61 | 🚗 Automobile / CAN | 50 |
-| 💣 DDoS / Stress Test | 44 | 🖼️ Stéganographie | 44 |
-| 📦 Container / Kubernetes | 38 | ☁️ Sécurité Cloud | 36 |
-| 🎭 Ingénierie sociale | 33 | 📻 Radio / SDR / RF | 31 |
-| ⛓️ Blockchain / Web3 | 26 | 💉 Injection SQL | 21 |
+| 🧰 Autres outils / OSINT | 1576 | 🧬 Analyse de malware | 201 |
+| 🌐 Web Attack | 1498 | 🧨 Binary Exploitation / CTF | 149 |
+| 🔍 Information Gathering | 1342 | 📱 Sécurité mobile | 131 |
+| 🕵️ OSINT & Recon | 1297 | 📡 Attaques Wireless | 127 |
+| 🔬 Forensic / DFIR | 700 | 🎯 Création de payloads | 105 |
+| 🧠 Reverse Engineering | 509 | 🩻 Scan de vulnérabilités | 93 |
+| 🛡️ Blue Team / Défense | 474 | 🐝 Fuzzing | 75 |
+| 📶 Sniffing & MITM réseau | 369 | 🎛️ Post‑Exploitation / C2 | 68 |
+| 🔌 IoT / Firmware / Hardware | 234 | 🎣 Phishing | 61 |
+| 🏰 Active Directory | 214 | 🖼️ Stéganographie | 55 |
+| 🔑 Wordlists / Mots de passe | 210 | 🚗 Automobile / CAN | 50 |
+| 💥 Frameworks d'exploit | 204 | 🎭 Ingénierie sociale | 46 |
+| 💣 DDoS / Stress Test | 44 | 📻 Radio / SDR / RF | 31 |
+| 📦 Container / Kubernetes | 38 | ⛓️ Blockchain / Web3 | 26 |
+| ☁️ Sécurité Cloud | 36 | 💉 Injection SQL | 21 |
 | ☎️ Sécurité VoIP | 18 | 🩹 Attaques XSS | 14 |
 | 🥷 Anonymat / Dissimulation | 13 | 🖥️ Remote Admin (RAT) | 11 |
 | 🤖 Sécurité IA / ML | 9 | 🛰️ Satellite / GNSS / Spatial | 9 |

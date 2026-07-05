@@ -101,6 +101,21 @@ _AWESOME_URLS = [
     ("https://raw.githubusercontent.com/Muhammd/Awesome-Pentest/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/saeidshirazi/Awesome-Smart-Contract-Security/main/README.md", "web3"),
     ("https://raw.githubusercontent.com/PreOS-Security/awesome-firmware-security/master/README.md", "firmware"),
+    # ── Extended coverage (probed for clean, on-topic yield) ────────────────────
+    ("https://raw.githubusercontent.com/cipher387/osint_stuff_tool_collection/main/README.md", "recon"),
+    ("https://raw.githubusercontent.com/pluja/awesome-privacy/main/README.md", "misc"),
+    ("https://raw.githubusercontent.com/m0nad/awesome-privilege-escalation/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/joe-shenouda/awesome-cyber-skills/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/4ndersonLin/awesome-cloud-security/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/remiflavien1/awesome-anti-forensic/master/README.md", "forensic"),
+    ("https://raw.githubusercontent.com/tcostam/awesome-command-control/master/README.md", "backdoor"),
+    ("https://raw.githubusercontent.com/tylerha97/awesome-reversing/master/README.md", "reversing"),
+    ("https://raw.githubusercontent.com/infoslack/awesome-web-hacking/master/README.md", "webapp"),
+    ("https://raw.githubusercontent.com/engn33r/awesome-bluetooth-security/master/README.md", "bluetooth"),
+    ("https://raw.githubusercontent.com/Ph055a/OSINT-Collection/master/README.md", "recon"),
+    ("https://raw.githubusercontent.com/magnologan/awesome-k8s-security/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/vaib25vicky/awesome-mobile-security/master/README.md", "mobile"),
+    ("https://raw.githubusercontent.com/nebgnahz/awesome-iot-hacks/master/README.md", "hardware"),
 ]
 
 # Map an "awesome list" section heading -> a group keyword (fed to _GROUP_MAP).
