@@ -18,8 +18,9 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-FFD15C?style=for-the-badge&labelColor=1a1a2e)](CONTRIBUTING.md)
+[![Website](https://img.shields.io/badge/🌐_Live_Site-Visit-48DCFF?style=for-the-badge&labelColor=1a1a2e)](https://isneoz1.github.io/iw7x-cyber-security/)
 
-**🌍 [English](README.md) · [Français](README.fr.md)**
+**🌍 [English](README.md) · [Français](README.fr.md)** &nbsp;·&nbsp; **🌐 [iw7x website](https://isneoz1.github.io/iw7x-cyber-security/)**
 
 <br/>
 

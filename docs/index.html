@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iw7x — Every cybersecurity tool in the world, in one terminal</title>
+<meta name="description" content="iw7x unifies 10,500+ offensive & defensive security tools across 44 categories into one beautiful command-line arsenal that installs, updates and launches anything for you. Kali-ready, MIT, open source.">
+<meta property="og:title" content="iw7x — the world's cybersecurity arsenal">
+<meta property="og:description" content="10,500+ security tools across 44 categories. Install, update and launch any of them from one terminal.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#08080f; --bg2:#0d0d1a; --surface:#12121f; --surface2:#16162a;
+    --line:#242440; --text:#eef0ff; --muted:#9aa0c4; --faint:#6c7099;
+    --pink:#FF47B3; --violet:#9652FF; --cyan:#48DCFF; --green:#4AE3A8; --yellow:#FFD15C;
+    --grad:linear-gradient(100deg,#FF47B3 0%,#9652FF 48%,#48DCFF 100%);
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text); font-family:var(--sans);
+    line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-2;
+    background:
+      radial-gradient(700px 500px at 12% -5%, rgba(255,71,179,.16), transparent 60%),
+      radial-gradient(760px 560px at 92% 4%, rgba(72,220,255,.14), transparent 60%),
+      radial-gradient(900px 700px at 50% 108%, rgba(150,82,255,.14), transparent 60%);
+  }
+  body::after{
+    content:""; position:fixed; inset:0; z-index:-1; opacity:.04; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .mono{font-family:var(--mono)}
+  .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(8,8,15,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--mono);font-weight:700;font-size:1.15rem;letter-spacing:.04em}
+  .brand b{font-weight:800}
+  .navlinks{display:flex;gap:28px;align-items:center}
+  .navlinks a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:650;font-size:.94rem;
+    padding:11px 20px;border-radius:11px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .25s,background .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--grad);color:#0a0713;box-shadow:0 8px 30px -8px rgba(150,82,255,.6)}
+  .btn-primary:hover{box-shadow:0 14px 40px -8px rgba(150,82,255,.8)}
+  .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--violet)}
+  @media(max-width:720px){.navlinks a:not(.btn){display:none}}
+
+  /* HERO */
+  header.hero{padding:76px 0 40px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  @media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  .wordmark{font-family:var(--mono);font-weight:800;font-size:clamp(3.6rem,11vw,7rem);line-height:.9;letter-spacing:-.02em;margin:18px 0 6px}
+  h1.tag{font-size:clamp(1.5rem,3.4vw,2.35rem);line-height:1.15;font-weight:750;letter-spacing:-.01em;margin:6px 0 18px}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:34em;margin-bottom:26px}
+  .lead b{color:var(--text);font-weight:650}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-family:var(--mono);font-size:.8rem;padding:7px 13px;border-radius:999px;
+    border:1px solid var(--line);background:var(--surface);color:var(--muted)}
+  .chip b{color:var(--cyan);font-weight:700}
+
+  /* TERMINAL */
+  .term{background:linear-gradient(180deg,#0c0c17,#0a0a13);border:1px solid var(--line);
+    border-radius:15px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(150,82,255,.08)}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:12px 15px;border-bottom:1px solid var(--line);background:#0e0e1b}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+  .term-title{margin-left:10px;font-family:var(--mono);font-size:.8rem;color:var(--faint)}
+  .term-body{padding:20px 20px 22px;font-family:var(--mono);font-size:.82rem;line-height:1.32;overflow-x:auto}
+  .ascii{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    font-weight:700;white-space:pre;font-size:clamp(.5rem,1.6vw,.86rem);line-height:1.05}
+  .term-stats{margin:12px 0 14px;color:var(--faint)}
+  .term-stats b{color:var(--cyan)}
+  .term-menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;color:var(--muted)}
+  .term-menu .n{color:var(--violet);font-weight:700}
+  .term-menu .g{color:var(--green)}
+  .prompt .p{color:var(--green)}.prompt .c{color:var(--text)}
+  .cursor{display:inline-block;width:8px;height:1.05em;background:var(--cyan);vertical-align:-2px;margin-left:2px;animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  /* MARQUEE */
+  .marquee{margin:34px 0 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:16px 0;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee div{display:inline-block;animation:scroll 34s linear infinite}
+  .marquee span{font-family:var(--mono);font-size:.9rem;color:var(--faint);margin:0 22px}
+  .marquee span b{color:var(--muted)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SECTION */
+  section{padding:74px 0}
+  .sec-head{max-width:40em;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.02em;font-weight:780;margin:12px 0 12px}
+  .sec-head p{color:var(--muted);font-size:1.06rem}
+
+  /* STAT STRIP */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center}
+  .stat .num{font-family:var(--mono);font-weight:800;font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1}
+  .stat .lbl{color:var(--faint);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-top:8px}
+
+  /* FEATURES */
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s,box-shadow .3s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(150,82,255,.5);box-shadow:0 20px 50px -24px rgba(150,82,255,.5)}
+  .card .ico{font-size:1.7rem;margin-bottom:12px}
+  .card h3{font-size:1.16rem;font-weight:700;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.96rem}
+  .c-lg{grid-column:span 3}.c-md{grid-column:span 3}.c-sm{grid-column:span 2}
+  @media(max-width:860px){.bento{grid-template-columns:1fr}.c-lg,.c-md,.c-sm{grid-column:span 1}}
+
+  /* ARSENAL GRID */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:12px}
+  .cat{display:flex;align-items:center;gap:11px;background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;padding:13px 14px;transition:transform .15s,border-color .2s,background .2s}
+  .cat:hover{transform:translateY(-3px);border-color:var(--cyan);background:var(--surface2)}
+  .cat .ce{font-size:1.25rem;flex-shrink:0}
+  .cat .ct{font-size:.9rem;font-weight:600;line-height:1.15}
+  .cat .cn{margin-left:auto;font-family:var(--mono);font-size:.82rem;color:var(--cyan);font-weight:700}
+
+  /* QUICKSTART */
+  .qs{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:860px){.qs{grid-template-columns:1fr}}
+  .code{position:relative;background:#0b0b16;border:1px solid var(--line);border-radius:14px;padding:22px 20px;font-family:var(--mono);font-size:.9rem;line-height:1.9;overflow-x:auto}
+  .code .cm{color:var(--faint)}.code .cy{color:var(--cyan)}
+  .copy{position:absolute;top:12px;right:12px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);
+    font-family:var(--mono);font-size:.74rem;padding:6px 11px;border-radius:8px;cursor:pointer;transition:.2s}
+  .copy:hover{color:var(--text);border-color:var(--violet)}
+  .steps{list-style:none;display:flex;flex-direction:column;gap:18px}
+  .steps li{display:flex;gap:15px}
+  .steps .k{font-family:var(--mono);font-weight:800;color:var(--violet);font-size:1.05rem;flex-shrink:0;width:1.4em}
+  .steps b{display:block;margin-bottom:2px}
+  .steps span{color:var(--muted);font-size:.96rem}
+
+  /* CTA */
+  .final{text-align:center;background:
+      radial-gradient(600px 300px at 50% 0%,rgba(150,82,255,.18),transparent 70%);
+    border:1px solid var(--line);border-radius:24px;padding:64px 28px;margin-top:20px}
+  .final h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.06;letter-spacing:-.02em;font-weight:800;margin-bottom:16px}
+  .final p{color:var(--muted);max-width:34em;margin:0 auto 28px;font-size:1.1rem}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:74px;color:var(--faint);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--muted)}footer a:hover{color:var(--text)}
+  .disc{background:rgba(255,209,92,.06);border:1px solid rgba(255,209,92,.22);border-radius:12px;
+    padding:16px 18px;color:#e7cf9a;font-size:.92rem;margin-top:26px}
+  .disc b{color:var(--yellow)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">iw<b class="grad">7x</b></div>
+    <div class="navlinks">
+      <a href="#features">Features</a>
+      <a href="#arsenal">Arsenal</a>
+      <a href="#start">Quickstart</a>
+      <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security">⭐ Star on GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">The world's cybersecurity arsenal · by NeoZ</div>
+      <div class="wordmark grad">iw7x</div>
+      <h1 class="tag">Every cybersecurity tool in the world.<br><span class="grad">One terminal. One command.</span></h1>
+      <p class="lead">iw7x unifies <b>10,500+</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security">⭐ Star on GitHub</a>
+        <a class="btn btn-ghost" href="#start">▶ Quickstart</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><b>10,506</b> tools</span>
+        <span class="chip"><b>44</b> categories</span>
+        <span class="chip">MIT licensed</span>
+        <span class="chip">Kali-ready</span>
+        <span class="chip">Self-updating</span>
+      </div>
+    </div>
+
+    <div class="term reveal">
+      <div class="term-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="term-title">~ $ python3 neoz.py</span>
+      </div>
+      <div class="term-body">
+<div class="ascii">██╗ ██╗    ██╗ ███████╗ ██╗  ██╗
+██║ ██║    ██║ ╚════██║ ╚██╗██╔╝
+██║ ██║ █╗ ██║     ██╔╝  ╚███╔╝
+██║ ██║███╗██║    ██╔╝   ██╔██╗
+██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
+╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝</div>
+        <div class="term-stats">CYBERSECURITY ARSENAL &nbsp;·&nbsp; <b>10506</b> TOOLS &nbsp; <b>44</b> CATEGORIES</div>
+        <div class="term-menu">
+          <div><span class="n">01</span> INFORMATION GATHERING</div><div><span class="n">02</span> WEB ATTACK</div>
+          <div><span class="n">03</span> OSINT / RECON</div><div><span class="n">04</span> ACTIVE DIRECTORY</div>
+          <div><span class="n">05</span> EXPLOIT FRAMEWORK</div><div><span class="n">06</span> POST-EXPLOITATION / C2</div>
+          <div><span class="n">07</span> CRYPTOGRAPHY</div><div><span class="n">08</span> THREAT INTELLIGENCE</div>
+        </div>
+        <div class="prompt" style="margin-top:14px"><span class="p">iw7x</span> <span class="c">&gt; install bloodhound</span><span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="marquee"><div id="mq"></div></div>
+  </div>
+</header>
+
+<section id="stats" style="padding-top:20px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="num grad" data-count="10506">0</div><div class="lbl">Tools</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="44">0</div><div class="lbl">Categories</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="30" data-suffix="+">0</div><div class="lbl">Live sources</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="1">0</div><div class="lbl">Command to rule them</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why iw7x</div>
+      <h2>Stop hunting for tools.<br>Start using them.</h2>
+      <p>Security pros waste hours cloning repos, fixing dependencies and remembering install commands. iw7x replaces all of that with one program.</p>
+    </div>
+    <div class="bento">
+      <div class="card c-lg reveal"><div class="ico">🗂️</div><h3>The whole ecosystem</h3><p>10,500+ tools across 44 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.</p></div>
+      <div class="card c-md reveal"><div class="ico">⚙️</div><h3>Installs &amp; runs for you</h3><p>Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.</p></div>
+      <div class="card c-sm reveal"><div class="ico">🔄</div><h3>Always up to date</h3><p>A built-in scanner pulls fresh tools from BlackArch, Kali &amp; awesome-lists — your arsenal grows on its own.</p></div>
+      <div class="card c-sm reveal"><div class="ico">🔎</div><h3>Find anything</h3><p>Full-text search, tag filters and a task advisor that recommends tools for what you're trying to do.</p></div>
+      <div class="card c-sm reveal"><div class="ico">🎨</div><h3>A terminal you enjoy</h3><p>A gorgeous rich-powered TUI with a live system header, gradients and clean menus.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="arsenal" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The arsenal</div>
+      <h2>44 categories. 10,506 tools.<br>And counting.</h2>
+      <p>Every domain of offensive and defensive security, in one place — each tool one keystroke from installed.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap qs">
+    <div>
+      <div class="eyebrow">Quickstart</div>
+      <div class="code reveal">
+        <button class="copy" data-copy="git clone https://github.com/isneoz1/iw7x-cyber-security.git && cd iw7x-cyber-security && ./install.sh && python3 neoz.py">copy</button>
+<span class="cm"># 1 · clone</span>
+git clone https://github.com/isneoz1/iw7x-cyber-security.git
+<span class="cy">cd</span> iw7x-cyber-security
+
+<span class="cm"># 2 · install deps (git, python, pipx, go…)</span>
+chmod +x install.sh && ./install.sh
+
+<span class="cm"># 3 · launch the arsenal</span>
+python3 neoz.py
+      </div>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:24px">
+        <h2 style="font-size:1.9rem">Running in 30 seconds</h2>
+        <p>Recommended on Kali Linux (or Kali on WSL2). On first run iw7x fetches the full catalog so every tool is ready.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="k">›</span><div><b>Menu or shell</b><span>Launch the interactive menu, or run <span class="mono">python3 neoz.py nmap</span> to install &amp; run a tool directly.</span></div></li>
+        <li><span class="k">›</span><div><b>Search &amp; advisor</b><span>Type <span class="mono">/query</span> to search, or press <span class="mono">R</span> for "what do you want to do?".</span></div></li>
+        <li><span class="k">›</span><div><b>Keep growing</b><span>Run <span class="mono">--update</span> once, or <span class="mono">--watch</span> to keep scanning for new tools forever.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="cta" style="padding-top:0">
+  <div class="wrap">
+    <div class="final reveal">
+      <div class="eyebrow">Open source · MIT · Free forever</div>
+      <h2>Join the arsenal.<br><span class="grad">Star it. Fork it. Add a tool.</span></h2>
+      <p>Adding a tool is the easiest open-source contribution you'll ever make — one JSON object and a pull request.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security">⭐ Star on GitHub</a>
+        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md">🧩 Add a tool</a>
+      </div>
+      <div class="disc"><b>⚠️ For authorized security testing and education only.</b> Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">iw<b class="grad">7x</b> <span style="color:var(--faint);font-weight:400;font-size:.85rem">· by NeoZ</span></div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap">
+      <a href="https://github.com/isneoz1/iw7x-cyber-security">GitHub</a>
+      <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/ARSENAL.md">Arsenal</a>
+      <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md">Contribute</a>
+      <a href="https://github.com/isneoz1/iw7x-cyber-security/issues">Issues</a>
+    </div>
+    <div>The quieter you become, the more you can hear.</div>
+  </div>
+</footer>
+
+<script>
+  // Categories (name, emoji, count) — mirrors catalog.json
+  var CATS=[["Other Tools / OSINT","🧰",1512],["Web Attack","🌐",1511],["Information Gathering","🔍",1310],["OSINT / Recon","🕵️",1282],["Forensics / DFIR","🔬",689],["Reverse Engineering","🧠",504],["Blue Team / Defense","🛡️",408],["Sniffing & Network MITM","📶",369],["IoT / Firmware / Hardware","🔌",229],["Cryptography / Encryption","🔐",225],["Wordlist / Password","🔑",213],["Active Directory","🏰",203],["Malware Analysis","🧬",199],["Exploit Framework","💥",198],["API Security","🔗",167],["Binary Exploitation / CTF","🧨",148],["Mobile Security","📱",130],["Wireless Attack","📡",125],["Privilege Escalation","⏫",125],["Threat Intelligence","🔭",114],["Payload Creation","🎯",105],["Vulnerability Scanning","🩻",90],["Fuzzing","🐝",75],["Phishing","🎣",60],["Steganography","🖼️",55],["Post-Exploitation / C2","🎛️",49],["Automotive / CAN","🚗",49],["Social Engineering","🎭",46],["DDoS / Stress Test","💣",44],["Container / Kubernetes","📦",37],["Cloud Security","☁️",32],["Radio / SDR / RF","📻",31],["DevSecOps / SAST-DAST","♻️",28],["Blockchain / Web3","⛓️",26],["SQL Injection","💉",21],["VoIP Security","☎️",18],["XSS Attack","🩹",14],["Anonymity / Hiding","🥷",13],["Physical / RFID / Badge","🚪",13],["Remote Admin (RAT)","🖥️",11],["Satellite / GNSS / Space","🛰️",9],["AI / ML Security","🤖",9],["ICS / SCADA / OT","🏭",8]];
+  var g=document.getElementById("catGrid");
+  g.innerHTML=CATS.map(function(c){return '<div class="cat"><span class="ce">'+c[1]+'</span><span class="ct">'+c[0]+'</span><span class="cn">'+c[2].toLocaleString()+'</span></div>'}).join("");
+
+  // Tool marquee
+  var TOOLS=["Nmap","Masscan","theHarvester","Amass","SpiderFoot","Sherlock","Nuclei","Burp Suite","OWASP ZAP","SQLmap","ffuf","Gobuster","Aircrack-ng","Bettercap","Wifite","Hashcat","John the Ripper","Hydra","Metasploit","Sliver","Havoc","Empire","BloodHound","Impacket","NetExec","Responder","Certipy","Ghidra","radare2","Frida","jadx","Volatility","Autopsy","binwalk","YARA","Prowler","Pacu","MobSF","Wireshark","evilginx","MISP","LinPEAS"];
+  var line=TOOLS.map(function(t){return '<span>▹ <b>'+t+'</b></span>'}).join("");
+  document.getElementById("mq").innerHTML=line+line;
+
+  // Count-up + reveal on view
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    e.target.classList.add("in");
+    var n=e.target.querySelector?e.target.querySelector("[data-count]"):null;
+    if(e.target.hasAttribute&&e.target.hasAttribute("data-count"))n=e.target;
+    if(n&&!n.dataset.done){n.dataset.done=1;var to=+n.dataset.count,su=n.dataset.suffix||"",st=performance.now();
+      (function tick(t){var p=Math.min(1,(t-st)/1100);var v=Math.floor((1-Math.pow(1-p,3))*to);
+        n.textContent=v.toLocaleString()+(p===1?su:"");if(p<1)requestAnimationFrame(tick)})(st);}
+    io.unobserve(e.target);
+  })},{threshold:.3});
+  document.querySelectorAll(".reveal,.stat").forEach(function(el){io.observe(el)});
+
+  // Copy button
+  document.querySelectorAll(".copy").forEach(function(b){b.addEventListener("click",function(){
+    navigator.clipboard.writeText(b.dataset.copy).then(function(){var o=b.textContent;b.textContent="copied ✓";setTimeout(function(){b.textContent=o},1600)})
+  })});
+</script>
+</body>
+</html>
