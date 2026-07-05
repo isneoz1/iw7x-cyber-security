@@ -128,6 +128,21 @@ def tool_cell(tool: Tool) -> Text:
 
 # ── Header — pure typography, no glyphs ────────────────────────────────────────
 
+def _kali_status_line() -> "Text":
+    """A live 'Kali readiness' line: green when tools can install/launch here,
+    yellow on other Linux (apt/pacman auto-adapted), red when browse-only."""
+    dragon = "#8ED0FF"
+    if CURRENT.is_kali and CURRENT.is_wsl:
+        return Text.assemble(("🐉 ", ""), (t("kali_wsl"), f"bold {_VERT}"))
+    if CURRENT.is_kali:
+        return Text.assemble(("🐉 ", ""), (t("kali_detected"), f"bold {_VERT}"))
+    if CURRENT.system == "linux":
+        distro = (CURRENT.distro_id or "linux").capitalize()
+        return Text.assemble(("🐉 ", ""),
+                             (t("kali_other_linux", distro=distro), f"bold {_JAUNE}"))
+    return Text.assemble(("🐉 ", ""), (t("kali_browse_only"), f"bold {_ROUGE}"))
+
+
 def render_header(catalog: Catalog) -> None:
     quote = random.choice(_QUOTES)
 
@@ -144,6 +159,7 @@ def render_header(catalog: Catalog) -> None:
         ("BY ", "dim"), (AUTHOR.upper(), f"bold {_PINK}"),
     ))
     body.add_row(Text(""))
+    body.add_row(_kali_status_line())
     body.add_row(Text(quote, style="italic dim"))
 
     console.print(Panel(

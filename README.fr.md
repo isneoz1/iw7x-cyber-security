@@ -4,7 +4,7 @@
 
 ### Tous les outils de cybersécurité du monde. Un terminal. Une commande.
 
-**iw7x** réunit **plus de 10 000** outils de sécurité offensive et défensive — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande, qui installe, met à jour et lance n'importe quel outil à votre place.
+**iw7x** réunit **plus de 11 000** outils de sécurité offensive et défensive — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande, qui installe, met à jour et lance n'importe quel outil à votre place.
 
 <br/>
 
@@ -13,7 +13,7 @@
 [![Issues](https://img.shields.io/github/issues/isneoz1/iw7x-cyber-security?style=for-the-badge&color=48DCFF&labelColor=1a1a2e&logo=github)](https://github.com/isneoz1/iw7x-cyber-security/issues)
 [![Licence](https://img.shields.io/badge/Licence-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
-[![Outils](https://img.shields.io/badge/Outils-10%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
+[![Outils](https://img.shields.io/badge/Outils-11%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
 [![Catégories](https://img.shields.io/badge/Cat%C3%A9gories-44-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-larsenal)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Pr%C3%AAt-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
@@ -23,7 +23,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 10 506 outils dans 44 catégories, par NeoZ" width="820">
+<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 11 900 outils dans 43 catégories, par NeoZ" width="820">
 
 </div>
 
@@ -37,7 +37,7 @@ Les professionnels de la sécurité perdent des heures à chercher le bon outil,
 
 | | |
 |---|---|
-| 🗂️ **Tout l'écosystème** | **10 000+ outils** répartis en **44 catégories** — OSINT, web, wireless, exploitation, forensic, reverse, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team, et plus. |
+| 🗂️ **Tout l'écosystème** | **11 900 outils** répartis en **43 catégories** — OSINT, web, wireless, exploitation, forensic, reverse, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team, et plus. |
 | ⚙️ **Installe & lance pour vous** | Choisissez un outil → iw7x l'installe (apt / pipx / go / git) et le lance. Fini le copier‑coller de commandes. |
 | 🔄 **Toujours à jour** | Un scanner intégré récupère les nouveaux outils depuis **BlackArch, Kali & awesome‑lists** — votre arsenal grandit tout seul. |
 | 🔎 **Trouvez tout, tout de suite** | Recherche plein‑texte, filtres par tag (`osint`, `c2`, `web`…) et un **conseiller** qui recommande des outils selon votre objectif. |
@@ -99,7 +99,7 @@ Dans le menu :
 ```bash
 python3 neoz.py nmap              # installe (si besoin) et lance un outil
 python3 neoz.py search "sql inj"  # liste les outils correspondants
-python3 neoz.py list              # liste les 44 catégories
+python3 neoz.py list              # liste les 43 catégories
 python3 neoz.py list osint        # liste les outils d'une catégorie
 python3 neoz.py install bloodhound
 python3 neoz.py --update          # récupère tous les outils en ligne
@@ -111,7 +111,7 @@ python3 neoz.py --help            # aide complète
 
 ## 🗂️ L'Arsenal
 
-**44 catégories · 10 506 outils** — et ça grandit tout seul à chaque `--update`.
+**43 catégories · 11 900 outils** — et ça grandit tout seul à chaque `--update`.
 
 | Catégorie | Outils | Catégorie | Outils |
 |---|:--:|---|:--:|

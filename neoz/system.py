@@ -92,6 +92,36 @@ CURRENT = detect()
 # Prefer doas when present, else sudo.
 PRIV_CMD = "doas" if shutil.which("doas") else "sudo"
 
+# Directories where pipx / go / cargo / gem drop executables but which are not
+# always on the current shell's PATH (common right after a fresh install).
+_EXTRA_BIN_DIRS = [
+    CURRENT.home / ".local" / "bin",     # pipx, pip --user
+    CURRENT.home / "go" / "bin",         # go install
+    CURRENT.home / ".cargo" / "bin",     # cargo install
+    CURRENT.home / ".gem" / "bin",       # gem install --user
+    Path("/usr/local/go/bin"),
+    Path("/usr/local/bin"),
+    Path("/snap/bin"),
+]
+
+
+def which(binary: str) -> str | None:
+    """Like ``shutil.which`` but also searches the pipx/go/cargo/gem bin dirs
+    that a freshly installed tool may live in before PATH is refreshed."""
+    if not binary:
+        return None
+    found = shutil.which(binary)
+    if found:
+        return found
+    for d in _EXTRA_BIN_DIRS:
+        for cand in (d / binary, d / f"{binary}.py"):
+            try:
+                if cand.is_file():
+                    return str(cand)
+            except OSError:
+                continue
+    return None
+
 
 # ── Install-state & directory detection ────────────────────────────────────────
 
@@ -121,7 +151,7 @@ def is_installed(tool) -> bool:
             c = c[5:].strip()
         binary = c.split()[0] if c else ""
         if binary and binary not in (".", "cd", "echo", "python3", "python", "sudo"):
-            if shutil.which(binary):
+            if which(binary):
                 return True
     name = _clone_dir(list(tool.install))
     if name and Path(name).is_dir():
@@ -214,14 +244,15 @@ def binary_candidates(tool) -> list[str]:
 
 def launch(tool) -> str | None:
     """Launch an installed tool. Runs its ``run`` commands, else the first binary
-    candidate found on PATH. Returns what was launched, or None if nothing found."""
+    candidate found on PATH (including pipx/go/cargo/gem bin dirs). Returns what
+    was launched, or None if nothing found."""
     if tool.run:
         for cmd in tool.run:
             run_shell(cmd)
         return tool.run[0]
-    binary = next((b for b in binary_candidates(tool) if shutil.which(b)), None)
+    binary = next((b for b in binary_candidates(tool) if which(b)), None)
     if binary:
-        run_shell(binary)
+        run_shell(which(binary) or binary)
         return binary
     return None
 

@@ -2,7 +2,7 @@
 
 A reference of what ships in [`catalog.json`](catalog.json). Every entry installs and launches straight from the menu or the shell.
 
-> **44 categories · 10,506 tools** in the shipped catalog — and the built‑in scanner (`python3 neoz.py --update`) keeps adding more from BlackArch, Kali and dozens of awesome‑lists.
+> **43 categories · 11,900 tools** in the shipped catalog — and the built‑in scanner (`python3 neoz.py --update`) keeps adding more from BlackArch, Kali and dozens of awesome‑lists.
 
 Find any tool instantly:
 

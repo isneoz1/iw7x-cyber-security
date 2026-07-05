@@ -4,7 +4,7 @@
 
 ### Every cybersecurity tool in the world. One terminal. One command.
 
-**iw7x** unifies **10,000+** offensive & defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command‑line arsenal that installs, updates and launches anything for you.
+**iw7x** unifies **11,000+** offensive & defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command‑line arsenal that installs, updates and launches anything for you.
 
 <br/>
 
@@ -13,7 +13,7 @@
 [![Issues](https://img.shields.io/github/issues/isneoz1/iw7x-cyber-security?style=for-the-badge&color=48DCFF&labelColor=1a1a2e&logo=github)](https://github.com/isneoz1/iw7x-cyber-security/issues)
 [![License](https://img.shields.io/badge/License-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
-[![Tools](https://img.shields.io/badge/Tools-10%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
+[![Tools](https://img.shields.io/badge/Tools-11%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
 [![Categories](https://img.shields.io/badge/Categories-44-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-the-arsenal)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
@@ -24,7 +24,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 10,506 tools across 44 categories, by NeoZ" width="820">
+<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 11,900 tools across 43 categories, by NeoZ" width="820">
 
 </div>
 
@@ -38,7 +38,7 @@ Security professionals waste hours hunting for the right tool, cloning repos, fi
 
 | | |
 |---|---|
-| 🗂️ **The whole ecosystem** | **10,000+ tools** across **44 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team & more. |
+| 🗂️ **The whole ecosystem** | **11,900 tools** across **43 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team & more. |
 | ⚙️ **Install & run for you** | Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy‑pasting install snippets. |
 | 🔄 **Always up to date** | A built‑in scanner pulls fresh tools from **BlackArch, Kali & awesome‑lists** so your arsenal keeps growing on its own. |
 | 🔎 **Find anything instantly** | Full‑text search, tag filters (`osint`, `c2`, `web`…) and a task **advisor** that recommends tools for what you're trying to do. |
@@ -111,7 +111,7 @@ Inside the menu:
 ```bash
 python3 neoz.py nmap              # install (if needed) and run a tool by name
 python3 neoz.py search "sql inj"  # list matching tools
-python3 neoz.py list              # list all 44 categories
+python3 neoz.py list              # list all 43 categories
 python3 neoz.py list osint        # list tools in a category
 python3 neoz.py install bloodhound
 python3 neoz.py --update          # pull every tool from online sources
@@ -123,28 +123,28 @@ python3 neoz.py --help            # full CLI help
 
 ## 🗂️ The Arsenal
 
-**44 categories · 10,506 tools** — and growing automatically with every `--update`.
+**43 categories · 11,900 tools** — and growing automatically with every `--update`.
 
 | Category | Tools | Category | Tools |
 |---|:--:|---|:--:|
-| 🧰 Other Tools / OSINT | 1512 | 🐝 Fuzzing | 75 |
-| 🌐 Web Attack | 1511 | 🎣 Phishing | 60 |
+| 🕵️ OSINT / Recon | 2358 | 🐝 Fuzzing | 75 |
+| 🧰 Other Tools / OSINT | 1699 | 🎣 Phishing | 60 |
+| 🌐 Web Attack | 1512 | 🚪 Physical / RFID / Badge | 57 |
 | 🔍 Information Gathering | 1310 | 🖼️ Steganography | 55 |
-| 🕵️ OSINT / Recon | 1282 | 🎛️ Post‑Exploitation / C2 | 49 |
-| 🔬 Forensics / DFIR | 689 | 🚗 Automotive / CAN | 49 |
-| 🧠 Reverse Engineering | 504 | 🎭 Social Engineering | 46 |
-| 🛡️ Blue Team / Defense | 408 | 💣 DDoS / Stress Test | 44 |
-| 📶 Sniffing & Network MITM | 369 | 📦 Container / Kubernetes | 37 |
-| 🔌 IoT / Firmware / Hardware | 229 | ☁️ Cloud Security | 32 |
-| 🔐 Cryptography / Encryption | 225 | 📻 Radio / SDR / RF | 31 |
-| 🔑 Wordlist / Password | 213 | ♻️ DevSecOps / SAST‑DAST | 28 |
-| 🏰 Active Directory | 203 | ⛓️ Blockchain / Web3 | 26 |
-| 🧬 Malware Analysis | 199 | 💉 SQL Injection | 21 |
-| 💥 Exploit Framework | 198 | ☎️ VoIP Security | 18 |
-| 🔗 API Security | 167 | 🩹 XSS Attack | 14 |
-| 🧨 Binary Exploitation / CTF | 148 | 🥷 Anonymity / Hiding | 13 |
-| 📱 Mobile Security | 130 | 🚪 Physical / RFID / Badge | 13 |
-| 📡 Wireless Attack | 125 | 🖥️ Remote Admin (RAT) | 11 |
+| 🔬 Forensics / DFIR | 704 | 🎛️ Post‑Exploitation / C2 | 49 |
+| 🧠 Reverse Engineering | 504 | 🚗 Automotive / CAN | 49 |
+| 🛡️ Blue Team / Defense | 408 | 🎭 Social Engineering | 46 |
+| 📶 Sniffing & Network MITM | 369 | 💣 DDoS / Stress Test | 44 |
+| 🔐 Cryptography / Encryption | 233 | 📻 Radio / SDR / RF | 42 |
+| 🔑 Wordlist / Password | 231 | ⛓️ Blockchain / Web3 | 41 |
+| 🔌 IoT / Firmware / Hardware | 229 | 📦 Container / Kubernetes | 37 |
+| 🧬 Malware Analysis | 208 | ☁️ Cloud Security | 32 |
+| 🏰 Active Directory | 203 | ♻️ DevSecOps / SAST‑DAST | 28 |
+| 💥 Exploit Framework | 199 | 💉 SQL Injection | 21 |
+| 🔗 API Security | 168 | ☎️ VoIP Security | 18 |
+| 🧨 Binary Exploitation / CTF | 148 | 🩹 XSS Attack | 14 |
+| 📱 Mobile Security | 130 | 🥷 Anonymity / Hiding | 13 |
+| 📡 Wireless Attack | 127 | 🖥️ Remote Admin (RAT) | 11 |
 | ⏫ Privilege Escalation | 125 | 🛰️ Satellite / GNSS / Space | 9 |
 | 🔭 Threat Intelligence | 114 | 🤖 AI / ML Security | 9 |
 | 🎯 Payload Creation | 105 | 🏭 ICS / SCADA / OT | 8 |

@@ -3,6 +3,26 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [1.9.0] — 2026-07-05
+
+### Added
+- Brand-new **bilingual (FR/EN) landing page** with a live language switch,
+  a dedicated **Kali Linux** spotlight, a "legends" grid of industry-standard
+  tools, a command cheatsheet and accurate live stats.
+- **Live "Kali readiness" banner** in the TUI header: green when Kali (or Kali
+  on WSL) is detected and ready to install & launch, yellow on other Linux
+  (apt/pacman auto-adapted), red when browse-only.
+- **95 flagship tools curated** with correct, Kali-ready install/run commands
+  (NetExec, Impacket, Certipy, Nuclei, ffuf, Sliver, Prowler, Volatility 3,
+  Ghidra, TruffleHog and more) so the most-used tools "just work" after install.
+
+### Changed
+- Auto-launch now also finds binaries installed to `~/.local/bin`, `~/go/bin`,
+  `~/.cargo/bin` and `~/.gem/bin`, so pipx/go/cargo/gem tools launch reliably
+  right after installation.
+- Catalog grew to **11,900 tools across 43 security categories**.
+- Refreshed counts across `README.md`, `README.fr.md`, `ARSENAL.md` and the site.
+
 ## [1.7.0] — 2026-07-05
 
 ### Added
@@ -39,6 +59,7 @@ All notable changes to **iw7x** are documented here. Format loosely follows
 - Interactive `rich` TUI with gradient banner, search, tag filters and a task advisor.
 - Shell CLI: `iw7x <tool>` installs (if needed) and runs any tool.
 
+[1.9.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.7.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.6.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.5.0]: https://github.com/isneoz1/iw7x-cyber-security/releases

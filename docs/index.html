@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>iw7x — Every cybersecurity tool in the world, in one terminal</title>
-<meta name="description" content="iw7x unifies 10,500+ offensive & defensive security tools across 44 categories into one beautiful command-line arsenal that installs, updates and launches anything for you. Kali-ready, MIT, open source.">
-<meta property="og:title" content="iw7x — the world's cybersecurity arsenal">
-<meta property="og:description" content="10,500+ security tools across 44 categories. Install, update and launch any of them from one terminal.">
+<title>iw7x — Every cybersecurity tool in the world, in one Kali terminal</title>
+<meta name="description" content="iw7x unifies 11,900 offensive & defensive security tools across 43 categories into one beautiful command-line arsenal that installs, updates and launches anything for you — built for Kali Linux. MIT, open source.">
+<meta property="og:title" content="iw7x — the world's cybersecurity arsenal, built for Kali Linux">
+<meta property="og:description" content="11,900 security tools across 43 categories. Install, update and launch any of them from one Kali Linux terminal.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://isneoz1.github.io/iw7x-cyber-security/">
 <meta property="og:site_name" content="iw7x">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iw7x — every cybersecurity tool in the world, in one terminal">
-<meta name="twitter:description" content="10,500+ pentest & security tools across 44 categories that install, update and launch for you. Kali-ready, MIT, open source.">
+<meta name="twitter:title" content="iw7x — every cybersecurity tool in the world, in one Kali terminal">
+<meta name="twitter:description" content="11,900 pentest & security tools across 43 categories that install, update and launch for you. Built for Kali Linux, MIT, open source.">
 <meta name="theme-color" content="#08080f">
 <link rel="canonical" href="https://isneoz1.github.io/iw7x-cyber-security/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
@@ -22,8 +22,8 @@
   "@type":"SoftwareApplication",
   "name":"iw7x",
   "applicationCategory":"SecurityApplication",
-  "operatingSystem":"Linux",
-  "description":"iw7x unifies 10,500+ offensive and defensive cybersecurity tools across 44 categories into a single command-line arsenal that installs, updates and launches any of them for you.",
+  "operatingSystem":"Kali Linux, Linux",
+  "description":"iw7x unifies 11,900 offensive and defensive cybersecurity tools across 43 categories into a single command-line arsenal that installs, updates and launches any of them for you, built for Kali Linux.",
   "url":"https://isneoz1.github.io/iw7x-cyber-security/",
   "downloadUrl":"https://github.com/isneoz1/iw7x-cyber-security",
   "license":"https://opensource.org/licenses/MIT",
@@ -36,6 +36,7 @@
     --bg:#08080f; --bg2:#0d0d1a; --surface:#12121f; --surface2:#16162a;
     --line:#242440; --text:#eef0ff; --muted:#9aa0c4; --faint:#6c7099;
     --pink:#FF47B3; --violet:#9652FF; --cyan:#48DCFF; --green:#4AE3A8; --yellow:#FFD15C;
+    --dragon:#8ED0FF;
     --grad:linear-gradient(100deg,#FF47B3 0%,#9652FF 48%,#48DCFF 100%);
     --mono:ui-monospace,"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -67,12 +68,19 @@
   /* NAV */
   nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
     background:rgba(8,8,15,.72);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-family:var(--mono);font-weight:700;font-size:1.15rem;letter-spacing:.04em}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+  .brand{font-family:var(--mono);font-weight:700;font-size:1.15rem;letter-spacing:.04em;white-space:nowrap}
   .brand b{font-weight:800}
-  .navlinks{display:flex;gap:28px;align-items:center}
+  .navlinks{display:flex;gap:22px;align-items:center}
   .navlinks a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
   .navlinks a:hover{color:var(--text)}
+  .kali-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.74rem;
+    padding:5px 11px;border-radius:999px;border:1px solid rgba(142,208,255,.4);
+    background:rgba(142,208,255,.08);color:var(--dragon);white-space:nowrap}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;font-family:var(--mono)}
+  .lang button{background:transparent;border:0;color:var(--faint);font-size:.78rem;font-weight:700;
+    padding:6px 10px;cursor:pointer;transition:.2s}
+  .lang button.on{background:var(--surface2);color:var(--cyan)}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:650;font-size:.94rem;
     padding:11px 20px;border-radius:11px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .25s,background .2s}
   .btn:hover{transform:translateY(-2px)}
@@ -80,13 +88,16 @@
   .btn-primary:hover{box-shadow:0 14px 40px -8px rgba(150,82,255,.8)}
   .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--text)}
   .btn-ghost:hover{border-color:var(--violet)}
-  @media(max-width:720px){.navlinks a:not(.btn){display:none}}
+  @media(max-width:900px){.navlinks a:not(.btn){display:none}.kali-pill{display:none}}
 
   /* HERO */
-  header.hero{padding:76px 0 40px;position:relative}
+  header.hero{padding:70px 0 40px;position:relative}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
   @media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-  .wordmark{font-family:var(--mono);font-weight:800;font-size:clamp(3.6rem,11vw,7rem);line-height:.9;letter-spacing:-.02em;margin:18px 0 6px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.8rem;
+    padding:7px 14px;border-radius:999px;margin-bottom:16px;
+    border:1px solid rgba(142,208,255,.4);background:rgba(142,208,255,.08);color:var(--dragon)}
+  .wordmark{font-family:var(--mono);font-weight:800;font-size:clamp(3.6rem,11vw,7rem);line-height:.9;letter-spacing:-.02em;margin:10px 0 6px}
   h1.tag{font-size:clamp(1.5rem,3.4vw,2.35rem);line-height:1.15;font-weight:750;letter-spacing:-.01em;margin:6px 0 18px}
   .lead{font-size:1.12rem;color:var(--muted);max-width:34em;margin-bottom:26px}
   .lead b{color:var(--text);font-weight:650}
@@ -106,11 +117,11 @@
   .term-body{padding:20px 20px 22px;font-family:var(--mono);font-size:.82rem;line-height:1.32;overflow-x:auto}
   .ascii{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
     font-weight:700;white-space:pre;font-size:clamp(.5rem,1.6vw,.86rem);line-height:1.05}
-  .term-stats{margin:12px 0 14px;color:var(--faint)}
+  .term-stats{margin:12px 0 6px;color:var(--faint)}
   .term-stats b{color:var(--cyan)}
+  .term-kali{color:var(--dragon);margin-bottom:10px}
   .term-menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;color:var(--muted)}
   .term-menu .n{color:var(--violet);font-weight:700}
-  .term-menu .g{color:var(--green)}
   .prompt .p{color:var(--green)}.prompt .c{color:var(--text)}
   .cursor{display:inline-block;width:8px;height:1.05em;background:var(--cyan);vertical-align:-2px;margin-left:2px;animation:blink 1.1s steps(1) infinite}
   @keyframes blink{50%{opacity:0}}
@@ -125,7 +136,7 @@
 
   /* SECTION */
   section{padding:74px 0}
-  .sec-head{max-width:40em;margin-bottom:40px}
+  .sec-head{max-width:42em;margin-bottom:40px}
   .sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.02em;font-weight:780;margin:12px 0 12px}
   .sec-head p{color:var(--muted);font-size:1.06rem}
 
@@ -135,6 +146,18 @@
   .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center}
   .stat .num{font-family:var(--mono);font-weight:800;font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1}
   .stat .lbl{color:var(--faint);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-top:8px}
+
+  /* KALI SPOTLIGHT */
+  .kali{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+    background:linear-gradient(120deg,rgba(142,208,255,.07),rgba(150,82,255,.05));
+    border:1px solid rgba(142,208,255,.25);border-radius:22px;padding:44px}
+  @media(max-width:860px){.kali{grid-template-columns:1fr;padding:30px}}
+  .kali h2{font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.12;letter-spacing:-.02em;font-weight:780;margin:12px 0 14px}
+  .kali p{color:var(--muted);margin-bottom:16px}
+  .kali ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .kali li{display:flex;gap:11px;color:var(--text);font-size:.98rem}
+  .kali li .ck{color:var(--dragon);font-weight:800;flex-shrink:0}
+  .kali li span{color:var(--muted)}
 
   /* FEATURES */
   .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
@@ -146,8 +169,22 @@
   .c-lg{grid-column:span 3}.c-md{grid-column:span 3}.c-sm{grid-column:span 2}
   @media(max-width:860px){.bento{grid-template-columns:1fr}.c-lg,.c-md,.c-sm{grid-column:span 1}}
 
+  /* FEATURED TOOLS */
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .legend{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;
+    transition:transform .15s,border-color .2s,box-shadow .3s}
+  .legend:hover{transform:translateY(-4px);border-color:rgba(72,220,255,.5);box-shadow:0 18px 44px -26px rgba(72,220,255,.5)}
+  .legend .lh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .legend .le{font-size:1.35rem}
+  .legend .ln{font-weight:750;font-size:1.05rem}
+  .legend .lt{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--violet);
+    border:1px solid var(--line);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  .legend p{color:var(--muted);font-size:.9rem;line-height:1.5}
+  .legend code{font-family:var(--mono);font-size:.78rem;color:var(--cyan);background:#0b0b16;
+    border:1px solid var(--line);border-radius:7px;padding:4px 9px;display:inline-block;margin-top:10px}
+
   /* ARSENAL GRID */
-  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:12px}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
   .cat{display:flex;align-items:center;gap:11px;background:var(--surface);border:1px solid var(--line);
     border-radius:12px;padding:13px 14px;transition:transform .15s,border-color .2s,background .2s}
   .cat:hover{transform:translateY(-3px);border-color:var(--cyan);background:var(--surface2)}
@@ -168,6 +205,14 @@
   .steps .k{font-family:var(--mono);font-weight:800;color:var(--violet);font-size:1.05rem;flex-shrink:0;width:1.4em}
   .steps b{display:block;margin-bottom:2px}
   .steps span{color:var(--muted);font-size:.96rem}
+
+  /* CHEATSHEET */
+  .cheat{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(max-width:680px){.cheat{grid-template-columns:1fr}}
+  .cheat .row{display:flex;align-items:baseline;gap:14px;background:var(--surface);border:1px solid var(--line);
+    border-radius:11px;padding:13px 16px}
+  .cheat .cmd{font-family:var(--mono);font-size:.86rem;color:var(--cyan);white-space:nowrap}
+  .cheat .desc{color:var(--muted);font-size:.9rem}
 
   /* CTA */
   .final{text-align:center;background:
@@ -220,11 +265,16 @@
   <div class="wrap">
     <div class="brand">iw<b class="grad">7x</b></div>
     <div class="navlinks">
-      <a href="#features">Features</a>
-      <a href="#arsenal">Arsenal</a>
-      <a href="#compare">Compare</a>
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
+      <a href="#compare" data-i18n="nav.compare">Compare</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security">⭐ Star on GitHub</a>
+      <span class="kali-pill">🐉 <span data-i18n="nav.kali">Built for Kali Linux</span></span>
+      <span class="lang" role="group" aria-label="Language">
+        <button data-set-lang="en" class="on">EN</button>
+        <button data-set-lang="fr">FR</button>
+      </span>
+      <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security"><span data-i18n="nav.star">⭐ Star on GitHub</span></a>
     </div>
   </div>
 </nav>
@@ -232,27 +282,28 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">The world's cybersecurity arsenal · by NeoZ</div>
+      <div class="hero-badge">🐉 <span data-i18n="hero.kaliBadge">Built for Kali Linux — one command, any tool</span></div>
+      <div class="eyebrow" data-i18n="hero.eyebrow">The world's cybersecurity arsenal · by NeoZ</div>
       <div class="wordmark grad">iw7x</div>
-      <h1 class="tag">Every cybersecurity tool in the world.<br><span class="grad">One terminal. One command.</span></h1>
-      <p class="lead">iw7x unifies <b>10,500+</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you.</p>
+      <h1 class="tag" data-i18n="hero.tag">Every cybersecurity tool in the world.<br><span class="grad">One Kali terminal. One command.</span></h1>
+      <p class="lead" data-i18n="hero.lead">iw7x unifies <b>11,900</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you on Kali Linux.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security">⭐ Star on GitHub</a>
-        <a class="btn btn-ghost" href="#start">▶ Quickstart</a>
+        <a class="btn btn-primary" href="#start"><span data-i18n="hero.ctaStart">▶ Quickstart</span></a>
+        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security"><span data-i18n="hero.ctaGithub">⭐ Star on GitHub</span></a>
       </div>
       <div class="chips">
-        <span class="chip"><b>10,506</b> tools</span>
-        <span class="chip"><b>44</b> categories</span>
-        <span class="chip">MIT licensed</span>
-        <span class="chip">Kali-ready</span>
-        <span class="chip">Self-updating</span>
+        <span class="chip"><b>11,900</b> <span data-i18n="chip.tools">tools</span></span>
+        <span class="chip"><b>43</b> <span data-i18n="chip.categories">categories</span></span>
+        <span class="chip" data-i18n="chip.kali">Kali-ready</span>
+        <span class="chip" data-i18n="chip.mit">MIT licensed</span>
+        <span class="chip" data-i18n="chip.selfupdate">Self-updating</span>
       </div>
     </div>
 
     <div class="term reveal">
       <div class="term-bar">
         <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="term-title">~ $ python3 neoz.py</span>
+        <span class="term-title">kali@kali:~$ python3 neoz.py</span>
       </div>
       <div class="term-body">
 <div class="ascii">██╗ ██╗    ██╗ ███████╗ ██╗  ██╗
@@ -261,10 +312,11 @@
 ██║ ██║███╗██║    ██╔╝   ██╔██╗
 ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
 ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝</div>
-        <div class="term-stats">CYBERSECURITY ARSENAL &nbsp;·&nbsp; <b>10506</b> TOOLS &nbsp; <b>44</b> CATEGORIES</div>
+        <div class="term-stats">CYBERSECURITY ARSENAL &nbsp;·&nbsp; <b>11900</b> TOOLS &nbsp; <b>43</b> CATEGORIES</div>
+        <div class="term-kali">🐉 KALI LINUX READY &nbsp;·&nbsp; apt · pipx · go · git auto-detected</div>
         <div class="term-menu">
-          <div><span class="n">01</span> INFORMATION GATHERING</div><div><span class="n">02</span> WEB ATTACK</div>
-          <div><span class="n">03</span> OSINT / RECON</div><div><span class="n">04</span> ACTIVE DIRECTORY</div>
+          <div><span class="n">01</span> OSINT / RECON</div><div><span class="n">02</span> WEB ATTACK</div>
+          <div><span class="n">03</span> INFORMATION GATHERING</div><div><span class="n">04</span> ACTIVE DIRECTORY</div>
           <div><span class="n">05</span> EXPLOIT FRAMEWORK</div><div><span class="n">06</span> POST-EXPLOITATION / C2</div>
           <div><span class="n">07</span> CRYPTOGRAPHY</div><div><span class="n">08</span> THREAT INTELLIGENCE</div>
         </div>
@@ -281,10 +333,30 @@
 <section id="stats" style="padding-top:20px">
   <div class="wrap">
     <div class="stats">
-      <div class="stat reveal"><div class="num grad" data-count="10506">0</div><div class="lbl">Tools</div></div>
-      <div class="stat reveal"><div class="num grad" data-count="44">0</div><div class="lbl">Categories</div></div>
-      <div class="stat reveal"><div class="num grad" data-count="30" data-suffix="+">0</div><div class="lbl">Live sources</div></div>
-      <div class="stat reveal"><div class="num grad" data-count="1">0</div><div class="lbl">Command to rule them</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="11900">0</div><div class="lbl" data-i18n="stat.tools">Tools</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="43">0</div><div class="lbl" data-i18n="stat.categories">Categories</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="30" data-suffix="+">0</div><div class="lbl" data-i18n="stat.sources">Live sources</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="1">0</div><div class="lbl" data-i18n="stat.command">Command to rule them</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="kali" style="padding-top:20px">
+  <div class="wrap">
+    <div class="kali reveal">
+      <div>
+        <div class="eyebrow" data-i18n="kali.eyebrow">Made for Kali Linux</div>
+        <h2 data-i18n="kali.title">Boot Kali. Run one command.<br>The whole arsenal is yours.</h2>
+        <p data-i18n="kali.body">iw7x is designed to run natively on <b>Kali Linux</b> (bare-metal, VM or WSL2). It detects your package managers and rewrites install commands so every tool — even Arch/BlackArch ones — installs cleanly with <span class="mono">apt</span>. Pick a tool, iw7x installs it and launches it. That's it.</p>
+      </div>
+      <div>
+        <ul>
+          <li><span class="ck">✓</span><div><b data-i18n="kali.f1t">Native on Kali &amp; WSL2 Kali</b><br><span data-i18n="kali.f1d">The interface reads your distro and tells you it's ready.</span></div></li>
+          <li><span class="ck">✓</span><div><b data-i18n="kali.f2t">Auto package-manager</b><br><span data-i18n="kali.f2d">apt · pipx · go · git · gem detected and used automatically.</span></div></li>
+          <li><span class="ck">✓</span><div><b data-i18n="kali.f3t">pacman → apt rewriting</b><br><span data-i18n="kali.f3d">BlackArch-sourced tools install on Kali without edits.</span></div></li>
+          <li><span class="ck">✓</span><div><b data-i18n="kali.f4t">Install → launch, in one step</b><br><span data-i18n="kali.f4d">The tool opens the moment it finishes installing.</span></div></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -292,112 +364,134 @@
 <section id="features">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Why iw7x</div>
-      <h2>Stop hunting for tools.<br>Start using them.</h2>
-      <p>Security pros waste hours cloning repos, fixing dependencies and remembering install commands. iw7x replaces all of that with one program.</p>
+      <div class="eyebrow" data-i18n="feat.eyebrow">Why iw7x</div>
+      <h2 data-i18n="feat.title">Stop hunting for tools.<br>Start using them.</h2>
+      <p data-i18n="feat.sub">Security pros waste hours cloning repos, fixing dependencies and remembering install commands. iw7x replaces all of that with one program.</p>
     </div>
     <div class="bento">
-      <div class="card c-lg reveal"><div class="ico">🗂️</div><h3>The whole ecosystem</h3><p>10,500+ tools across 44 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.</p></div>
-      <div class="card c-md reveal"><div class="ico">⚙️</div><h3>Installs &amp; runs for you</h3><p>Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.</p></div>
-      <div class="card c-sm reveal"><div class="ico">🔄</div><h3>Always up to date</h3><p>A built-in scanner pulls fresh tools from BlackArch, Kali &amp; awesome-lists — your arsenal grows on its own.</p></div>
-      <div class="card c-sm reveal"><div class="ico">🔎</div><h3>Find anything</h3><p>Full-text search, tag filters and a task advisor that recommends tools for what you're trying to do.</p></div>
-      <div class="card c-sm reveal"><div class="ico">🎨</div><h3>A terminal you enjoy</h3><p>A gorgeous rich-powered TUI with a live system header, gradients and clean menus.</p></div>
+      <div class="card c-lg reveal"><div class="ico">🗂️</div><h3 data-i18n="feat.c1t">The whole ecosystem</h3><p data-i18n="feat.c1d">11,900 tools across 43 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.</p></div>
+      <div class="card c-md reveal"><div class="ico">⚙️</div><h3 data-i18n="feat.c2t">Installs &amp; runs for you</h3><p data-i18n="feat.c2d">Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.</p></div>
+      <div class="card c-sm reveal"><div class="ico">🔄</div><h3 data-i18n="feat.c3t">Always up to date</h3><p data-i18n="feat.c3d">A built-in scanner pulls fresh tools from BlackArch, Kali &amp; awesome-lists — your arsenal grows on its own.</p></div>
+      <div class="card c-sm reveal"><div class="ico">🔎</div><h3 data-i18n="feat.c4t">Find anything</h3><p data-i18n="feat.c4d">Full-text search, tag filters and a task advisor that recommends tools for what you're trying to do.</p></div>
+      <div class="card c-sm reveal"><div class="ico">🎨</div><h3 data-i18n="feat.c5t">A terminal you enjoy</h3><p data-i18n="feat.c5d">A gorgeous rich-powered TUI with a gradient banner, live tool counter and clean menus.</p></div>
     </div>
   </div>
 </section>
 
-<section id="arsenal" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+<section id="legends" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">The arsenal</div>
-      <h2>44 categories. 10,506 tools.<br>And counting.</h2>
-      <p>Every domain of offensive and defensive security, in one place — each tool one keystroke from installed.</p>
+      <div class="eyebrow" data-i18n="leg.eyebrow">The legends</div>
+      <h2 data-i18n="leg.title">Industry-standard tools,<br>one keystroke from running.</h2>
+      <p data-i18n="leg.sub">The names every pentester knows are already in the catalog — installed and launched for you. Here are twelve of them.</p>
+    </div>
+    <div class="legend-grid" id="legendGrid"></div>
+  </div>
+</section>
+
+<section id="arsenal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="ars.eyebrow">The arsenal</div>
+      <h2 data-i18n="ars.title">43 categories. 11,900 tools.<br>And counting.</h2>
+      <p data-i18n="ars.sub">Every domain of offensive and defensive security, in one place — each tool one keystroke from installed.</p>
     </div>
     <div class="cat-grid" id="catGrid"></div>
   </div>
 </section>
 
-<section id="start">
+<section id="start" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
   <div class="wrap qs">
     <div>
-      <div class="eyebrow">Quickstart</div>
+      <div class="eyebrow" data-i18n="qs.eyebrow">Quickstart</div>
       <div class="code reveal">
-        <button class="copy" data-copy="git clone https://github.com/isneoz1/iw7x-cyber-security.git && cd iw7x-cyber-security && ./install.sh && python3 neoz.py">copy</button>
-<span class="cm"># 1 · clone</span>
+        <button class="copy" data-copy="git clone https://github.com/isneoz1/iw7x-cyber-security.git && cd iw7x-cyber-security && chmod +x install.sh && ./install.sh && python3 neoz.py">copy</button>
+<span class="cm" data-i18n="qs.step1"># 1 · clone (on Kali Linux)</span>
 git clone https://github.com/isneoz1/iw7x-cyber-security.git
 <span class="cy">cd</span> iw7x-cyber-security
 
-<span class="cm"># 2 · install deps (git, python, pipx, go…)</span>
-chmod +x install.sh && ./install.sh
+<span class="cm" data-i18n="qs.step2"># 2 · install deps (git, python, pipx, go…)</span>
+chmod +x install.sh &amp;&amp; ./install.sh
 
-<span class="cm"># 3 · launch the arsenal</span>
+<span class="cm" data-i18n="qs.step3"># 3 · launch the arsenal</span>
 python3 neoz.py
       </div>
     </div>
     <div>
       <div class="sec-head" style="margin-bottom:24px">
-        <h2 style="font-size:1.9rem">Running in 30 seconds</h2>
-        <p>Recommended on Kali Linux (or Kali on WSL2). On first run iw7x fetches the full catalog so every tool is ready.</p>
+        <h2 style="font-size:1.9rem" data-i18n="qs.title">Running in 30 seconds</h2>
+        <p data-i18n="qs.sub">Recommended on Kali Linux (bare-metal, VM, or Kali on WSL2). On first run iw7x fetches the full catalog so every tool is ready.</p>
       </div>
       <ol class="steps">
-        <li><span class="k">›</span><div><b>Menu or shell</b><span>Launch the interactive menu, or run <span class="mono">python3 neoz.py nmap</span> to install &amp; run a tool directly.</span></div></li>
-        <li><span class="k">›</span><div><b>Search &amp; advisor</b><span>Type <span class="mono">/query</span> to search, or press <span class="mono">R</span> for "what do you want to do?".</span></div></li>
-        <li><span class="k">›</span><div><b>Keep growing</b><span>Run <span class="mono">--update</span> once, or <span class="mono">--watch</span> to keep scanning for new tools forever.</span></div></li>
+        <li><span class="k">›</span><div><b data-i18n="qs.l1t">Menu or shell</b><span data-i18n="qs.l1d">Launch the interactive menu, or run <span class="mono">python3 neoz.py nmap</span> to install &amp; run a tool directly.</span></div></li>
+        <li><span class="k">›</span><div><b data-i18n="qs.l2t">Search &amp; advisor</b><span data-i18n="qs.l2d">Type <span class="mono">/query</span> to search, or press <span class="mono">R</span> for "what do you want to do?".</span></div></li>
+        <li><span class="k">›</span><div><b data-i18n="qs.l3t">Keep growing</b><span data-i18n="qs.l3d">Run <span class="mono">--update</span> once, or <span class="mono">--watch</span> to keep scanning for new tools forever.</span></div></li>
       </ol>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section id="cheatsheet">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">How it works</div>
-      <h2>One command does<br>the boring part.</h2>
-      <p>No more hunting repos, chasing dependencies or memorizing install flags. iw7x turns "I need X" into X running.</p>
+      <div class="eyebrow" data-i18n="cheat.eyebrow">Command cheatsheet</div>
+      <h2 data-i18n="cheat.title">Everything from the shell.</h2>
+      <p data-i18n="cheat.sub">Prefer the terminal? Every action has a one-liner — no menu required.</p>
+    </div>
+    <div class="cheat" id="cheatGrid"></div>
+  </div>
+</section>
+
+<section id="how" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="how.eyebrow">How it works</div>
+      <h2 data-i18n="how.title">One command does<br>the boring part.</h2>
+      <p data-i18n="how.sub">No more hunting repos, chasing dependencies or memorizing install flags. iw7x turns "I need X" into X running.</p>
     </div>
     <div class="flow">
-      <div class="step reveal"><div class="num">STEP 01</div><div class="ico">🔎</div><h3>Find it</h3><p>Search 10,506 tools across 44 categories, filter by tag, or ask the advisor "what do you want to do?".</p></div>
-      <div class="step reveal"><div class="num">STEP 02</div><div class="ico">⚙️</div><h3>Install it</h3><p>iw7x runs the right apt / pipx / go / git for your distro — it even rewrites pacman↔apt so BlackArch tools install on Kali.</p></div>
-      <div class="step reveal"><div class="num">STEP 03</div><div class="ico">▶️</div><h3>Run it</h3><p>The tool launches immediately. Bad name, missing binary or offline? You get a clear message — never a traceback.</p></div>
+      <div class="step reveal"><div class="num" data-i18n="how.s1n">STEP 01</div><div class="ico">🔎</div><h3 data-i18n="how.s1t">Find it</h3><p data-i18n="how.s1d">Search 11,900 tools across 43 categories, filter by tag, or ask the advisor "what do you want to do?".</p></div>
+      <div class="step reveal"><div class="num" data-i18n="how.s2n">STEP 02</div><div class="ico">⚙️</div><h3 data-i18n="how.s2t">Install it</h3><p data-i18n="how.s2d">iw7x runs the right apt / pipx / go / git for Kali — it even rewrites pacman↔apt so BlackArch tools install cleanly.</p></div>
+      <div class="step reveal"><div class="num" data-i18n="how.s3n">STEP 03</div><div class="ico">▶️</div><h3 data-i18n="how.s3t">Run it</h3><p data-i18n="how.s3d">The tool launches immediately. Bad name, missing binary or offline? You get a clear message — never a traceback.</p></div>
     </div>
   </div>
 </section>
 
-<section id="compare" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+<section id="compare">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Why not just…</div>
-      <h2>iw7x vs. doing it by hand</h2>
-      <p>BlackArch and Kali give you packages. iw7x gives you the whole world's tooling — installed and launched for you, from one search box.</p>
+      <div class="eyebrow" data-i18n="cmp.eyebrow">Why not just…</div>
+      <h2 data-i18n="cmp.title">iw7x vs. doing it by hand</h2>
+      <p data-i18n="cmp.sub">BlackArch and Kali give you packages. iw7x gives you the whole world's tooling — installed and launched for you, from one search box.</p>
     </div>
     <div class="cmp-wrap">
       <table class="cmp">
-        <thead><tr><th></th><th class="iw">iw7x</th><th>Manual clone</th><th>BlackArch</th><th>Kali meta</th></tr></thead>
+        <thead><tr><th></th><th class="iw">iw7x</th><th data-i18n="cmp.h1">Manual clone</th><th>BlackArch</th><th data-i18n="cmp.h2">Kali meta</th></tr></thead>
         <tbody>
-          <tr><td>One command to install any tool</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="mid">~</span></td></tr>
-          <tr><td>10,506 tools in one search</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td>Auto-installs deps &amp; launches the tool</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td>Task advisor &amp; tag filters</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td>Self-updating from 30+ sources</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td>Works across Kali/Debian &amp; Arch</td><td class="iw"><span class="yes">✓</span></td><td><span class="mid">~</span></td><td>Arch</td><td>Kali</td></tr>
+          <tr><td data-i18n="cmp.r1">One command to install any tool</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="mid">~</span></td></tr>
+          <tr><td data-i18n="cmp.r2">11,900 tools in one search</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="no">✕</span></td></tr>
+          <tr><td data-i18n="cmp.r3">Auto-installs deps &amp; launches the tool</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+          <tr><td data-i18n="cmp.r4">Task advisor &amp; tag filters</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+          <tr><td data-i18n="cmp.r5">Self-updating from 30+ sources</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="no">✕</span></td></tr>
+          <tr><td data-i18n="cmp.r6">Built for Kali · works on Debian &amp; Arch</td><td class="iw"><span class="yes">✓</span></td><td><span class="mid">~</span></td><td>Arch</td><td>Kali</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">FAQ</div>
-      <h2>Questions, answered.</h2>
+      <h2 data-i18n="faq.title">Questions, answered.</h2>
     </div>
     <div class="faq">
-      <details><summary>Is iw7x legal to use?</summary><p>iw7x is for authorized security testing and education only — systems you own or have explicit written permission to test, plus CTFs, labs and authorized engagements. Unauthorized access to systems is illegal, and you are solely responsible for how you use it.</p></details>
-      <details><summary>What OS do I need?</summary><p>Kali Linux (or Kali on WSL2) is recommended — that's where iw7x installs and launches tools. The menu, search, tags and advisor work on any OS with Python 3.10+.</p></details>
-      <details><summary>Does it really have 10,000+ tools?</summary><p>Yes — 10,506 deduplicated tools across 44 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.</p></details>
-      <details><summary>How do I add a tool?</summary><p>Add one JSON object to <span class="mono">catalog.json</span> and open a pull request — it's the easiest open-source contribution you'll ever make. See CONTRIBUTING.md.</p></details>
-      <details><summary>Is it free?</summary><p>100% free and open source under the MIT license. The individual tools keep their own respective licenses.</p></details>
+      <details><summary data-i18n="faq.q1">Is iw7x legal to use?</summary><p data-i18n="faq.a1">iw7x is for authorized security testing and education only — systems you own or have explicit written permission to test, plus CTFs, labs and authorized engagements. Unauthorized access to systems is illegal, and you are solely responsible for how you use it.</p></details>
+      <details><summary data-i18n="faq.q2">What OS do I need?</summary><p data-i18n="faq.a2">Kali Linux is the recommended platform — bare-metal, in a VM, or Kali on WSL2 — that's where iw7x installs and launches tools. The menu, search, tags and advisor browse on any OS with Python 3.10+.</p></details>
+      <details><summary data-i18n="faq.q3">Does it really have 11,000+ tools?</summary><p data-i18n="faq.a3">Yes — 11,900 deduplicated tools across 43 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.</p></details>
+      <details><summary data-i18n="faq.q4">How do I add a tool?</summary><p data-i18n="faq.a4">Add one JSON object to catalog.json and open a pull request — it's the easiest open-source contribution you'll ever make. See CONTRIBUTING.md.</p></details>
+      <details><summary data-i18n="faq.q5">Is it free?</summary><p data-i18n="faq.a5">100% free and open source under the MIT license. The individual tools keep their own respective licenses.</p></details>
     </div>
   </div>
 </section>
@@ -405,14 +499,14 @@ python3 neoz.py
 <section id="cta" style="padding-top:0">
   <div class="wrap">
     <div class="final reveal">
-      <div class="eyebrow">Open source · MIT · Free forever</div>
-      <h2>Join the arsenal.<br><span class="grad">Star it. Fork it. Add a tool.</span></h2>
-      <p>Adding a tool is the easiest open-source contribution you'll ever make — one JSON object and a pull request.</p>
+      <div class="eyebrow" data-i18n="final.eyebrow">Open source · MIT · Free forever</div>
+      <h2 data-i18n="final.title">Join the arsenal.<br><span class="grad">Star it. Fork it. Add a tool.</span></h2>
+      <p data-i18n="final.sub">Adding a tool is the easiest open-source contribution you'll ever make — one JSON object and a pull request.</p>
       <div class="cta-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security">⭐ Star on GitHub</a>
-        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md">🧩 Add a tool</a>
+        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security"><span data-i18n="final.star">⭐ Star on GitHub</span></a>
+        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md"><span data-i18n="final.add">🧩 Add a tool</span></a>
       </div>
-      <div class="disc"><b>⚠️ For authorized security testing and education only.</b> Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.</div>
+      <div class="disc"><b data-i18n="final.disc.h">⚠️ For authorized security testing and education only.</b> <span data-i18n="final.disc.b">Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.</span></div>
     </div>
   </div>
 </section>
@@ -423,25 +517,203 @@ python3 neoz.py
     <div style="display:flex;gap:22px;flex-wrap:wrap">
       <a href="https://github.com/isneoz1/iw7x-cyber-security">GitHub</a>
       <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/ARSENAL.md">Arsenal</a>
-      <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md">Contribute</a>
+      <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md" data-i18n="foot.contribute">Contribute</a>
       <a href="https://github.com/isneoz1/iw7x-cyber-security/issues">Issues</a>
     </div>
-    <div>The quieter you become, the more you can hear.</div>
+    <div data-i18n="foot.quote">The quieter you become, the more you can hear.</div>
   </div>
 </footer>
 
 <script>
-  // Categories (name, emoji, count) — mirrors catalog.json
-  var CATS=[["Other Tools / OSINT","🧰",1512],["Web Attack","🌐",1511],["Information Gathering","🔍",1310],["OSINT / Recon","🕵️",1282],["Forensics / DFIR","🔬",689],["Reverse Engineering","🧠",504],["Blue Team / Defense","🛡️",408],["Sniffing & Network MITM","📶",369],["IoT / Firmware / Hardware","🔌",229],["Cryptography / Encryption","🔐",225],["Wordlist / Password","🔑",213],["Active Directory","🏰",203],["Malware Analysis","🧬",199],["Exploit Framework","💥",198],["API Security","🔗",167],["Binary Exploitation / CTF","🧨",148],["Mobile Security","📱",130],["Wireless Attack","📡",125],["Privilege Escalation","⏫",125],["Threat Intelligence","🔭",114],["Payload Creation","🎯",105],["Vulnerability Scanning","🩻",90],["Fuzzing","🐝",75],["Phishing","🎣",60],["Steganography","🖼️",55],["Post-Exploitation / C2","🎛️",49],["Automotive / CAN","🚗",49],["Social Engineering","🎭",46],["DDoS / Stress Test","💣",44],["Container / Kubernetes","📦",37],["Cloud Security","☁️",32],["Radio / SDR / RF","📻",31],["DevSecOps / SAST-DAST","♻️",28],["Blockchain / Web3","⛓️",26],["SQL Injection","💉",21],["VoIP Security","☎️",18],["XSS Attack","🩹",14],["Anonymity / Hiding","🥷",13],["Physical / RFID / Badge","🚪",13],["Remote Admin (RAT)","🖥️",11],["Satellite / GNSS / Space","🛰️",9],["AI / ML Security","🤖",9],["ICS / SCADA / OT","🏭",8]];
+  /* ─────────── i18n ─────────── */
+  var TXT={
+    "nav.features":{en:"Features",fr:"Fonctions"},
+    "nav.arsenal":{en:"Arsenal",fr:"Arsenal"},
+    "nav.compare":{en:"Compare",fr:"Comparer"},
+    "nav.kali":{en:"Built for Kali Linux",fr:"Conçu pour Kali Linux"},
+    "nav.star":{en:"⭐ Star on GitHub",fr:"⭐ Star sur GitHub"},
+    "hero.kaliBadge":{en:"Built for Kali Linux — one command, any tool",fr:"Conçu pour Kali Linux — une commande, n'importe quel outil"},
+    "hero.eyebrow":{en:"The world's cybersecurity arsenal · by NeoZ",fr:"L'arsenal cybersécurité mondial · par NeoZ"},
+    "hero.tag":{en:'Every cybersecurity tool in the world.<br><span class="grad">One Kali terminal. One command.</span>',fr:'Tous les outils de cybersécurité du monde.<br><span class="grad">Un terminal Kali. Une commande.</span>'},
+    "hero.lead":{en:'iw7x unifies <b>11,900</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you on Kali Linux.',fr:'iw7x réunit <b>11 900</b> outils de sécurité offensifs &amp; défensifs — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande qui <b>installe, met à jour et lance</b> n\'importe quel outil pour vous sur Kali Linux.'},
+    "hero.ctaStart":{en:"▶ Quickstart",fr:"▶ Démarrer"},
+    "hero.ctaGithub":{en:"⭐ Star on GitHub",fr:"⭐ Star sur GitHub"},
+    "chip.tools":{en:"tools",fr:"outils"},
+    "chip.categories":{en:"categories",fr:"catégories"},
+    "chip.kali":{en:"Kali-ready",fr:"Prêt pour Kali"},
+    "chip.mit":{en:"MIT licensed",fr:"Licence MIT"},
+    "chip.selfupdate":{en:"Self-updating",fr:"Auto-mise à jour"},
+    "stat.tools":{en:"Tools",fr:"Outils"},
+    "stat.categories":{en:"Categories",fr:"Catégories"},
+    "stat.sources":{en:"Live sources",fr:"Sources en direct"},
+    "stat.command":{en:"Command to rule them",fr:"Commande pour tout gérer"},
+    "kali.eyebrow":{en:"Made for Kali Linux",fr:"Fait pour Kali Linux"},
+    "kali.title":{en:"Boot Kali. Run one command.<br>The whole arsenal is yours.",fr:"Démarrez Kali. Une commande.<br>Tout l'arsenal est à vous."},
+    "kali.body":{en:'iw7x is designed to run natively on <b>Kali Linux</b> (bare-metal, VM or WSL2). It detects your package managers and rewrites install commands so every tool — even Arch/BlackArch ones — installs cleanly with <span class="mono">apt</span>. Pick a tool, iw7x installs it and launches it. That\'s it.',fr:'iw7x est conçu pour tourner nativement sur <b>Kali Linux</b> (machine réelle, VM ou WSL2). Il détecte vos gestionnaires de paquets et réécrit les commandes d\'installation pour que chaque outil — même ceux d\'Arch/BlackArch — s\'installe proprement avec <span class="mono">apt</span>. Choisissez un outil, iw7x l\'installe et le lance. C\'est tout.'},
+    "kali.f1t":{en:"Native on Kali &amp; WSL2 Kali",fr:"Natif sur Kali &amp; Kali WSL2"},
+    "kali.f1d":{en:"The interface reads your distro and tells you it's ready.",fr:"L'interface lit votre distribution et vous confirme qu'elle est prête."},
+    "kali.f2t":{en:"Auto package-manager",fr:"Gestionnaire de paquets auto"},
+    "kali.f2d":{en:"apt · pipx · go · git · gem detected and used automatically.",fr:"apt · pipx · go · git · gem détectés et utilisés automatiquement."},
+    "kali.f3t":{en:"pacman → apt rewriting",fr:"Réécriture pacman → apt"},
+    "kali.f3d":{en:"BlackArch-sourced tools install on Kali without edits.",fr:"Les outils issus de BlackArch s'installent sur Kali sans modification."},
+    "kali.f4t":{en:"Install → launch, in one step",fr:"Installer → lancer, en une étape"},
+    "kali.f4d":{en:"The tool opens the moment it finishes installing.",fr:"L'outil s'ouvre dès la fin de l'installation."},
+    "feat.eyebrow":{en:"Why iw7x",fr:"Pourquoi iw7x"},
+    "feat.title":{en:"Stop hunting for tools.<br>Start using them.",fr:"Arrêtez de chercher des outils.<br>Utilisez-les."},
+    "feat.sub":{en:"Security pros waste hours cloning repos, fixing dependencies and remembering install commands. iw7x replaces all of that with one program.",fr:"Les pros de la sécurité perdent des heures à cloner des dépôts, réparer des dépendances et retenir des commandes d'installation. iw7x remplace tout ça par un seul programme."},
+    "feat.c1t":{en:"The whole ecosystem",fr:"Tout l'écosystème"},
+    "feat.c1d":{en:"11,900 tools across 43 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.",fr:"11 900 outils sur 43 catégories — OSINT, web, sans-fil, exploitation, forensique, rétro-ingénierie, crypto, AD, cloud, mobile, IoT, threat-intel, blue team et bien plus."},
+    "feat.c2t":{en:"Installs &amp; runs for you",fr:"Installe &amp; lance pour vous"},
+    "feat.c2d":{en:"Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.",fr:"Choisissez un outil → iw7x l'installe (apt / pipx / go / git) et le lance. Fini le copier-coller de commandes depuis douze README."},
+    "feat.c3t":{en:"Always up to date",fr:"Toujours à jour"},
+    "feat.c3d":{en:"A built-in scanner pulls fresh tools from BlackArch, Kali &amp; awesome-lists — your arsenal grows on its own.",fr:"Un scanner intégré récupère de nouveaux outils depuis BlackArch, Kali &amp; les awesome-lists — votre arsenal grandit tout seul."},
+    "feat.c4t":{en:"Find anything",fr:"Trouvez tout"},
+    "feat.c4d":{en:"Full-text search, tag filters and a task advisor that recommends tools for what you're trying to do.",fr:"Recherche plein-texte, filtres par tag et un conseiller qui recommande des outils selon votre objectif."},
+    "feat.c5t":{en:"A terminal you enjoy",fr:"Un terminal agréable"},
+    "feat.c5d":{en:"A gorgeous rich-powered TUI with a gradient banner, live tool counter and clean menus.",fr:"Un superbe TUI propulsé par rich, avec bannière en dégradé, compteur d'outils en direct et menus épurés."},
+    "leg.eyebrow":{en:"The legends",fr:"Les légendes"},
+    "leg.title":{en:"Industry-standard tools,<br>one keystroke from running.",fr:"Les outils de référence,<br>à une touche de s'exécuter."},
+    "leg.sub":{en:"The names every pentester knows are already in the catalog — installed and launched for you. Here are twelve of them.",fr:"Les noms que tout pentester connaît sont déjà dans le catalogue — installés et lancés pour vous. En voici douze."},
+    "ars.eyebrow":{en:"The arsenal",fr:"L'arsenal"},
+    "ars.title":{en:"43 categories. 11,900 tools.<br>And counting.",fr:"43 catégories. 11 900 outils.<br>Et ça continue."},
+    "ars.sub":{en:"Every domain of offensive and defensive security, in one place — each tool one keystroke from installed.",fr:"Chaque domaine de la sécurité offensive et défensive, au même endroit — chaque outil à une touche d'être installé."},
+    "qs.eyebrow":{en:"Quickstart",fr:"Démarrage"},
+    "qs.step1":{en:"# 1 · clone (on Kali Linux)",fr:"# 1 · cloner (sur Kali Linux)"},
+    "qs.step2":{en:"# 2 · install deps (git, python, pipx, go…)",fr:"# 2 · installer les dépendances (git, python, pipx, go…)"},
+    "qs.step3":{en:"# 3 · launch the arsenal",fr:"# 3 · lancer l'arsenal"},
+    "qs.title":{en:"Running in 30 seconds",fr:"Opérationnel en 30 secondes"},
+    "qs.sub":{en:"Recommended on Kali Linux (bare-metal, VM, or Kali on WSL2). On first run iw7x fetches the full catalog so every tool is ready.",fr:"Recommandé sur Kali Linux (machine réelle, VM ou Kali sur WSL2). Au premier lancement, iw7x récupère le catalogue complet pour que chaque outil soit prêt."},
+    "qs.l1t":{en:"Menu or shell",fr:"Menu ou shell"},
+    "qs.l1d":{en:'Launch the interactive menu, or run <span class="mono">python3 neoz.py nmap</span> to install &amp; run a tool directly.',fr:'Lancez le menu interactif, ou exécutez <span class="mono">python3 neoz.py nmap</span> pour installer &amp; lancer un outil directement.'},
+    "qs.l2t":{en:"Search &amp; advisor",fr:"Recherche &amp; conseiller"},
+    "qs.l2d":{en:'Type <span class="mono">/query</span> to search, or press <span class="mono">R</span> for "what do you want to do?".',fr:'Tapez <span class="mono">/requête</span> pour chercher, ou appuyez sur <span class="mono">R</span> pour « que voulez-vous faire ? ».'},
+    "qs.l3t":{en:"Keep growing",fr:"Continuez à grandir"},
+    "qs.l3d":{en:'Run <span class="mono">--update</span> once, or <span class="mono">--watch</span> to keep scanning for new tools forever.',fr:'Lancez <span class="mono">--update</span> une fois, ou <span class="mono">--watch</span> pour scanner de nouveaux outils en continu.'},
+    "cheat.eyebrow":{en:"Command cheatsheet",fr:"Aide-mémoire commandes"},
+    "cheat.title":{en:"Everything from the shell.",fr:"Tout depuis le shell."},
+    "cheat.sub":{en:"Prefer the terminal? Every action has a one-liner — no menu required.",fr:"Vous préférez le terminal ? Chaque action a sa commande — sans passer par le menu."},
+    "how.eyebrow":{en:"How it works",fr:"Comment ça marche"},
+    "how.title":{en:"One command does<br>the boring part.",fr:"Une commande fait<br>la partie pénible."},
+    "how.sub":{en:'No more hunting repos, chasing dependencies or memorizing install flags. iw7x turns "I need X" into X running.',fr:'Fini la chasse aux dépôts, aux dépendances et aux options d\'installation. iw7x transforme « il me faut X » en X qui tourne.'},
+    "how.s1n":{en:"STEP 01",fr:"ÉTAPE 01"},
+    "how.s1t":{en:"Find it",fr:"Trouvez-le"},
+    "how.s1d":{en:'Search 11,900 tools across 43 categories, filter by tag, or ask the advisor "what do you want to do?".',fr:'Cherchez parmi 11 900 outils sur 43 catégories, filtrez par tag, ou demandez au conseiller « que voulez-vous faire ? ».'},
+    "how.s2n":{en:"STEP 02",fr:"ÉTAPE 02"},
+    "how.s2t":{en:"Install it",fr:"Installez-le"},
+    "how.s2d":{en:"iw7x runs the right apt / pipx / go / git for Kali — it even rewrites pacman↔apt so BlackArch tools install cleanly.",fr:"iw7x exécute le bon apt / pipx / go / git pour Kali — il réécrit même pacman↔apt pour que les outils BlackArch s'installent proprement."},
+    "how.s3n":{en:"STEP 03",fr:"ÉTAPE 03"},
+    "how.s3t":{en:"Run it",fr:"Lancez-le"},
+    "how.s3d":{en:"The tool launches immediately. Bad name, missing binary or offline? You get a clear message — never a traceback.",fr:"L'outil se lance immédiatement. Mauvais nom, binaire absent ou hors-ligne ? Vous obtenez un message clair — jamais une erreur brute."},
+    "cmp.eyebrow":{en:"Why not just…",fr:"Pourquoi pas juste…"},
+    "cmp.title":{en:"iw7x vs. doing it by hand",fr:"iw7x contre le faire à la main"},
+    "cmp.sub":{en:"BlackArch and Kali give you packages. iw7x gives you the whole world's tooling — installed and launched for you, from one search box.",fr:"BlackArch et Kali vous donnent des paquets. iw7x vous donne tout l'outillage du monde — installé et lancé pour vous, depuis une seule barre de recherche."},
+    "cmp.h1":{en:"Manual clone",fr:"Clone manuel"},
+    "cmp.h2":{en:"Kali meta",fr:"Méta Kali"},
+    "cmp.r1":{en:"One command to install any tool",fr:"Une commande pour installer n'importe quel outil"},
+    "cmp.r2":{en:"11,900 tools in one search",fr:"11 900 outils dans une seule recherche"},
+    "cmp.r3":{en:"Auto-installs deps &amp; launches the tool",fr:"Installe les dépendances &amp; lance l'outil"},
+    "cmp.r4":{en:"Task advisor &amp; tag filters",fr:"Conseiller de tâches &amp; filtres par tag"},
+    "cmp.r5":{en:"Self-updating from 30+ sources",fr:"Auto-mise à jour depuis 30+ sources"},
+    "cmp.r6":{en:"Built for Kali · works on Debian &amp; Arch",fr:"Conçu pour Kali · marche sur Debian &amp; Arch"},
+    "faq.title":{en:"Questions, answered.",fr:"Vos questions, nos réponses."},
+    "faq.q1":{en:"Is iw7x legal to use?",fr:"iw7x est-il légal ?"},
+    "faq.a1":{en:"iw7x is for authorized security testing and education only — systems you own or have explicit written permission to test, plus CTFs, labs and authorized engagements. Unauthorized access to systems is illegal, and you are solely responsible for how you use it.",fr:"iw7x est réservé aux tests de sécurité autorisés et à l'éducation — des systèmes que vous possédez ou pour lesquels vous avez une autorisation écrite explicite, plus les CTF, labs et missions autorisées. L'accès non autorisé à un système est illégal, et vous êtes seul responsable de votre usage."},
+    "faq.q2":{en:"What OS do I need?",fr:"Quel OS faut-il ?"},
+    "faq.a2":{en:"Kali Linux is the recommended platform — bare-metal, in a VM, or Kali on WSL2 — that's where iw7x installs and launches tools. The menu, search, tags and advisor browse on any OS with Python 3.10+.",fr:"Kali Linux est la plateforme recommandée — machine réelle, VM ou Kali sur WSL2 — c'est là qu'iw7x installe et lance les outils. Le menu, la recherche, les tags et le conseiller fonctionnent sur tout OS avec Python 3.10+."},
+    "faq.q3":{en:"Does it really have 11,000+ tools?",fr:"Il y a vraiment 11 000+ outils ?"},
+    "faq.a3":{en:"Yes — 11,900 deduplicated tools across 43 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.",fr:"Oui — 11 900 outils dédoublonnés sur 43 catégories sont livrés dans le catalogue, et un scanner intégré en ajoute continuellement depuis BlackArch, Kali et des dizaines d'awesome-lists."},
+    "faq.q4":{en:"How do I add a tool?",fr:"Comment ajouter un outil ?"},
+    "faq.a4":{en:"Add one JSON object to catalog.json and open a pull request — it's the easiest open-source contribution you'll ever make. See CONTRIBUTING.md.",fr:"Ajoutez un objet JSON à catalog.json et ouvrez une pull request — c'est la contribution open-source la plus simple qui soit. Voir CONTRIBUTING.md."},
+    "faq.q5":{en:"Is it free?",fr:"Est-ce gratuit ?"},
+    "faq.a5":{en:"100% free and open source under the MIT license. The individual tools keep their own respective licenses.",fr:"100% gratuit et open source sous licence MIT. Chaque outil conserve sa propre licence."},
+    "final.eyebrow":{en:"Open source · MIT · Free forever",fr:"Open source · MIT · Gratuit à vie"},
+    "final.title":{en:'Join the arsenal.<br><span class="grad">Star it. Fork it. Add a tool.</span>',fr:'Rejoignez l\'arsenal.<br><span class="grad">Star. Fork. Ajoutez un outil.</span>'},
+    "final.sub":{en:"Adding a tool is the easiest open-source contribution you'll ever make — one JSON object and a pull request.",fr:"Ajouter un outil est la contribution open-source la plus simple — un objet JSON et une pull request."},
+    "final.star":{en:"⭐ Star on GitHub",fr:"⭐ Star sur GitHub"},
+    "final.add":{en:"🧩 Add a tool",fr:"🧩 Ajouter un outil"},
+    "final.disc.h":{en:"⚠️ For authorized security testing and education only.",fr:"⚠️ Pour les tests de sécurité autorisés et l'éducation uniquement."},
+    "final.disc.b":{en:"Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.",fr:"N'utilisez iw7x que sur des systèmes que vous possédez ou pour lesquels vous avez une autorisation écrite explicite. L'accès non autorisé à un système informatique est illégal — vous êtes seul responsable de vos actes."},
+    "foot.contribute":{en:"Contribute",fr:"Contribuer"},
+    "foot.quote":{en:"The quieter you become, the more you can hear.",fr:"Plus vous devenez silencieux, plus vous pouvez entendre."}
+  };
+
+  /* Categories: [en_name, emoji, count, fr_name] — mirrors catalog.json */
+  var CATS=[["OSINT / Recon","🕵️",2358,"OSINT / Recon"],["Other Tools / OSINT","🧰",1699,"Boîte à outils / OSINT"],["Web Attack","🌐",1512,"Attaque Web"],["Information Gathering","🔍",1310,"Collecte d'infos"],["Forensics / DFIR","🔬",704,"Forensique / DFIR"],["Reverse Engineering","🧠",504,"Rétro-ingénierie"],["Blue Team / Defense","🛡️",408,"Blue Team / Défense"],["Sniffing & Network MITM","📶",369,"Sniffing & MITM réseau"],["Cryptography / Encryption","🔐",233,"Cryptographie"],["Wordlist / Password","🔑",231,"Wordlists / Mots de passe"],["IoT / Firmware / Hardware","🔌",229,"IoT / Firmware / Matériel"],["Malware Analysis","🧬",208,"Analyse de malware"],["Active Directory","🏰",203,"Active Directory"],["Exploit Framework","💥",199,"Framework d'exploit"],["API Security","🔗",168,"Sécurité API"],["Binary Exploitation / CTF","🧨",148,"Exploitation binaire / CTF"],["Mobile Security","📱",130,"Sécurité mobile"],["Wireless Attack","📡",127,"Attaque sans-fil"],["Privilege Escalation","⏫",125,"Élévation de privilèges"],["Threat Intelligence","🔭",114,"Threat Intelligence"],["Payload Creation","🎯",105,"Création de payloads"],["Vulnerability Scanning","🩻",90,"Scan de vulnérabilités"],["Fuzzing","🐝",75,"Fuzzing"],["Phishing","🎣",60,"Phishing"],["Physical / RFID / Badge","🚪",57,"Physique / RFID / Badge"],["Steganography","🖼️",55,"Stéganographie"],["Post-Exploitation / C2","🎛️",49,"Post-exploitation / C2"],["Automotive / CAN","🚗",49,"Automobile / CAN"],["Social Engineering","🎭",46,"Ingénierie sociale"],["DDoS / Stress Test","💣",44,"DDoS / Stress test"],["Radio / SDR / RF","📻",42,"Radio / SDR / RF"],["Blockchain / Web3","⛓️",41,"Blockchain / Web3"],["Container / Kubernetes","📦",37,"Conteneurs / Kubernetes"],["Cloud Security","☁️",32,"Sécurité cloud"],["DevSecOps / SAST-DAST","♻️",28,"DevSecOps / SAST-DAST"],["SQL Injection","💉",21,"Injection SQL"],["VoIP Security","☎️",18,"Sécurité VoIP"],["XSS Attack","🩹",14,"Attaque XSS"],["Anonymity / Hiding","🥷",13,"Anonymat"],["Remote Admin (RAT)","🖥️",11,"Admin distant (RAT)"],["Satellite / GNSS / Space","🛰️",9,"Satellite / GNSS"],["AI / ML Security","🤖",9,"Sécurité IA / ML"],["ICS / SCADA / OT","🏭",8,"ICS / SCADA / OT"]];
+
+  /* Legendary tools: [name, emoji, tag, cmd, en_desc, fr_desc] */
+  var LEGENDS=[
+    ["Nmap","🛰️","Recon","iw7x nmap","The network mapper — host discovery, port &amp; service scanning.","Le cartographe réseau — découverte d'hôtes, scan de ports &amp; services."],
+    ["Metasploit","💥","Exploit","iw7x metasploit","The exploitation framework for developing and running exploits.","Le framework d'exploitation pour développer et lancer des exploits."],
+    ["BloodHound","🏰","AD","iw7x bloodhound","Map Active Directory attack paths as a graph.","Cartographie les chemins d'attaque Active Directory sous forme de graphe."],
+    ["SQLmap","💉","Web","iw7x sqlmap","Automatic SQL injection detection and exploitation.","Détection et exploitation automatiques d'injections SQL."],
+    ["Nuclei","🩻","Scanner","iw7x nuclei","Fast, template-based vulnerability scanner.","Scanner de vulnérabilités rapide, basé sur des templates."],
+    ["ffuf","🐝","Fuzzing","iw7x ffuf","Blazing-fast web fuzzer for content &amp; parameter discovery.","Fuzzer web ultra-rapide pour découvrir contenus &amp; paramètres."],
+    ["Hashcat","🔑","Cracking","iw7x hashcat","The world's fastest password recovery / hash cracker.","Le casseur de hash le plus rapide du monde."],
+    ["Burp Suite","🌐","Web","iw7x burp suite","The industry-standard web application proxy &amp; scanner.","Le proxy &amp; scanner d'applications web de référence."],
+    ["Wireshark","📶","Network","iw7x wireshark","Deep packet inspection and network protocol analysis.","Inspection de paquets et analyse de protocoles réseau."],
+    ["Ghidra","🧠","RE","iw7x ghidra","NSA's software reverse-engineering suite.","La suite de rétro-ingénierie logicielle de la NSA."],
+    ["Impacket","🎛️","AD","iw7x impacket","Python classes for crafting &amp; abusing network protocols.","Classes Python pour forger &amp; abuser des protocoles réseau."],
+    ["Aircrack-ng","📡","Wireless","iw7x aircrack-ng","Complete suite to assess Wi-Fi network security.","Suite complète pour évaluer la sécurité des réseaux Wi-Fi."]
+  ];
+
+  /* Cheatsheet: [cmd, en, fr] */
+  var CHEATS=[
+    ["iw7x","open the interactive menu","ouvrir le menu interactif"],
+    ["iw7x nmap","install (if needed) and run a tool","installer (si besoin) et lancer un outil"],
+    ["iw7x search ad","search the whole catalog","chercher dans tout le catalogue"],
+    ["iw7x list","list every category","lister toutes les catégories"],
+    ["iw7x install nuclei","install a tool by name","installer un outil par son nom"],
+    ["iw7x --update","fetch every tool from online sources","récupérer tous les outils en ligne"],
+    ["iw7x --watch","keep scanning for new tools","scanner en continu de nouveaux outils"],
+    ["iw7x --help","show the full CLI help","afficher l'aide complète du CLI"]
+  ];
+
+  var lang="en";
+  function applyLang(l){
+    lang=(l==="fr")?"fr":"en";
+    document.documentElement.setAttribute("lang",lang);
+    document.documentElement.setAttribute("data-lang",lang);
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k=el.getAttribute("data-i18n"); if(TXT[k]) el.innerHTML=TXT[k][lang];
+    });
+    document.querySelectorAll(".lang button").forEach(function(b){
+      b.classList.toggle("on", b.getAttribute("data-set-lang")===lang);
+    });
+    renderCats(); renderLegends(); renderCheats();
+    try{localStorage.setItem("iw7x-lang",lang);}catch(e){}
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){
+    b.addEventListener("click",function(){applyLang(b.getAttribute("data-set-lang"));});
+  });
+
+  /* Renderers */
   var g=document.getElementById("catGrid");
-  g.innerHTML=CATS.map(function(c){return '<div class="cat"><span class="ce">'+c[1]+'</span><span class="ct">'+c[0]+'</span><span class="cn">'+c[2].toLocaleString()+'</span></div>'}).join("");
+  function renderCats(){
+    g.innerHTML=CATS.map(function(c){
+      var name=(lang==="fr")?c[3]:c[0];
+      return '<div class="cat"><span class="ce">'+c[1]+'</span><span class="ct">'+name+'</span><span class="cn">'+c[2].toLocaleString()+'</span></div>';
+    }).join("");
+  }
+  var lg=document.getElementById("legendGrid");
+  function renderLegends(){
+    lg.innerHTML=LEGENDS.map(function(t){
+      var d=(lang==="fr")?t[5]:t[4];
+      return '<div class="legend reveal in"><div class="lh"><span class="le">'+t[1]+'</span><span class="ln">'+t[0]+'</span><span class="lt">'+t[2]+'</span></div><p>'+d+'</p><code>'+t[3]+'</code></div>';
+    }).join("");
+  }
+  var cg=document.getElementById("cheatGrid");
+  function renderCheats(){
+    cg.innerHTML=CHEATS.map(function(c){
+      var d=(lang==="fr")?c[2]:c[1];
+      return '<div class="row"><span class="cmd">'+c[0]+'</span><span class="desc">'+d+'</span></div>';
+    }).join("");
+  }
 
-  // Tool marquee
+  /* Tool marquee */
   var TOOLS=["Nmap","Masscan","theHarvester","Amass","SpiderFoot","Sherlock","Nuclei","Burp Suite","OWASP ZAP","SQLmap","ffuf","Gobuster","Aircrack-ng","Bettercap","Wifite","Hashcat","John the Ripper","Hydra","Metasploit","Sliver","Havoc","Empire","BloodHound","Impacket","NetExec","Responder","Certipy","Ghidra","radare2","Frida","jadx","Volatility","Autopsy","binwalk","YARA","Prowler","Pacu","MobSF","Wireshark","evilginx","MISP","LinPEAS"];
-  var line=TOOLS.map(function(t){return '<span>▹ <b>'+t+'</b></span>'}).join("");
-  document.getElementById("mq").innerHTML=line+line;
+  document.getElementById("mq").innerHTML=(function(){var l=TOOLS.map(function(t){return '<span>▹ <b>'+t+'</b></span>'}).join("");return l+l;})();
 
-  // Count-up + reveal on view
+  /* Count-up + reveal on view */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;
     e.target.classList.add("in");
@@ -454,10 +726,18 @@ python3 neoz.py
   })},{threshold:.3});
   document.querySelectorAll(".reveal,.stat").forEach(function(el){io.observe(el)});
 
-  // Copy button
-  document.querySelectorAll(".copy").forEach(function(b){b.addEventListener("click",function(){
-    navigator.clipboard.writeText(b.dataset.copy).then(function(){var o=b.textContent;b.textContent="copied ✓";setTimeout(function(){b.textContent=o},1600)})
-  })});
+  /* Copy button */
+  document.addEventListener("click",function(ev){
+    var b=ev.target.closest(".copy"); if(!b)return;
+    navigator.clipboard.writeText(b.dataset.copy).then(function(){var o=b.textContent;b.textContent=(lang==="fr")?"copié ✓":"copied ✓";setTimeout(function(){b.textContent=o},1600)});
+  });
+
+  /* Init: detect saved / browser language */
+  (function(){
+    var saved=null; try{saved=localStorage.getItem("iw7x-lang");}catch(e){}
+    var l=saved||((navigator.language||"en").toLowerCase().indexOf("fr")===0?"fr":"en");
+    applyLang(l);
+  })();
 </script>
 </body>
 </html>

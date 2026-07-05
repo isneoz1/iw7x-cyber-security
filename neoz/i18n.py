@@ -69,9 +69,16 @@ _EN: dict[str, str] = {
     "archived_title": "Archived Tools — {title}",
     "no_archived": "No archived tools here.",
 
+    # kali status (shown in the header)
+    "kali_banner": "BUILT FOR KALI LINUX",
+    "kali_detected": "KALI LINUX DETECTED — READY TO INSTALL & LAUNCH",
+    "kali_wsl": "KALI ON WSL DETECTED — READY TO INSTALL & LAUNCH",
+    "kali_other_linux": "{distro} DETECTED — apt/pacman auto-adapted, best on Kali",
+    "kali_browse_only": "NOT ON KALI — BROWSE ONLY (boot Kali to install & run)",
+
     # main menu
     "choose_category": "Choose a Category",
-    "authorized_only": "For authorized security testing only",
+    "authorized_only": "For authorized security testing only · Built for Kali Linux",
     "goodbye": "  See you soon — stay ethical  ",
     "h_search": "search",
     "h_tags": "tags",

@@ -123,6 +123,11 @@ _AWESOME_URLS = [
     ("https://raw.githubusercontent.com/arainho/awesome-api-security/master/README.md", "api"),
     ("https://raw.githubusercontent.com/guardrailsio/awesome-python-security/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/trimstray/the-book-of-secret-knowledge/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/Astrosp/Awesome-OSINT-For-Everything/main/README.md", "recon"),
+    ("https://raw.githubusercontent.com/toniblyx/my-arsenal-of-aws-security-tools/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/fabionoth/awesome-cyber-security/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/meitar/awesome-lockpicking/master/README.md", "physical"),
+    ("https://raw.githubusercontent.com/sundowndev/hacker-roadmap/master/README.md", "misc"),
 ]
 
 # Map an "awesome list" section heading -> a group keyword (fed to _GROUP_MAP).
