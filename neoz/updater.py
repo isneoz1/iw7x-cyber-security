@@ -38,7 +38,7 @@ _GROUP_MAP = {
     "webapp": "web_attack", "scanner": "information_gathering", "recon": "osint",
     "exploitation": "exploit_framework", "cracker": "wordlist_generator", "windows": "active_directory",
     "networking": "network_sniffing", "misc": "other_tools", "forensic": "forensics",
-    "automation": "other_tools", "fuzzer": "fuzzing", "crypto": "reverse_engineering",
+    "automation": "other_tools", "fuzzer": "fuzzing", "crypto": "cryptography",
     "wireless": "wireless_attack", "binary": "reverse_engineering", "social": "social_engineering",
     "backdoor": "payload_creation", "mobile": "mobile_security", "defensive": "blue_team",
     "sniffer": "network_sniffing", "reversing": "reverse_engineering", "malware": "malware_analysis",
@@ -52,6 +52,9 @@ _GROUP_MAP = {
     "keylogger": "payload_creation", "anti-forensic": "forensics", "packer": "reverse_engineering",
     "nfc": "iot_hardware", "ids": "blue_team", "threat-model": "forensics",
     "web3": "blockchain_web3", "smartcontract": "blockchain_web3",
+    "api": "api_security", "privesc": "privilege_escalation",
+    "threatintel": "threat_intel", "physical": "physical_security",
+    "devsecops": "devsecops",
 }
 
 _GROUP_TAG = {
@@ -104,7 +107,7 @@ _AWESOME_URLS = [
     # ── Extended coverage (probed for clean, on-topic yield) ────────────────────
     ("https://raw.githubusercontent.com/cipher387/osint_stuff_tool_collection/main/README.md", "recon"),
     ("https://raw.githubusercontent.com/pluja/awesome-privacy/main/README.md", "misc"),
-    ("https://raw.githubusercontent.com/m0nad/awesome-privilege-escalation/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/m0nad/awesome-privilege-escalation/master/README.md", "privesc"),
     ("https://raw.githubusercontent.com/joe-shenouda/awesome-cyber-skills/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/4ndersonLin/awesome-cloud-security/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/remiflavien1/awesome-anti-forensic/master/README.md", "forensic"),
@@ -116,6 +119,10 @@ _AWESOME_URLS = [
     ("https://raw.githubusercontent.com/magnologan/awesome-k8s-security/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/vaib25vicky/awesome-mobile-security/master/README.md", "mobile"),
     ("https://raw.githubusercontent.com/nebgnahz/awesome-iot-hacks/master/README.md", "hardware"),
+    ("https://raw.githubusercontent.com/sobolevn/awesome-cryptography/master/README.md", "crypto"),
+    ("https://raw.githubusercontent.com/arainho/awesome-api-security/master/README.md", "api"),
+    ("https://raw.githubusercontent.com/guardrailsio/awesome-python-security/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/trimstray/the-book-of-secret-knowledge/master/README.md", "misc"),
 ]
 
 # Map an "awesome list" section heading -> a group keyword (fed to _GROUP_MAP).
@@ -139,6 +146,12 @@ def _section_to_group(section: str) -> str:
         ("cloud", "misc"), ("hardware", "hardware"), ("firmware", "firmware"),
         ("radio", "radio"), ("sdr", "radio"), ("smartcard", "nfc"),
         ("c2", "backdoor"), ("post", "backdoor"), ("payload", "backdoor"),
+        ("api ", "api"), ("graphql", "api"), ("rest api", "api"), ("swagger", "api"),
+        ("privilege", "privesc"), ("privesc", "privesc"), ("escalation", "privesc"),
+        ("threat intel", "threatintel"), ("threat-intel", "threatintel"), ("misp", "threatintel"),
+        ("indicator", "threatintel"), ("threat hunt", "threatintel"),
+        ("rfid", "physical"), ("nfc", "physical"), ("physical", "physical"), ("lockpick", "physical"),
+        ("sast", "devsecops"), ("dast", "devsecops"), ("devsecops", "devsecops"),
     ):
         if kw in s:
             return group

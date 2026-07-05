@@ -14,7 +14,7 @@
 [![Licence](https://img.shields.io/badge/Licence-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
 [![Outils](https://img.shields.io/badge/Outils-10%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
-[![Catégories](https://img.shields.io/badge/Cat%C3%A9gories-38-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-larsenal)
+[![Catégories](https://img.shields.io/badge/Cat%C3%A9gories-44-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-larsenal)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Pr%C3%AAt-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
 
@@ -30,7 +30,7 @@
      ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
      ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝
       A R S E N A L   C Y B E R S É C U R I T É
-       10068 OUTILS · 38 CATÉGORIES · PAR NeoZ
+       10506 OUTILS · 44 CATÉGORIES · PAR NeoZ
 ```
 
 > ⚠️ **Réservé aux tests de sécurité autorisés et à l'éducation.** Lisez la section [Cadre légal & éthique](#-cadre-légal--éthique) avant de commencer.
@@ -117,29 +117,32 @@ python3 neoz.py --help            # aide complète
 
 ## 🗂️ L'Arsenal
 
-**38 catégories · 10 068 outils** — et ça grandit tout seul à chaque `--update`.
+**44 catégories · 10 506 outils** — et ça grandit tout seul à chaque `--update`.
 
 | Catégorie | Outils | Catégorie | Outils |
 |---|:--:|---|:--:|
-| 🧰 Autres outils / OSINT | 1576 | 🧬 Analyse de malware | 201 |
-| 🌐 Web Attack | 1498 | 🧨 Binary Exploitation / CTF | 149 |
-| 🔍 Information Gathering | 1342 | 📱 Sécurité mobile | 131 |
-| 🕵️ OSINT & Recon | 1297 | 📡 Attaques Wireless | 127 |
-| 🔬 Forensic / DFIR | 700 | 🎯 Création de payloads | 105 |
-| 🧠 Reverse Engineering | 509 | 🩻 Scan de vulnérabilités | 93 |
-| 🛡️ Blue Team / Défense | 474 | 🐝 Fuzzing | 75 |
-| 📶 Sniffing & MITM réseau | 369 | 🎛️ Post‑Exploitation / C2 | 68 |
-| 🔌 IoT / Firmware / Hardware | 234 | 🎣 Phishing | 61 |
-| 🏰 Active Directory | 214 | 🖼️ Stéganographie | 55 |
-| 🔑 Wordlists / Mots de passe | 210 | 🚗 Automobile / CAN | 50 |
-| 💥 Frameworks d'exploit | 204 | 🎭 Ingénierie sociale | 46 |
-| 💣 DDoS / Stress Test | 44 | 📻 Radio / SDR / RF | 31 |
-| 📦 Container / Kubernetes | 38 | ⛓️ Blockchain / Web3 | 26 |
-| ☁️ Sécurité Cloud | 36 | 💉 Injection SQL | 21 |
-| ☎️ Sécurité VoIP | 18 | 🩹 Attaques XSS | 14 |
-| 🥷 Anonymat / Dissimulation | 13 | 🖥️ Remote Admin (RAT) | 11 |
-| 🤖 Sécurité IA / ML | 9 | 🛰️ Satellite / GNSS / Spatial | 9 |
-| 🏭 ICS / SCADA / OT | 8 | 🔁 Mise à jour / Désinstall. | — |
+| 🧰 Autres outils / OSINT | 1512 | 🐝 Fuzzing | 75 |
+| 🌐 Web Attack | 1511 | 🎣 Phishing | 60 |
+| 🔍 Information Gathering | 1310 | 🖼️ Stéganographie | 55 |
+| 🕵️ OSINT / Recon | 1282 | 🎛️ Post‑Exploitation / C2 | 49 |
+| 🔬 Forensic / DFIR | 689 | 🚗 Automobile / CAN | 49 |
+| 🧠 Reverse Engineering | 504 | 🎭 Ingénierie sociale | 46 |
+| 🛡️ Blue Team / Défense | 408 | 💣 DDoS / Stress Test | 44 |
+| 📶 Sniffing & MITM réseau | 369 | 📦 Container / Kubernetes | 37 |
+| 🔌 IoT / Firmware / Hardware | 229 | ☁️ Sécurité Cloud | 32 |
+| 🔐 Cryptographie / Chiffrement | 225 | 📻 Radio / SDR / RF | 31 |
+| 🔑 Wordlists / Mots de passe | 213 | ♻️ DevSecOps / SAST‑DAST | 28 |
+| 🏰 Active Directory | 203 | ⛓️ Blockchain / Web3 | 26 |
+| 🧬 Analyse de malware | 199 | 💉 Injection SQL | 21 |
+| 💥 Frameworks d'exploit | 198 | ☎️ Sécurité VoIP | 18 |
+| 🔗 Sécurité API | 167 | 🩹 Attaques XSS | 14 |
+| 🧨 Binary Exploitation / CTF | 148 | 🥷 Anonymat / Dissimulation | 13 |
+| 📱 Sécurité mobile | 130 | 🚪 Sécurité physique / RFID | 13 |
+| 📡 Attaques Wireless | 125 | 🖥️ Remote Admin (RAT) | 11 |
+| ⏫ Élévation de privilèges | 125 | 🛰️ Satellite / GNSS / Spatial | 9 |
+| 🔭 Renseignement / Threat Intel | 114 | 🤖 Sécurité IA / ML | 9 |
+| 🎯 Création de payloads | 105 | 🏭 ICS / SCADA / OT | 8 |
+| 🩻 Scan de vulnérabilités | 90 | 🔁 Mise à jour / Désinstall. | — |
 
 ---
 

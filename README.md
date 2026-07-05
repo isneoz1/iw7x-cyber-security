@@ -14,7 +14,7 @@
 [![License](https://img.shields.io/badge/License-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
 [![Tools](https://img.shields.io/badge/Tools-10%2C000%2B-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
-[![Categories](https://img.shields.io/badge/Categories-38-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-the-arsenal)
+[![Categories](https://img.shields.io/badge/Categories-44-9652FF?style=for-the-badge&labelColor=1a1a2e)](#-the-arsenal)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-FFD15C?style=for-the-badge&labelColor=1a1a2e)](CONTRIBUTING.md)
@@ -31,7 +31,7 @@
      ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
      ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝
       C Y B E R S E C U R I T Y   A R S E N A L
-       10068 TOOLS · 38 CATEGORIES · BY NeoZ
+       10506 TOOLS · 44 CATEGORIES · BY NeoZ
 ```
 
 > ⚠️ **For authorized security testing and education only.** See the [Legal & Ethical Use](#-legal--ethical-use) section before you begin.
@@ -129,29 +129,32 @@ python3 neoz.py --help            # full CLI help
 
 ## 🗂️ The Arsenal
 
-**38 categories · 10,068 tools** — and growing automatically with every `--update`.
+**44 categories · 10,506 tools** — and growing automatically with every `--update`.
 
 | Category | Tools | Category | Tools |
 |---|:--:|---|:--:|
-| 🧰 Other Tools / OSINT | 1576 | 🧬 Malware Analysis | 201 |
-| 🌐 Web Attack | 1498 | 🧨 Binary Exploitation / CTF | 149 |
-| 🔍 Information Gathering | 1342 | 📱 Mobile Security | 131 |
-| 🕵️ OSINT & Recon | 1297 | 📡 Wireless Attack | 127 |
-| 🔬 Forensics / DFIR | 700 | 🎯 Payload Creation | 105 |
-| 🧠 Reverse Engineering | 509 | 🩻 Vulnerability Scanning | 93 |
-| 🛡️ Blue Team / Defense | 474 | 🐝 Fuzzing | 75 |
-| 📶 Sniffing & Network MITM | 369 | 🎛️ Post‑Exploitation / C2 | 68 |
-| 🔌 IoT / Firmware / Hardware | 234 | 🎣 Phishing | 61 |
-| 🏰 Active Directory | 214 | 🖼️ Steganography | 55 |
-| 🔑 Wordlist / Password | 210 | 🚗 Automotive / CAN | 50 |
-| 💥 Exploit Framework | 204 | 🎭 Social Engineering | 46 |
-| 💣 DDoS / Stress Test | 44 | 📻 Radio / SDR / RF | 31 |
-| 📦 Container / Kubernetes | 38 | ⛓️ Blockchain / Web3 | 26 |
-| ☁️ Cloud Security | 36 | 💉 SQL Injection | 21 |
-| ☎️ VoIP Security | 18 | 🩹 XSS Attack | 14 |
-| 🥷 Anonymity / Hiding | 13 | 🖥️ Remote Admin (RAT) | 11 |
-| 🤖 AI / ML Security | 9 | 🛰️ Satellite / GNSS / Space | 9 |
-| 🏭 ICS / SCADA / OT | 8 | 🔁 Update / Uninstall | — |
+| 🧰 Other Tools / OSINT | 1512 | 🐝 Fuzzing | 75 |
+| 🌐 Web Attack | 1511 | 🎣 Phishing | 60 |
+| 🔍 Information Gathering | 1310 | 🖼️ Steganography | 55 |
+| 🕵️ OSINT / Recon | 1282 | 🎛️ Post‑Exploitation / C2 | 49 |
+| 🔬 Forensics / DFIR | 689 | 🚗 Automotive / CAN | 49 |
+| 🧠 Reverse Engineering | 504 | 🎭 Social Engineering | 46 |
+| 🛡️ Blue Team / Defense | 408 | 💣 DDoS / Stress Test | 44 |
+| 📶 Sniffing & Network MITM | 369 | 📦 Container / Kubernetes | 37 |
+| 🔌 IoT / Firmware / Hardware | 229 | ☁️ Cloud Security | 32 |
+| 🔐 Cryptography / Encryption | 225 | 📻 Radio / SDR / RF | 31 |
+| 🔑 Wordlist / Password | 213 | ♻️ DevSecOps / SAST‑DAST | 28 |
+| 🏰 Active Directory | 203 | ⛓️ Blockchain / Web3 | 26 |
+| 🧬 Malware Analysis | 199 | 💉 SQL Injection | 21 |
+| 💥 Exploit Framework | 198 | ☎️ VoIP Security | 18 |
+| 🔗 API Security | 167 | 🩹 XSS Attack | 14 |
+| 🧨 Binary Exploitation / CTF | 148 | 🥷 Anonymity / Hiding | 13 |
+| 📱 Mobile Security | 130 | 🚪 Physical / RFID / Badge | 13 |
+| 📡 Wireless Attack | 125 | 🖥️ Remote Admin (RAT) | 11 |
+| ⏫ Privilege Escalation | 125 | 🛰️ Satellite / GNSS / Space | 9 |
+| 🔭 Threat Intelligence | 114 | 🤖 AI / ML Security | 9 |
+| 🎯 Payload Creation | 105 | 🏭 ICS / SCADA / OT | 8 |
+| 🩻 Vulnerability Scanning | 90 | 🔁 Update / Uninstall | — |
 
 <details>
 <summary><b>A taste of what's inside</b></summary>
