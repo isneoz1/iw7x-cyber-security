@@ -20,18 +20,11 @@
 
 **🌍 [English](README.md) · [Français](README.fr.md)**
 
-</div>
+<br/>
 
-```text
-     ██╗ ██╗    ██╗ ███████╗ ██╗  ██╗
-     ██║ ██║    ██║ ╚════██║ ╚██╗██╔╝
-     ██║ ██║ █╗ ██║     ██╔╝  ╚███╔╝
-     ██║ ██║███╗██║    ██╔╝   ██╔██╗
-     ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
-     ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝
-      A R S E N A L   C Y B E R S É C U R I T É
-       10506 OUTILS · 44 CATÉGORIES · PAR NeoZ
-```
+<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 10 506 outils dans 44 catégories, par NeoZ" width="820">
+
+</div>
 
 > ⚠️ **Réservé aux tests de sécurité autorisés et à l'éducation.** Lisez la section [Cadre légal & éthique](#-cadre-légal--éthique) avant de commencer.
 
