@@ -261,6 +261,27 @@
   .faq p{color:var(--muted);padding:0 0 18px;font-size:.97rem}
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
+  /* KALI INSTALL METHODS */
+  .methods{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:760px){.methods{grid-template-columns:1fr}}
+  .method{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .2s,border-color .2s,box-shadow .3s}
+  .method:hover{transform:translateY(-4px);border-color:rgba(142,208,255,.55);box-shadow:0 18px 44px -26px rgba(142,208,255,.5)}
+  .method .mh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .method .me{font-size:1.5rem}
+  .method h3{font-size:1.12rem;font-weight:750}
+  .method .tag{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--dragon);border:1px solid rgba(142,208,255,.35);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  .method p{color:var(--muted);font-size:.93rem;margin-bottom:11px}
+  .method pre{background:#0b0b16;border:1px solid var(--line);border-radius:9px;padding:11px 13px;font-family:var(--mono);font-size:.78rem;color:var(--cyan);overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin-bottom:11px}
+  .method a.mlink{color:var(--dragon);font-weight:600;font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+  .method a.mlink:hover{color:var(--cyan)}
+  /* CREATOR NOTE */
+  .creator{background:linear-gradient(120deg,rgba(255,71,179,.06),rgba(72,220,255,.05));
+    border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:16px;padding:38px 42px;max-width:920px;margin:0 auto}
+  @media(max-width:620px){.creator{padding:28px 24px}}
+  .creator .q{font-size:clamp(1.08rem,2.1vw,1.4rem);line-height:1.55;color:var(--text);font-weight:500;margin-top:10px}
+  .creator .q b{color:var(--cyan);font-weight:700}
+  .creator .sig{margin-top:20px;font-family:var(--mono);color:var(--muted);font-size:.95rem}
+  .creator .sig b{color:var(--pink)}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -271,6 +292,7 @@
     <div class="brand">iw<b class="grad">7x</b></div>
     <div class="navlinks">
       <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#getkali" data-i18n="nav.install">Install Kali</a>
       <a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
       <a href="#compare" data-i18n="nav.compare">Compare</a>
       <a href="#faq">FAQ</a>
@@ -405,10 +427,45 @@
   </div>
 </section>
 
+<section id="getkali">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="gk.eyebrow">Step 1 · Get Kali Linux</div>
+      <h2 data-i18n="gk.title">New to Kali? Pick a way in.</h2>
+      <p data-i18n="gk.sub">iw7x runs its tools on Kali Linux. All four methods below are free and official — choose whichever fits your setup, then install iw7x underneath.</p>
+    </div>
+    <div class="methods">
+      <div class="method reveal">
+        <div class="mh"><span class="me">🖥️</span><h3 data-i18n="gk.m1t">Virtual Machine</h3><span class="tag" data-i18n="gk.easiest">easiest</span></div>
+        <p data-i18n="gk.m1d">Run Kali safely inside your current OS — no dual-boot. Install VirtualBox, import Kali's prebuilt VM image, boot (login kali / kali), then update once:</p>
+        <pre>sudo apt update &amp;&amp; sudo apt -y full-upgrade</pre>
+        <a class="mlink" href="https://www.kali.org/get-kali/#kali-virtual-machines" target="_blank" rel="noopener" data-i18n="gk.m1l">Download the Kali VM →</a>
+      </div>
+      <div class="method reveal">
+        <div class="mh"><span class="me">🪟</span><h3 data-i18n="gk.m2t">Windows, no VM (WSL2)</h3><span class="tag" data-i18n="gk.novm">no VM</span></div>
+        <p data-i18n="gk.m2d">Run Kali as a Windows app. In an admin PowerShell, then launch Kali from the Start menu:</p>
+        <pre>wsl --install
+wsl --install -d kali-linux</pre>
+        <a class="mlink" href="https://www.kali.org/docs/wsl/" target="_blank" rel="noopener" data-i18n="gk.m2l">Kali on WSL guide →</a>
+      </div>
+      <div class="method reveal">
+        <div class="mh"><span class="me">💾</span><h3 data-i18n="gk.m3t">Bare metal / dual boot</h3><span class="tag" data-i18n="gk.fastest">fastest</span></div>
+        <p data-i18n="gk.m3d">Best performance. Flash the Kali installer ISO to an 8 GB+ USB with balenaEtcher or Rufus, boot from it (F12 / Esc at startup), and run the graphical installer — you can install alongside your current OS.</p>
+        <a class="mlink" href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank" rel="noopener" data-i18n="gk.m3l">Download the installer ISO →</a>
+      </div>
+      <div class="method reveal">
+        <div class="mh"><span class="me">🔌</span><h3 data-i18n="gk.m4t">Live USB</h3><span class="tag" data-i18n="gk.trial">try it</span></div>
+        <p data-i18n="gk.m4d">Want to test first? Flash the Kali Live image, boot from the USB and choose Live — everything runs from RAM, nothing touches your disk.</p>
+        <a class="mlink" href="https://www.kali.org/get-kali/#kali-live" target="_blank" rel="noopener" data-i18n="gk.m4l">Download Kali Live →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="start" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
   <div class="wrap qs">
     <div>
-      <div class="eyebrow" data-i18n="qs.eyebrow">Quickstart</div>
+      <div class="eyebrow" data-i18n="qs.eyebrow">Step 2 · Install iw7x</div>
       <div class="code reveal">
         <button class="copy" data-copy="git clone https://github.com/isneoz1/iw7x-cyber-security.git && cd iw7x-cyber-security && chmod +x install.sh && ./install.sh && python3 neoz.py">copy</button>
 <span class="cm" data-i18n="qs.step1"># 1 · clone (on Kali Linux)</span>
@@ -501,7 +558,17 @@ python3 neoz.py
   </div>
 </section>
 
-<section id="cta" style="padding-top:0">
+<section id="creator" style="padding-top:0">
+  <div class="wrap">
+    <div class="creator reveal">
+      <div class="eyebrow" data-i18n="cr.eyebrow">Why I built this</div>
+      <p class="q" data-i18n="cr.body">I got tired of losing whole evenings to setup instead of hacking — cloning repos, chasing dependencies, re-reading a README for one install flag. So I built the thing I wished existed: <b>one terminal that already knows every tool, installs it the right way for Kali, and launches it for you.</b> iw7x is a passion project. I keep it free and open source, and it grows every week.</p>
+      <div class="sig">— <b>NeoZ</b>, <span data-i18n="cr.sig">creator of iw7x</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" style="padding-top:40px">
   <div class="wrap">
     <div class="final reveal">
       <div class="eyebrow" data-i18n="final.eyebrow">Open source · MIT · Free forever</div>
@@ -532,6 +599,29 @@ python3 neoz.py
 <script>
   /* ─────────── i18n ─────────── */
   var TXT={
+    "nav.install":{en:"Install Kali",fr:"Installer Kali"},
+    "gk.eyebrow":{en:"Step 1 · Get Kali Linux",fr:"Étape 1 · Installer Kali Linux"},
+    "gk.title":{en:"New to Kali? Pick a way in.",fr:"Nouveau sur Kali ? Choisissez votre méthode."},
+    "gk.sub":{en:"iw7x runs its tools on Kali Linux. All four methods below are free and official — choose whichever fits your setup, then install iw7x underneath.",fr:"iw7x exécute ses outils sur Kali Linux. Les quatre méthodes ci-dessous sont gratuites et officielles — choisissez celle qui vous convient, puis installez iw7x par-dessus."},
+    "gk.easiest":{en:"easiest",fr:"le + simple"},
+    "gk.novm":{en:"no VM",fr:"sans VM"},
+    "gk.fastest":{en:"fastest",fr:"le + rapide"},
+    "gk.trial":{en:"try it",fr:"à l'essai"},
+    "gk.m1t":{en:"Virtual Machine",fr:"Machine virtuelle"},
+    "gk.m1d":{en:"Run Kali safely inside your current OS — no dual-boot. Install VirtualBox, import Kali's prebuilt VM image, boot (login kali / kali), then update once:",fr:"Faites tourner Kali en sécurité dans votre OS actuel — sans dual-boot. Installez VirtualBox, importez l'image VM prête de Kali, démarrez (identifiants kali / kali), puis mettez à jour :"},
+    "gk.m1l":{en:"Download the Kali VM →",fr:"Télécharger la VM Kali →"},
+    "gk.m2t":{en:"Windows, no VM (WSL2)",fr:"Windows, sans VM (WSL2)"},
+    "gk.m2d":{en:"Run Kali as a Windows app. In an admin PowerShell, then launch Kali from the Start menu:",fr:"Faites tourner Kali comme une appli Windows. Dans un PowerShell admin, puis lancez Kali depuis le menu Démarrer :"},
+    "gk.m2l":{en:"Kali on WSL guide →",fr:"Guide Kali sur WSL →"},
+    "gk.m3t":{en:"Bare metal / dual boot",fr:"Natif / dual boot"},
+    "gk.m3d":{en:"Best performance. Flash the Kali installer ISO to an 8 GB+ USB with balenaEtcher or Rufus, boot from it (F12 / Esc at startup), and run the graphical installer — you can install alongside your current OS.",fr:"Meilleures performances. Flashez l'ISO d'installation Kali sur une clé USB de 8 Go+ avec balenaEtcher ou Rufus, démarrez dessus (F12 / Échap au démarrage), et lancez l'installeur graphique — installable à côté de votre OS actuel."},
+    "gk.m3l":{en:"Download the installer ISO →",fr:"Télécharger l'ISO d'installation →"},
+    "gk.m4t":{en:"Live USB",fr:"Live USB"},
+    "gk.m4d":{en:"Want to test first? Flash the Kali Live image, boot from the USB and choose Live — everything runs from RAM, nothing touches your disk.",fr:"Envie de tester d'abord ? Flashez l'image Kali Live, démarrez sur la clé et choisissez Live — tout tourne en RAM, rien ne touche votre disque."},
+    "gk.m4l":{en:"Download Kali Live →",fr:"Télécharger Kali Live →"},
+    "cr.eyebrow":{en:"Why I built this",fr:"Pourquoi j'ai créé ça"},
+    "cr.body":{en:"I got tired of losing whole evenings to setup instead of hacking — cloning repos, chasing dependencies, re-reading a README for one install flag. So I built the thing I wished existed: <b>one terminal that already knows every tool, installs it the right way for Kali, and launches it for you.</b> iw7x is a passion project. I keep it free and open source, and it grows every week.",fr:"J'en avais assez de perdre des soirées entières à installer au lieu de hacker — cloner des dépôts, réparer des dépendances, relire un README pour une seule option. Alors j'ai créé ce que j'aurais voulu avoir : <b>un terminal qui connaît déjà tous les outils, les installe correctement pour Kali, et les lance pour vous.</b> iw7x est un projet de passion. Je le garde gratuit et open source, et il grandit chaque semaine."},
+    "cr.sig":{en:"creator of iw7x",fr:"créateur d'iw7x"},
     "nav.features":{en:"Features",fr:"Fonctions"},
     "nav.arsenal":{en:"Arsenal",fr:"Arsenal"},
     "nav.compare":{en:"Compare",fr:"Comparer"},
@@ -582,7 +672,7 @@ python3 neoz.py
     "ars.eyebrow":{en:"The arsenal",fr:"L'arsenal"},
     "ars.title":{en:"50 categories. 12,139 tools.<br>And counting.",fr:"50 catégories. 12 139 outils.<br>Et ça continue."},
     "ars.sub":{en:"Every domain of offensive and defensive security, in one place — each tool one keystroke from installed.",fr:"Chaque domaine de la sécurité offensive et défensive, au même endroit — chaque outil à une touche d'être installé."},
-    "qs.eyebrow":{en:"Quickstart",fr:"Démarrage"},
+    "qs.eyebrow":{en:"Step 2 · Install iw7x",fr:"Étape 2 · Installer iw7x"},
     "qs.step1":{en:"# 1 · clone (on Kali Linux)",fr:"# 1 · cloner (sur Kali Linux)"},
     "qs.step2":{en:"# 2 · install deps (git, python, pipx, go…)",fr:"# 2 · installer les dépendances (git, python, pipx, go…)"},
     "qs.step3":{en:"# 3 · launch the arsenal",fr:"# 3 · lancer l'arsenal"},

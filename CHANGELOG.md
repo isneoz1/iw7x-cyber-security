@@ -3,7 +3,7 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
-## [1.10.0] — 2026-07-06
+## [2.0.0] — 2026-07-06
 
 ### Added
 - **7 new categories**: Honeypots / Deception, CTF / Wargames, Game Hacking,
@@ -81,7 +81,7 @@ All notable changes to **iw7x** are documented here. Format loosely follows
 - Interactive `rich` TUI with gradient banner, search, tag filters and a task advisor.
 - Shell CLI: `iw7x <tool>` installs (if needed) and runs any tool.
 
-[1.10.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
+[2.0.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.9.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.7.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
 [1.6.0]: https://github.com/isneoz1/iw7x-cyber-security/releases
