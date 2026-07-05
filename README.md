@@ -37,7 +37,7 @@ Security professionals waste hours hunting for the right tool, cloning repos, fi
 
 | | |
 |---|---|
-| 🗂️ **The whole ecosystem** | **8,000+ tools** across **38 categories** — OSINT, web, wireless, exploitation, forensics, reversing, cloud, AD, mobile, IoT, blue team & more. |
+| 🗂️ **The whole ecosystem** | **10,000+ tools** across **44 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, AD, mobile, IoT, threat‑intel, blue team & more. |
 | ⚙️ **Install & run for you** | Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy‑pasting install snippets. |
 | 🔄 **Always up to date** | A built‑in scanner pulls fresh tools from **BlackArch, Kali & awesome‑lists** so your arsenal keeps growing on its own. |
 | 🔎 **Find anything instantly** | Full‑text search, tag filters (`osint`, `c2`, `web`…) and a task **advisor** that recommends tools for what you're trying to do. |
@@ -110,7 +110,7 @@ Inside the menu:
 ```bash
 python3 neoz.py nmap              # install (if needed) and run a tool by name
 python3 neoz.py search "sql inj"  # list matching tools
-python3 neoz.py list              # list all 38 categories
+python3 neoz.py list              # list all 44 categories
 python3 neoz.py list osint        # list tools in a category
 python3 neoz.py install bloodhound
 python3 neoz.py --update          # pull every tool from online sources
