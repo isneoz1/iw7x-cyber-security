@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>iw7x — Every cybersecurity tool in the world, in one Kali terminal</title>
-<meta name="description" content="iw7x unifies 12,663 offensive & defensive security tools across 50 categories into one beautiful command-line arsenal that installs, updates and launches anything for you — built for Kali Linux. MIT, open source.">
+<meta name="description" content="iw7x unifies 12,663 offensive & defensive security tools across 50 categories into one command-line arsenal that installs, updates and launches anything for you — built for Kali Linux. MIT, open source.">
 <meta property="og:title" content="iw7x — the world's cybersecurity arsenal, built for Kali Linux">
 <meta property="og:description" content="12,663 security tools across 50 categories. Install, update and launch any of them from one Kali Linux terminal.">
 <meta property="og:type" content="website">
@@ -13,118 +13,102 @@
 <meta property="og:image" content="https://isneoz1.github.io/iw7x-cyber-security/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="iw7x — every cybersecurity tool in the world, one Kali terminal, one command. 12,663 tools, 50 categories.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="iw7x — every cybersecurity tool in the world, in one Kali terminal">
 <meta name="twitter:description" content="12,663 pentest & security tools across 50 categories that install, update and launch for you. Built for Kali Linux, MIT, open source.">
 <meta name="twitter:image" content="https://isneoz1.github.io/iw7x-cyber-security/og-image.png">
-<meta name="theme-color" content="#08080f">
+<meta name="theme-color" content="#07070d">
 <link rel="canonical" href="https://isneoz1.github.io/iw7x-cyber-security/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23090912'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='54' font-weight='800' text-anchor='middle' fill='%239652FF'%3E7%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"SoftwareApplication",
-  "name":"iw7x",
-  "applicationCategory":"SecurityApplication",
-  "operatingSystem":"Kali Linux, Linux",
-  "description":"iw7x unifies 12,663 offensive and defensive cybersecurity tools across 50 categories into a single command-line arsenal that installs, updates and launches any of them for you, built for Kali Linux.",
-  "url":"https://isneoz1.github.io/iw7x-cyber-security/",
-  "downloadUrl":"https://github.com/isneoz1/iw7x-cyber-security",
-  "license":"https://opensource.org/licenses/MIT",
-  "author":{"@type":"Person","name":"NeoZ","url":"https://github.com/isneoz1"},
-  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
-}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"iw7x","applicationCategory":"SecurityApplication","operatingSystem":"Kali Linux, Linux","description":"iw7x unifies 12,663 offensive and defensive cybersecurity tools across 50 categories into a single command-line arsenal that installs, updates and launches any of them for you, built for Kali Linux.","url":"https://isneoz1.github.io/iw7x-cyber-security/","downloadUrl":"https://github.com/isneoz1/iw7x-cyber-security","license":"https://opensource.org/licenses/MIT","author":{"@type":"Person","name":"NeoZ","url":"https://github.com/isneoz1"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
 <style>
   :root{
-    --bg:#08080f; --bg2:#0d0d1a; --surface:#12121f; --surface2:#16162a;
-    --line:#242440; --text:#eef0ff; --muted:#9aa0c4; --faint:#6c7099;
-    --pink:#FF47B3; --violet:#9652FF; --cyan:#48DCFF; --green:#4AE3A8; --yellow:#FFD15C;
-    --dragon:#8ED0FF;
-    --grad:linear-gradient(100deg,#FF47B3 0%,#9652FF 48%,#48DCFF 100%);
-    --mono:ui-monospace,"SF Mono","JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
+    --bg:#07070d; --bg2:#0b0b16; --surface:#101019; --surface2:#15151f; --raised:#181826;
+    --line:#22223a; --line2:#2c2c48; --text:#eef0ff; --muted:#99a0c2; --faint:#666c92;
+    --pink:#FF47B3; --violet:#9652FF; --cyan:#48DCFF; --green:#4AE3A8; --amber:#FFC24B;
+    --grad:linear-gradient(100deg,#FF47B3 0%,#9652FF 46%,#48DCFF 100%);
+    --grad-soft:linear-gradient(100deg,rgba(255,71,179,.14),rgba(150,82,255,.12),rgba(72,220,255,.12));
+    --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --maxw:1120px;
+    --maxw:1160px; --ease:cubic-bezier(.16,1,.3,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    background:var(--bg); color:var(--text); font-family:var(--sans);
-    line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
-  }
-  body::before{
-    content:""; position:fixed; inset:0; z-index:-2;
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  /* ambient animated background */
+  body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;
     background:
-      radial-gradient(620px 440px at 14% -8%, rgba(255,71,179,.10), transparent 64%),
-      radial-gradient(680px 500px at 88% 2%, rgba(72,220,255,.085), transparent 64%),
-      radial-gradient(820px 640px at 50% 114%, rgba(150,82,255,.10), transparent 64%);
-  }
-  body::after{
-    content:""; position:fixed; inset:0; z-index:-1; opacity:.03; pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+      radial-gradient(50% 40% at 12% 0%, rgba(255,71,179,.13), transparent 60%),
+      radial-gradient(45% 40% at 90% 6%, rgba(72,220,255,.11), transparent 60%),
+      radial-gradient(60% 50% at 50% 108%, rgba(150,82,255,.13), transparent 62%);
+    animation:drift 22s ease-in-out infinite alternate}
+  @keyframes drift{to{transform:translate3d(0,-2.5%,0) scale(1.06)}}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.025;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .mono{font-family:var(--mono)}
-  .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan)}
+  .ic{width:1.15em;height:1.15em;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none;display:inline-block;vertical-align:-.18em}
+  .eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
 
   /* NAV */
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
-    background:rgba(8,8,15,.72);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-  .brand{font-family:var(--mono);font-weight:700;font-size:1.15rem;letter-spacing:.04em;white-space:nowrap}
-  .brand b{font-weight:800}
-  .navlinks{display:flex;gap:22px;align-items:center}
-  .navlinks a{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
-  .navlinks a:hover{color:var(--text)}
-  .kali-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.74rem;
-    padding:5px 11px;border-radius:999px;border:1px solid rgba(142,208,255,.4);
-    background:rgba(142,208,255,.08);color:var(--dragon);white-space:nowrap}
-  .lang{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;font-family:var(--mono)}
-  .lang button{background:transparent;border:0;color:var(--faint);font-size:.78rem;font-weight:700;
-    padding:6px 10px;cursor:pointer;transition:.2s}
-  .lang button.on{background:var(--surface2);color:var(--cyan)}
-  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:650;font-size:.94rem;
-    padding:11px 20px;border-radius:11px;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .25s,background .2s}
+  nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(16px);background:rgba(7,7,13,.7);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+  .brand{font-family:var(--mono);font-weight:800;font-size:1.2rem;letter-spacing:.02em;white-space:nowrap;display:inline-flex;align-items:center;gap:2px}
+  .navlinks{display:flex;gap:24px;align-items:center}
+  .navlinks a.nl{color:var(--muted);font-size:.92rem;font-weight:500;transition:color .2s}
+  .navlinks a.nl:hover{color:var(--text)}
+  .kali-pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.72rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--cyan)}
+  .kali-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .lang{display:inline-flex;border:1px solid var(--line2);border-radius:9px;overflow:hidden;font-family:var(--mono)}
+  .lang button{background:transparent;border:0;color:var(--faint);font-size:.76rem;font-weight:700;padding:6px 10px;cursor:pointer;transition:.2s}
+  .lang button.on{background:var(--raised);color:var(--cyan)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:650;font-size:.94rem;padding:12px 22px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:transform .18s var(--ease),box-shadow .3s,background .2s}
   .btn:hover{transform:translateY(-2px)}
-  .btn-primary{background:var(--grad);color:#0a0713;box-shadow:0 8px 30px -8px rgba(150,82,255,.6)}
-  .btn-primary:hover{box-shadow:0 14px 40px -8px rgba(150,82,255,.8)}
-  .btn-ghost{background:var(--surface);border-color:var(--line);color:var(--text)}
+  .btn .ic{width:1.05em;height:1.05em}
+  .btn-primary{background:var(--grad);color:#0a0713;box-shadow:0 10px 34px -10px rgba(150,82,255,.7)}
+  .btn-primary:hover{box-shadow:0 16px 44px -10px rgba(150,82,255,.9)}
+  .btn-ghost{background:var(--surface);border-color:var(--line2);color:var(--text)}
   .btn-ghost:hover{border-color:var(--violet)}
-  @media(max-width:900px){.navlinks a:not(.btn){display:none}.kali-pill{display:none}}
+  @media(max-width:920px){.navlinks a.nl,.kali-pill{display:none}}
 
   /* HERO */
-  header.hero{padding:70px 0 40px;position:relative}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-  @media(max-width:940px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.8rem;
-    padding:7px 14px;border-radius:999px;margin-bottom:16px;
-    border:1px solid rgba(142,208,255,.4);background:rgba(142,208,255,.08);color:var(--dragon)}
-  .wordmark{font-family:var(--mono);font-weight:800;font-size:clamp(3.6rem,11vw,7rem);line-height:.9;letter-spacing:-.02em;margin:10px 0 6px}
-  h1.tag{font-size:clamp(1.5rem,3.4vw,2.35rem);line-height:1.15;font-weight:750;letter-spacing:-.01em;margin:6px 0 18px}
-  .lead{font-size:1.12rem;color:var(--muted);max-width:34em;margin-bottom:26px}
-  .lead b{color:var(--text);font-weight:650}
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+  header.hero{padding:74px 0 44px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:42px}}
+  .hero-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.78rem;padding:8px 15px;border-radius:999px;margin-bottom:20px;border:1px solid var(--line2);background:var(--surface);color:var(--cyan)}
+  .up{opacity:0;transform:translateY(20px);animation:up .8s var(--ease) forwards}
+  .up2{animation-delay:.08s}.up3{animation-delay:.16s}.up4{animation-delay:.24s}.up5{animation-delay:.32s}.up6{animation-delay:.4s}
+  @keyframes up{to{opacity:1;transform:none}}
+  .wordmark{font-family:var(--mono);font-weight:800;font-size:clamp(3.8rem,12vw,7.6rem);line-height:.88;letter-spacing:-.03em;margin:8px 0 8px;
+    background:linear-gradient(100deg,#FF47B3,#9652FF,#48DCFF,#9652FF,#FF47B3);background-size:220% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s linear infinite}
+  @keyframes shimmer{to{background-position:220% center}}
+  h1.tag{font-size:clamp(1.55rem,3.4vw,2.4rem);line-height:1.14;font-weight:760;letter-spacing:-.015em;margin:8px 0 18px;text-wrap:balance}
+  .lead{font-size:1.13rem;color:var(--muted);max-width:34em;margin-bottom:28px}
+  .lead b{color:var(--text);font-weight:640}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
   .chips{display:flex;flex-wrap:wrap;gap:10px}
-  .chip{font-family:var(--mono);font-size:.8rem;padding:7px 13px;border-radius:999px;
-    border:1px solid var(--line);background:var(--surface);color:var(--muted)}
+  .chip{font-family:var(--mono);font-size:.79rem;padding:7px 13px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--muted)}
   .chip b{color:var(--cyan);font-weight:700}
 
   /* TERMINAL */
-  .term{background:linear-gradient(180deg,#0c0c17,#0a0a13);border:1px solid var(--line);
-    border-radius:15px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(150,82,255,.08)}
-  .term-bar{display:flex;align-items:center;gap:8px;padding:12px 15px;border-bottom:1px solid var(--line);background:#0e0e1b}
+  .term{background:linear-gradient(180deg,#0b0b15,#08080f);border:1px solid var(--line2);border-radius:16px;overflow:hidden;
+    box-shadow:0 40px 90px -34px rgba(0,0,0,.85),0 0 0 1px rgba(150,82,255,.07);animation:floaty 6s ease-in-out infinite}
+  @keyframes floaty{50%{transform:translateY(-7px)}}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line);background:#0d0d18}
   .dot{width:12px;height:12px;border-radius:50%}
   .dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
   .term-title{margin-left:10px;font-family:var(--mono);font-size:.8rem;color:var(--faint)}
-  .term-body{padding:20px 20px 22px;font-family:var(--mono);font-size:.82rem;line-height:1.32;overflow-x:auto}
-  .ascii{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
-    font-weight:700;white-space:pre;font-size:clamp(.5rem,1.6vw,.86rem);line-height:1.05}
-  .term-stats{margin:12px 0 6px;color:var(--faint)}
-  .term-stats b{color:var(--cyan)}
-  .term-kali{color:var(--dragon);margin-bottom:10px}
+  .term-body{padding:22px 22px 24px;font-family:var(--mono);font-size:.82rem;line-height:1.34;overflow-x:auto}
+  .ascii{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;white-space:pre;font-size:clamp(.5rem,1.55vw,.86rem);line-height:1.05}
+  .term-stats{margin:12px 0 5px;color:var(--faint)}.term-stats b{color:var(--cyan)}
+  .term-kali{color:var(--green);margin-bottom:12px}
   .term-menu{display:grid;grid-template-columns:1fr 1fr;gap:2px 26px;color:var(--muted)}
   .term-menu .n{color:var(--violet);font-weight:700}
   .prompt .p{color:var(--green)}.prompt .c{color:var(--text)}
@@ -132,178 +116,221 @@
   @keyframes blink{50%{opacity:0}}
 
   /* MARQUEE */
-  .marquee{margin:34px 0 10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    padding:16px 0;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .marquee div{display:inline-block;animation:scroll 34s linear infinite}
-  .marquee span{font-family:var(--mono);font-size:.9rem;color:var(--faint);margin:0 22px}
-  .marquee span b{color:var(--muted)}
+  .marquee{margin:38px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .marquee div{display:inline-block;animation:scroll 40s linear infinite}
+  .marquee span{font-family:var(--mono);font-size:.9rem;color:var(--faint);margin:0 20px}
+  .marquee span b{color:var(--muted)}.marquee i{color:var(--violet);font-style:normal;margin-right:14px}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
   /* SECTION */
-  section{padding:92px 0}
-  @media(max-width:720px){section{padding:64px 0}}
-  .sec-head{max-width:44em;margin-bottom:48px}
-  .sec-head h2{font-size:clamp(1.75rem,3.6vw,2.5rem);line-height:1.12;letter-spacing:-.02em;font-weight:760;margin:14px 0 14px;text-wrap:balance}
-  .sec-head p{color:var(--muted);font-size:1.05rem;line-height:1.65;max-width:60ch}
+  section{padding:96px 0}
+  @media(max-width:720px){section{padding:66px 0}}
+  .sec-head{max-width:46em;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(1.8rem,3.7vw,2.6rem);line-height:1.1;letter-spacing:-.02em;font-weight:770;margin:16px 0 14px;text-wrap:balance}
+  .sec-head p{color:var(--muted);font-size:1.06rem;line-height:1.65;max-width:62ch}
 
-  /* STAT STRIP */
+  /* STATS */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
-  .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 20px;text-align:center}
-  .stat .num{font-family:var(--mono);font-weight:800;font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1}
-  .stat .lbl{color:var(--faint);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;margin-top:8px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px 20px;text-align:center;position:relative;overflow:hidden}
+  .stat::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:var(--grad);opacity:.5}
+  .stat .num{font-family:var(--mono);font-weight:800;font-size:clamp(1.9rem,4.2vw,2.7rem);line-height:1;font-variant-numeric:tabular-nums}
+  .stat .lbl{color:var(--faint);font-size:.8rem;text-transform:uppercase;letter-spacing:.13em;margin-top:9px}
 
   /* KALI SPOTLIGHT */
-  .kali{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
-    background:linear-gradient(120deg,rgba(142,208,255,.07),rgba(150,82,255,.05));
-    border:1px solid rgba(142,208,255,.25);border-radius:22px;padding:44px}
-  @media(max-width:860px){.kali{grid-template-columns:1fr;padding:30px}}
-  .kali h2{font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.12;letter-spacing:-.02em;font-weight:780;margin:12px 0 14px}
-  .kali p{color:var(--muted);margin-bottom:16px}
-  .kali ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-  .kali li{display:flex;gap:11px;color:var(--text);font-size:.98rem}
-  .kali li .ck{color:var(--dragon);font-weight:800;flex-shrink:0}
+  .kali{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;background:var(--grad-soft);border:1px solid var(--line2);border-radius:24px;padding:48px}
+  @media(max-width:860px){.kali{grid-template-columns:1fr;padding:32px}}
+  .kali h2{font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.12;letter-spacing:-.02em;font-weight:770;margin:14px 0 15px}
+  .kali p{color:var(--muted);margin-bottom:18px}
+  .kali ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+  .kali li{display:flex;gap:12px;color:var(--text);font-size:.98rem}
+  .kali li .ic{color:var(--green);margin-top:2px}
   .kali li span{color:var(--muted)}
 
-  /* FEATURES */
+  /* FEATURES / BENTO */
   .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .2s,border-color .2s,box-shadow .3s}
-  .card:hover{transform:translateY(-3px);border-color:rgba(150,82,255,.42);box-shadow:0 16px 40px -26px rgba(150,82,255,.42)}
-  .card .ico{font-size:1.7rem;margin-bottom:12px}
-  .card h3{font-size:1.16rem;font-weight:700;margin-bottom:8px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px;transition:transform .22s var(--ease),border-color .22s,box-shadow .3s;position:relative}
+  .card:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 22px 50px -28px rgba(150,82,255,.5)}
+  .ibox{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;background:linear-gradient(140deg,rgba(150,82,255,.18),rgba(72,220,255,.1));border:1px solid var(--line2);color:var(--cyan)}
+  .ibox .ic{width:22px;height:22px}
+  .card h3{font-size:1.17rem;font-weight:700;margin-bottom:8px}
   .card p{color:var(--muted);font-size:.96rem}
   .c-lg{grid-column:span 3}.c-md{grid-column:span 3}.c-sm{grid-column:span 2}
   @media(max-width:860px){.bento{grid-template-columns:1fr}.c-lg,.c-md,.c-sm{grid-column:span 1}}
 
-  /* FEATURED TOOLS */
-  .legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-  .legend{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;
-    transition:transform .15s,border-color .2s,box-shadow .3s}
-  .legend:hover{transform:translateY(-4px);border-color:rgba(72,220,255,.5);box-shadow:0 18px 44px -26px rgba(72,220,255,.5)}
-  .legend .lh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-  .legend .le{font-size:1.35rem}
-  .legend .ln{font-weight:750;font-size:1.05rem}
-  .legend .lt{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--violet);
-    border:1px solid var(--line);border-radius:999px;padding:3px 9px;white-space:nowrap}
+  /* LEGENDS */
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px}
+  .legend{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px;transition:transform .18s var(--ease),border-color .2s,box-shadow .3s}
+  .legend:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 18px 44px -28px rgba(72,220,255,.5)}
+  .legend .lh{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .legend .ld{width:9px;height:9px;border-radius:50%;flex:none}
+  .legend .ln{font-weight:750;font-size:1.06rem}
+  .legend .lt{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--violet);border:1px solid var(--line2);border-radius:999px;padding:3px 9px;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
   .legend p{color:var(--muted);font-size:.9rem;line-height:1.5}
-  .legend code{font-family:var(--mono);font-size:.78rem;color:var(--cyan);background:#0b0b16;
-    border:1px solid var(--line);border-radius:7px;padding:4px 9px;display:inline-block;margin-top:10px}
+  .legend code{font-family:var(--mono);font-size:.78rem;color:var(--cyan);background:#0a0a14;border:1px solid var(--line);border-radius:8px;padding:5px 10px;display:inline-block;margin-top:11px}
 
   /* ARSENAL GRID */
-  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-  .cat{display:flex;align-items:center;gap:11px;background:var(--surface);border:1px solid var(--line);
-    border-radius:12px;padding:13px 14px;transition:transform .15s,border-color .2s,background .2s}
-  .cat:hover{transform:translateY(-3px);border-color:var(--cyan);background:var(--surface2)}
-  .cat .ce{font-size:1.25rem;flex-shrink:0}
-  .cat .ct{font-size:.9rem;font-weight:600;line-height:1.15}
-  .cat .cn{margin-left:auto;font-family:var(--mono);font-size:.82rem;color:var(--cyan);font-weight:700}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:12px}
+  .cat{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:14px 15px;transition:transform .15s var(--ease),border-color .2s,background .2s}
+  .cat:hover{transform:translateY(-3px);border-color:var(--line2);background:var(--surface2)}
+  .cat .bar{width:4px;align-self:stretch;border-radius:3px;flex:none}
+  .cat .ct{font-size:.9rem;font-weight:600;line-height:1.18}
+  .cat .cn{margin-left:auto;font-family:var(--mono);font-size:.82rem;color:var(--cyan);font-weight:700;font-variant-numeric:tabular-nums}
+
+  /* METHODS */
+  .methods{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:760px){.methods{grid-template-columns:1fr}}
+  .method{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .22s var(--ease),border-color .22s,box-shadow .3s}
+  .method:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 18px 44px -28px rgba(72,220,255,.45)}
+  .method .mh{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .method .mh .ibox{margin:0;width:40px;height:40px}
+  .method h3{font-size:1.12rem;font-weight:750}
+  .method .tag{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--cyan);border:1px solid var(--line2);border-radius:999px;padding:3px 9px;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
+  .method p{color:var(--muted);font-size:.93rem;margin-bottom:12px}
+  .method pre{background:#0a0a14;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:var(--mono);font-size:.78rem;color:var(--cyan);overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin-bottom:12px}
+  .method a.mlink{color:var(--cyan);font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:6px}
+  .method a.mlink:hover{color:var(--text)}
 
   /* QUICKSTART */
-  .qs{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .qs{display:grid;grid-template-columns:1.1fr 1fr;gap:42px;align-items:center}
   @media(max-width:860px){.qs{grid-template-columns:1fr}}
-  .code{position:relative;background:#0b0b16;border:1px solid var(--line);border-radius:14px;padding:22px 20px;font-family:var(--mono);font-size:.9rem;line-height:1.9;overflow-x:auto}
+  .code{position:relative;background:#0a0a14;border:1px solid var(--line2);border-radius:16px;padding:24px 22px;font-family:var(--mono);font-size:.9rem;line-height:1.95;overflow-x:auto;white-space:pre}
   .code .cm{color:var(--faint)}.code .cy{color:var(--cyan)}
-  .copy{position:absolute;top:12px;right:12px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);
-    font-family:var(--mono);font-size:.74rem;padding:6px 11px;border-radius:8px;cursor:pointer;transition:.2s}
+  .copy{position:absolute;top:13px;right:13px;background:var(--raised);border:1px solid var(--line2);color:var(--muted);font-family:var(--mono);font-size:.74rem;padding:6px 11px;border-radius:9px;cursor:pointer;transition:.2s}
   .copy:hover{color:var(--text);border-color:var(--violet)}
   .steps{list-style:none;display:flex;flex-direction:column;gap:18px}
   .steps li{display:flex;gap:15px}
-  .steps .k{font-family:var(--mono);font-weight:800;color:var(--violet);font-size:1.05rem;flex-shrink:0;width:1.4em}
-  .steps b{display:block;margin-bottom:2px}
-  .steps span{color:var(--muted);font-size:.96rem}
+  .steps .k{font-family:var(--mono);font-weight:800;color:var(--violet);font-size:1.05rem;flex:none;width:1.5em}
+  .steps b{display:block;margin-bottom:2px}.steps span{color:var(--muted);font-size:.96rem}
 
   /* CHEATSHEET */
   .cheat{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
   @media(max-width:680px){.cheat{grid-template-columns:1fr}}
-  .cheat .row{display:flex;align-items:baseline;gap:14px;background:var(--surface);border:1px solid var(--line);
-    border-radius:11px;padding:13px 16px}
+  .cheat .row{display:flex;align-items:baseline;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
   .cheat .cmd{font-family:var(--mono);font-size:.86rem;color:var(--cyan);white-space:nowrap}
   .cheat .desc{color:var(--muted);font-size:.9rem}
 
-  /* CTA */
-  .final{text-align:center;background:
-      radial-gradient(600px 300px at 50% 0%,rgba(150,82,255,.18),transparent 70%);
-    border:1px solid var(--line);border-radius:24px;padding:64px 28px;margin-top:20px}
-  .final h2{font-size:clamp(2rem,5vw,3.2rem);line-height:1.06;letter-spacing:-.02em;font-weight:800;margin-bottom:16px}
-  .final p{color:var(--muted);max-width:34em;margin:0 auto 28px;font-size:1.1rem}
-
-  /* FOOTER */
-  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:74px;color:var(--faint);font-size:.9rem}
-  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-  footer a{color:var(--muted)}footer a:hover{color:var(--text)}
-  .disc{background:rgba(255,209,92,.06);border:1px solid rgba(255,209,92,.22);border-radius:12px;
-    padding:16px 18px;color:#e7cf9a;font-size:.92rem;margin-top:26px}
-  .disc b{color:var(--yellow)}
-
+  /* FLOW */
   .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   @media(max-width:760px){.flow{grid-template-columns:1fr}}
-  .flow .step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px 24px}
-  .flow .step .num{font-family:var(--mono);font-size:.78rem;color:var(--violet);font-weight:700;letter-spacing:.12em}
-  .flow .step .ico{font-size:1.9rem;margin:10px 0}
+  .flow .step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px 26px;transition:transform .22s var(--ease),border-color .2s}
+  .flow .step:hover{transform:translateY(-4px);border-color:var(--line2)}
+  .flow .step .num{font-family:var(--mono);font-size:.76rem;color:var(--violet);font-weight:700;letter-spacing:.14em}
+  .flow .step .ibox{margin:14px 0}
   .flow .step h3{font-size:1.15rem;margin-bottom:6px}
   .flow .step p{color:var(--muted);font-size:.95rem}
-  .cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
-  table.cmp{border-collapse:collapse;width:100%;min-width:640px;font-size:.95rem}
-  table.cmp th,table.cmp td{padding:15px 18px;border-bottom:1px solid var(--line)}
-  table.cmp thead th{font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;text-align:center;background:var(--surface)}
-  table.cmp tbody td{text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  /* COMPARE */
+  .cmp-wrap{overflow-x:auto;border:1px solid var(--line2);border-radius:18px}
+  table.cmp{border-collapse:collapse;width:100%;min-width:660px;font-size:.95rem}
+  table.cmp th,table.cmp td{padding:16px 18px;border-bottom:1px solid var(--line)}
+  table.cmp thead th{font-family:var(--mono);font-size:.8rem;letter-spacing:.05em;color:var(--muted);text-transform:uppercase;text-align:center;background:var(--surface)}
+  table.cmp tbody td{text-align:center;color:var(--muted)}
   table.cmp tbody td:first-child,table.cmp thead th:first-child{text-align:left}
   table.cmp tbody td:first-child{color:var(--text);font-weight:600}
-  table.cmp .iw{background:linear-gradient(180deg,rgba(150,82,255,.12),rgba(72,220,255,.05))}
+  table.cmp .iw{background:linear-gradient(180deg,rgba(150,82,255,.13),rgba(72,220,255,.05))}
   table.cmp thead th.iw{color:var(--cyan)}
-  .yes{color:var(--green);font-weight:800}.no{color:var(--faint)}.mid{color:var(--yellow);font-weight:700}
+  .yes{color:var(--green)}.no{color:var(--faint)}.mid{color:var(--amber);font-weight:700;font-family:var(--mono)}
+  .yes .ic,.no .ic{width:20px;height:20px;stroke-width:2.2}
+
+  /* FAQ */
   .faq{display:flex;flex-direction:column;gap:12px;max-width:820px}
-  .faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:2px 20px;transition:border-color .2s}
-  .faq details[open]{border-color:rgba(150,82,255,.5)}
-  .faq summary{cursor:pointer;padding:17px 0;font-weight:650;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq details{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:2px 20px;transition:border-color .2s}
+  .faq details[open]{border-color:var(--line2)}
+  .faq summary{cursor:pointer;padding:18px 0;font-weight:650;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";font-family:var(--mono);color:var(--cyan);font-size:1.3rem}
-  .faq details[open] summary::after{content:"\2212"}
+  .faq summary .ic{color:var(--cyan);transition:transform .25s}
+  .faq details[open] summary .ic{transform:rotate(45deg)}
   .faq p{color:var(--muted);padding:0 0 18px;font-size:.97rem}
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-  .reveal.in{opacity:1;transform:none}
-  a:focus-visible,button:focus-visible,summary:focus-visible,details:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
-  /* KALI INSTALL METHODS */
-  .methods{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  @media(max-width:760px){.methods{grid-template-columns:1fr}}
-  .method{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .2s,border-color .2s,box-shadow .3s}
-  .method:hover{transform:translateY(-4px);border-color:rgba(142,208,255,.55);box-shadow:0 18px 44px -26px rgba(142,208,255,.5)}
-  .method .mh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-  .method .me{font-size:1.5rem}
-  .method h3{font-size:1.12rem;font-weight:750}
-  .method .tag{margin-left:auto;font-family:var(--mono);font-size:.68rem;color:var(--dragon);border:1px solid rgba(142,208,255,.35);border-radius:999px;padding:3px 9px;white-space:nowrap}
-  .method p{color:var(--muted);font-size:.93rem;margin-bottom:11px}
-  .method pre{background:#0b0b16;border:1px solid var(--line);border-radius:9px;padding:11px 13px;font-family:var(--mono);font-size:.78rem;color:var(--cyan);overflow-x:auto;white-space:pre-wrap;word-break:break-word;margin-bottom:11px}
-  .method a.mlink{color:var(--dragon);font-weight:600;font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
-  .method a.mlink:hover{color:var(--cyan)}
-  /* CREATOR NOTE */
-  .creator{background:linear-gradient(120deg,rgba(255,71,179,.06),rgba(72,220,255,.05));
-    border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:16px;padding:38px 42px;max-width:920px;margin:0 auto}
-  @media(max-width:620px){.creator{padding:28px 24px}}
-  .creator .q{font-size:clamp(1.08rem,2.1vw,1.4rem);line-height:1.55;color:var(--text);font-weight:500;margin-top:10px}
+
+  /* SUPPORT / PAYPAL */
+  #support .wrap{max-width:900px}
+  .support-card{position:relative;overflow:hidden;text-align:center;background:linear-gradient(160deg,rgba(150,82,255,.1),rgba(72,220,255,.05));border:1px solid var(--line2);border-radius:26px;padding:64px 34px}
+  .support-card::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 0%,rgba(150,82,255,.18),transparent 70%);pointer-events:none}
+  .heart{width:52px;height:52px;color:var(--pink);margin:0 auto 6px;animation:beat 1.7s var(--ease) infinite}
+  .heart .ic{width:52px;height:52px;fill:currentColor;stroke:none}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+  .support-card h2{font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.08;letter-spacing:-.02em;font-weight:800;margin:14px 0 14px}
+  .support-card p{color:var(--muted);max-width:40em;margin:0 auto 30px;font-size:1.08rem}
+  .support-card p b{color:var(--text)}
+  .pp-btn{display:inline-flex;align-items:center;gap:12px;background:#ffffff;color:#003087;border-radius:999px;padding:15px 30px;font-weight:800;font-size:1.06rem;
+    box-shadow:0 14px 40px -12px rgba(0,0,0,.6);transition:transform .18s var(--ease),box-shadow .3s}
+  .pp-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 52px -14px rgba(0,110,220,.55)}
+  .pp-word{font-family:var(--sans);font-weight:800;font-style:italic;font-size:1.24rem;letter-spacing:-.02em;display:inline-flex}
+  .pp-word .a{color:#003087}.pp-word .b{color:#009cde}
+  .pp-mark{width:26px;height:30px;flex:none}
+  .support-meta{margin-top:18px;display:flex;gap:8px;align-items:center;justify-content:center;color:var(--faint);font-size:.86rem;font-family:var(--mono)}
+  .support-meta .ic{width:15px;height:15px;color:var(--green)}
+  .support-handle{margin-top:6px;color:var(--muted);font-family:var(--mono);font-size:.85rem}
+  .support-handle b{color:var(--cyan)}
+
+  /* CTA */
+  .final{text-align:center;background:radial-gradient(600px 300px at 50% 0%,rgba(150,82,255,.2),transparent 70%);border:1px solid var(--line2);border-radius:26px;padding:70px 30px}
+  .final h2{font-size:clamp(2rem,5vw,3.3rem);line-height:1.05;letter-spacing:-.02em;font-weight:800;margin-bottom:16px}
+  .final p{color:var(--muted);max-width:36em;margin:0 auto 30px;font-size:1.1rem}
+  .disc{display:flex;gap:11px;align-items:flex-start;text-align:left;max-width:60em;margin:30px auto 0;background:rgba(255,194,75,.06);border:1px solid rgba(255,194,75,.24);border-radius:13px;padding:16px 18px;color:#e7cf9a;font-size:.92rem}
+  .disc .ic{color:var(--amber);flex:none;margin-top:2px}.disc b{color:var(--amber)}
+
+  /* CREATOR */
+  .creator{background:linear-gradient(120deg,rgba(255,71,179,.06),rgba(72,220,255,.05));border:1px solid var(--line);border-left:3px solid var(--violet);border-radius:18px;padding:40px 44px;max-width:940px;margin:0 auto}
+  @media(max-width:620px){.creator{padding:30px 24px}}
+  .creator .q{font-size:clamp(1.1rem,2.1vw,1.42rem);line-height:1.55;color:var(--text);font-weight:500;margin-top:12px}
   .creator .q b{color:var(--cyan);font-weight:700}
-  .creator .sig{margin-top:20px;font-family:var(--mono);color:var(--muted);font-size:.95rem}
+  .creator .sig{margin-top:22px;font-family:var(--mono);color:var(--muted);font-size:.95rem}
   .creator .sig b{color:var(--pink)}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:44px 0;margin-top:80px;color:var(--faint);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--muted)}footer a:hover{color:var(--text)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.up{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
+<!-- icon library -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 16l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3"/><path d="M13 15h4"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></symbol>
+  <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 6.5 10.5 5v6.5H3V6.5Z"/><path d="M12.5 4.7 21 3v8.5h-8.5V4.7Z"/><path d="M3 12.5h7.5V19L3 17.5v-5Z"/><path d="M12.5 12.5H21V21l-8.5-1.7v-6.8Z"/></symbol>
+  <symbol id="i-drive" viewBox="0 0 24 24"><rect x="3" y="12" width="18" height="8" rx="2"/><path d="M6 8h12l3 4H3l3-4Z"/><circle cx="7.5" cy="16" r="1"/></symbol>
+  <symbol id="i-usb" viewBox="0 0 24 24"><circle cx="12" cy="20" r="1.6"/><path d="M12 18V6"/><path d="m8.5 9.5 3.5-4 3.5 4"/><path d="M12 13h4v-2"/><rect x="14.5" y="8.5" width="3" height="3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5v14l12-7-12-7Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.38.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.2C.4 8.6 1.9 5 5.2 5c2 0 3.3 1.1 4.1 2.3l.7 1 .7-1C11.5 6.1 12.8 5 14.8 5 18.1 5 19.6 8.6 22 11.8 19.5 16.4 12 21 12 21Z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v5"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-package" viewBox="0 0 24 24"><path d="m12 3 8 4v10l-8 4-8-4V7l8-4Z"/><path d="m4 7 8 4 8-4"/><path d="M12 11v10"/></symbol>
+</defs></svg>
+
 <nav>
   <div class="wrap">
-    <div class="brand">iw<b class="grad">7x</b></div>
+    <div class="brand">iw<span class="grad">7x</span></div>
     <div class="navlinks">
-      <a href="#features" data-i18n="nav.features">Features</a>
-      <a href="#getkali" data-i18n="nav.install">Install Kali</a>
-      <a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
-      <a href="#compare" data-i18n="nav.compare">Compare</a>
-      <a href="#faq">FAQ</a>
-      <span class="kali-pill">🐉 <span data-i18n="nav.kali">Built for Kali Linux</span></span>
+      <a class="nl" href="#features" data-i18n="nav.features">Features</a>
+      <a class="nl" href="#getkali" data-i18n="nav.install">Install Kali</a>
+      <a class="nl" href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
+      <a class="nl" href="#support" data-i18n="nav.support">Support</a>
+      <span class="kali-pill"><span class="dot"></span><span data-i18n="nav.kali">Built for Kali Linux</span></span>
       <span class="lang" role="group" aria-label="Language">
         <button data-set-lang="en" class="on">EN</button>
         <button data-set-lang="fr">FR</button>
       </span>
-      <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security"><span data-i18n="nav.star">⭐ Star on GitHub</span></a>
+      <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security"><svg class="ic"><use href="#i-github"/></svg><span data-i18n="nav.star">Star on GitHub</span></a>
     </div>
   </div>
 </nav>
@@ -311,16 +338,16 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="hero-badge">🐉 <span data-i18n="hero.kaliBadge">Built for Kali Linux — one command, any tool</span></div>
-      <div class="eyebrow" data-i18n="hero.eyebrow">The world's cybersecurity arsenal · by NeoZ</div>
-      <div class="wordmark grad">iw7x</div>
-      <h1 class="tag" data-i18n="hero.tag">Every cybersecurity tool in the world.<br><span class="grad">One Kali terminal. One command.</span></h1>
-      <p class="lead" data-i18n="hero.lead">iw7x unifies <b>12,663</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you on Kali Linux.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#start"><span data-i18n="hero.ctaStart">▶ Quickstart</span></a>
-        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security"><span data-i18n="hero.ctaGithub">⭐ Star on GitHub</span></a>
+      <div class="hero-badge up"><svg class="ic" style="color:var(--green)"><use href="#i-terminal"/></svg><span data-i18n="hero.kaliBadge">Built for Kali Linux — one command, any tool</span></div>
+      <div class="eyebrow up up2" data-i18n="hero.eyebrow">The world's cybersecurity arsenal · by NeoZ</div>
+      <div class="wordmark up up2">iw7x</div>
+      <h1 class="tag up up3" data-i18n="hero.tag">Every cybersecurity tool in the world.<br><span class="grad">One Kali terminal. One command.</span></h1>
+      <p class="lead up up4" data-i18n="hero.lead">iw7x unifies <b>12,663</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you on Kali Linux.</p>
+      <div class="cta-row up up5">
+        <a class="btn btn-primary" href="#start"><svg class="ic"><use href="#i-play"/></svg><span data-i18n="hero.ctaStart">Quickstart</span></a>
+        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security"><svg class="ic"><use href="#i-github"/></svg><span data-i18n="hero.ctaGithub">Star on GitHub</span></a>
       </div>
-      <div class="chips">
+      <div class="chips up up6">
         <span class="chip"><b>12,663</b> <span data-i18n="chip.tools">tools</span></span>
         <span class="chip"><b>50</b> <span data-i18n="chip.categories">categories</span></span>
         <span class="chip" data-i18n="chip.kali">Kali-ready</span>
@@ -329,11 +356,8 @@
       </div>
     </div>
 
-    <div class="term reveal">
-      <div class="term-bar">
-        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="term-title">kali@kali:~$ python3 neoz.py</span>
-      </div>
+    <div class="term up up4">
+      <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">kali@kali:~$ python3 neoz.py</span></div>
       <div class="term-body">
 <div class="ascii">██╗ ██╗    ██╗ ███████╗ ██╗  ██╗
 ██║ ██║    ██║ ╚════██║ ╚██╗██╔╝
@@ -342,7 +366,7 @@
 ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
 ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝</div>
         <div class="term-stats">CYBERSECURITY ARSENAL &nbsp;·&nbsp; <b>12663</b> TOOLS &nbsp; <b>50</b> CATEGORIES</div>
-        <div class="term-kali">🐉 KALI LINUX READY &nbsp;·&nbsp; apt · pipx · go · git auto-detected</div>
+        <div class="term-kali">KALI LINUX READY &nbsp;·&nbsp; apt · pipx · go · git auto-detected</div>
         <div class="term-menu">
           <div><span class="n">01</span> OSINT / RECON</div><div><span class="n">02</span> WEB ATTACK</div>
           <div><span class="n">03</span> INFORMATION GATHERING</div><div><span class="n">04</span> ACTIVE DIRECTORY</div>
@@ -354,40 +378,32 @@
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="marquee"><div id="mq"></div></div>
-  </div>
+  <div class="wrap"><div class="marquee"><div id="mq"></div></div></div>
 </header>
 
-<section id="stats" style="padding-top:20px">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat reveal"><div class="num grad" data-count="12663">0</div><div class="lbl" data-i18n="stat.tools">Tools</div></div>
-      <div class="stat reveal"><div class="num grad" data-count="50">0</div><div class="lbl" data-i18n="stat.categories">Categories</div></div>
-      <div class="stat reveal"><div class="num grad" data-count="30" data-suffix="+">0</div><div class="lbl" data-i18n="stat.sources">Live sources</div></div>
-      <div class="stat reveal"><div class="num grad" data-count="1">0</div><div class="lbl" data-i18n="stat.command">Command to rule them</div></div>
-    </div>
-  </div>
+<section id="stats" style="padding-top:22px">
+  <div class="wrap"><div class="stats">
+    <div class="stat reveal"><div class="num grad" data-count="12663">0</div><div class="lbl" data-i18n="stat.tools">Tools</div></div>
+    <div class="stat reveal"><div class="num grad" data-count="50">0</div><div class="lbl" data-i18n="stat.categories">Categories</div></div>
+    <div class="stat reveal"><div class="num grad" data-count="30" data-suffix="+">0</div><div class="lbl" data-i18n="stat.sources">Live sources</div></div>
+    <div class="stat reveal"><div class="num grad" data-count="1">0</div><div class="lbl" data-i18n="stat.command">Command to rule them</div></div>
+  </div></div>
 </section>
 
-<section id="kali" style="padding-top:20px">
-  <div class="wrap">
-    <div class="kali reveal">
-      <div>
-        <div class="eyebrow" data-i18n="kali.eyebrow">Made for Kali Linux</div>
-        <h2 data-i18n="kali.title">Boot Kali. Run one command.<br>The whole arsenal is yours.</h2>
-        <p data-i18n="kali.body">iw7x is designed to run natively on <b>Kali Linux</b> (bare-metal, VM or WSL2). It detects your package managers and rewrites install commands so every tool — even Arch/BlackArch ones — installs cleanly with <span class="mono">apt</span>. Pick a tool, iw7x installs it and launches it. That's it.</p>
-      </div>
-      <div>
-        <ul>
-          <li><span class="ck">✓</span><div><b data-i18n="kali.f1t">Native on Kali &amp; WSL2 Kali</b><br><span data-i18n="kali.f1d">The interface reads your distro and tells you it's ready.</span></div></li>
-          <li><span class="ck">✓</span><div><b data-i18n="kali.f2t">Auto package-manager</b><br><span data-i18n="kali.f2d">apt · pipx · go · git · gem detected and used automatically.</span></div></li>
-          <li><span class="ck">✓</span><div><b data-i18n="kali.f3t">pacman → apt rewriting</b><br><span data-i18n="kali.f3d">BlackArch-sourced tools install on Kali without edits.</span></div></li>
-          <li><span class="ck">✓</span><div><b data-i18n="kali.f4t">Install → launch, in one step</b><br><span data-i18n="kali.f4d">The tool opens the moment it finishes installing.</span></div></li>
-        </ul>
-      </div>
+<section id="kali" style="padding-top:22px">
+  <div class="wrap"><div class="kali reveal">
+    <div>
+      <div class="eyebrow" data-i18n="kali.eyebrow">Made for Kali Linux</div>
+      <h2 data-i18n="kali.title">Boot Kali. Run one command.<br>The whole arsenal is yours.</h2>
+      <p data-i18n="kali.body">iw7x is designed to run natively on <b>Kali Linux</b> (bare-metal, VM or WSL2). It detects your package managers and rewrites install commands so every tool — even Arch/BlackArch ones — installs cleanly with <span class="mono">apt</span>. Pick a tool, iw7x installs it and launches it. That's it.</p>
     </div>
-  </div>
+    <div><ul>
+      <li><svg class="ic"><use href="#i-check"/></svg><div><b data-i18n="kali.f1t">Native on Kali &amp; WSL2 Kali</b><br><span data-i18n="kali.f1d">The interface reads your distro and tells you it's ready.</span></div></li>
+      <li><svg class="ic"><use href="#i-check"/></svg><div><b data-i18n="kali.f2t">Auto package-manager</b><br><span data-i18n="kali.f2d">apt · pipx · go · git · gem detected and used automatically.</span></div></li>
+      <li><svg class="ic"><use href="#i-check"/></svg><div><b data-i18n="kali.f3t">pacman to apt rewriting</b><br><span data-i18n="kali.f3d">BlackArch-sourced tools install on Kali without edits.</span></div></li>
+      <li><svg class="ic"><use href="#i-check"/></svg><div><b data-i18n="kali.f4t">Install then launch, in one step</b><br><span data-i18n="kali.f4d">The tool opens the moment it finishes installing.</span></div></li>
+    </ul></div>
+  </div></div>
 </section>
 
 <section id="features">
@@ -398,16 +414,16 @@
       <p data-i18n="feat.sub">Security pros waste hours cloning repos, fixing dependencies and remembering install commands. iw7x replaces all of that with one program.</p>
     </div>
     <div class="bento">
-      <div class="card c-lg reveal"><div class="ico">🗂️</div><h3 data-i18n="feat.c1t">The whole ecosystem</h3><p data-i18n="feat.c1d">12,663 tools across 50 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.</p></div>
-      <div class="card c-md reveal"><div class="ico">⚙️</div><h3 data-i18n="feat.c2t">Installs &amp; runs for you</h3><p data-i18n="feat.c2d">Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.</p></div>
-      <div class="card c-sm reveal"><div class="ico">🔄</div><h3 data-i18n="feat.c3t">Never stops growing</h3><p data-i18n="feat.c3d">A built-in scanner pulls fresh tools from BlackArch, Kali &amp; 75+ awesome-lists — and keeps collecting in the background while you work, so new tools appear automatically.</p></div>
-      <div class="card c-sm reveal"><div class="ico">🔎</div><h3 data-i18n="feat.c4t">Find anything</h3><p data-i18n="feat.c4d">Full-text search, tag filters and a task advisor that recommends tools for what you're trying to do.</p></div>
-      <div class="card c-sm reveal"><div class="ico">🎨</div><h3 data-i18n="feat.c5t">A terminal you enjoy</h3><p data-i18n="feat.c5d">A gorgeous rich-powered TUI with a gradient banner, live tool counter and clean menus.</p></div>
+      <div class="card c-lg reveal"><div class="ibox"><svg class="ic"><use href="#i-layers"/></svg></div><h3 data-i18n="feat.c1t">The whole ecosystem</h3><p data-i18n="feat.c1d">12,663 tools across 50 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.</p></div>
+      <div class="card c-md reveal"><div class="ibox"><svg class="ic"><use href="#i-download"/></svg></div><h3 data-i18n="feat.c2t">Installs &amp; runs for you</h3><p data-i18n="feat.c2d">Pick a tool, iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.</p></div>
+      <div class="card c-sm reveal"><div class="ibox"><svg class="ic"><use href="#i-refresh"/></svg></div><h3 data-i18n="feat.c3t">Never stops growing</h3><p data-i18n="feat.c3d">A built-in scanner pulls fresh tools from BlackArch, Kali &amp; 75+ awesome-lists — and keeps collecting in the background while you work, so new tools appear automatically.</p></div>
+      <div class="card c-sm reveal"><div class="ibox"><svg class="ic"><use href="#i-search"/></svg></div><h3 data-i18n="feat.c4t">Find anything</h3><p data-i18n="feat.c4d">Full-text search, tag filters and a task advisor that recommends tools for what you're trying to do.</p></div>
+      <div class="card c-sm reveal"><div class="ibox"><svg class="ic"><use href="#i-terminal"/></svg></div><h3 data-i18n="feat.c5t">A terminal you enjoy</h3><p data-i18n="feat.c5d">A gorgeous rich-powered TUI with a gradient banner, live tool counter and clean menus.</p></div>
     </div>
   </div>
 </section>
 
-<section id="legends" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+<section id="legends" style="background:linear-gradient(180deg,transparent,rgba(16,16,25,.5),transparent)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="leg.eyebrow">The legends</div>
@@ -438,33 +454,33 @@
     </div>
     <div class="methods">
       <div class="method reveal">
-        <div class="mh"><span class="me">🖥️</span><h3 data-i18n="gk.m1t">Virtual Machine</h3><span class="tag" data-i18n="gk.easiest">easiest</span></div>
+        <div class="mh"><span class="ibox"><svg class="ic"><use href="#i-monitor"/></svg></span><h3 data-i18n="gk.m1t">Virtual Machine</h3><span class="tag" data-i18n="gk.easiest">easiest</span></div>
         <p data-i18n="gk.m1d">Run Kali safely inside your current OS — no dual-boot. Install VirtualBox, import Kali's prebuilt VM image, boot (login kali / kali), then update once:</p>
         <pre>sudo apt update &amp;&amp; sudo apt -y full-upgrade</pre>
-        <a class="mlink" href="https://www.kali.org/get-kali/#kali-virtual-machines" target="_blank" rel="noopener" data-i18n="gk.m1l">Download the Kali VM →</a>
+        <a class="mlink" href="https://www.kali.org/get-kali/#kali-virtual-machines" target="_blank" rel="noopener"><span data-i18n="gk.m1l">Download the Kali VM</span><svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="method reveal">
-        <div class="mh"><span class="me">🪟</span><h3 data-i18n="gk.m2t">Windows, no VM (WSL2)</h3><span class="tag" data-i18n="gk.novm">no VM</span></div>
+        <div class="mh"><span class="ibox"><svg class="ic"><use href="#i-windows"/></svg></span><h3 data-i18n="gk.m2t">Windows, no VM (WSL2)</h3><span class="tag" data-i18n="gk.novm">no VM</span></div>
         <p data-i18n="gk.m2d">Run Kali as a Windows app. In an admin PowerShell, then launch Kali from the Start menu:</p>
         <pre>wsl --install
 wsl --install -d kali-linux</pre>
-        <a class="mlink" href="https://www.kali.org/docs/wsl/" target="_blank" rel="noopener" data-i18n="gk.m2l">Kali on WSL guide →</a>
+        <a class="mlink" href="https://www.kali.org/docs/wsl/" target="_blank" rel="noopener"><span data-i18n="gk.m2l">Kali on WSL guide</span><svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="method reveal">
-        <div class="mh"><span class="me">💾</span><h3 data-i18n="gk.m3t">Bare metal / dual boot</h3><span class="tag" data-i18n="gk.fastest">fastest</span></div>
+        <div class="mh"><span class="ibox"><svg class="ic"><use href="#i-drive"/></svg></span><h3 data-i18n="gk.m3t">Bare metal / dual boot</h3><span class="tag" data-i18n="gk.fastest">fastest</span></div>
         <p data-i18n="gk.m3d">Best performance. Flash the Kali installer ISO to an 8 GB+ USB with balenaEtcher or Rufus, boot from it (F12 / Esc at startup), and run the graphical installer — you can install alongside your current OS.</p>
-        <a class="mlink" href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank" rel="noopener" data-i18n="gk.m3l">Download the installer ISO →</a>
+        <a class="mlink" href="https://www.kali.org/get-kali/#kali-installer-images" target="_blank" rel="noopener"><span data-i18n="gk.m3l">Download the installer ISO</span><svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="method reveal">
-        <div class="mh"><span class="me">🔌</span><h3 data-i18n="gk.m4t">Live USB</h3><span class="tag" data-i18n="gk.trial">try it</span></div>
+        <div class="mh"><span class="ibox"><svg class="ic"><use href="#i-usb"/></svg></span><h3 data-i18n="gk.m4t">Live USB</h3><span class="tag" data-i18n="gk.trial">try it</span></div>
         <p data-i18n="gk.m4d">Want to test first? Flash the Kali Live image, boot from the USB and choose Live — everything runs from RAM, nothing touches your disk.</p>
-        <a class="mlink" href="https://www.kali.org/get-kali/#kali-live" target="_blank" rel="noopener" data-i18n="gk.m4l">Download Kali Live →</a>
+        <a class="mlink" href="https://www.kali.org/get-kali/#kali-live" target="_blank" rel="noopener"><span data-i18n="gk.m4l">Download Kali Live</span><svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="start" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+<section id="start" style="background:linear-gradient(180deg,transparent,rgba(16,16,25,.5),transparent)">
   <div class="wrap qs">
     <div>
       <div class="eyebrow" data-i18n="qs.eyebrow">Step 2 · Install iw7x</div>
@@ -487,9 +503,9 @@ python3 neoz.py
         <p data-i18n="qs.sub">Recommended on Kali Linux (bare-metal, VM, or Kali on WSL2). On first run iw7x fetches the full catalog so every tool is ready.</p>
       </div>
       <ol class="steps">
-        <li><span class="k">›</span><div><b data-i18n="qs.l1t">Menu or shell</b><span data-i18n="qs.l1d">Launch the interactive menu, or run <span class="mono">python3 neoz.py nmap</span> to install &amp; run a tool directly.</span></div></li>
-        <li><span class="k">›</span><div><b data-i18n="qs.l2t">Search &amp; advisor</b><span data-i18n="qs.l2d">Type <span class="mono">/query</span> to search, or press <span class="mono">R</span> for "what do you want to do?".</span></div></li>
-        <li><span class="k">›</span><div><b data-i18n="qs.l3t">Keep growing</b><span data-i18n="qs.l3d">Run <span class="mono">--update</span> once, or <span class="mono">--watch</span> to keep scanning for new tools forever.</span></div></li>
+        <li><span class="k">1</span><div><b data-i18n="qs.l1t">Menu or shell</b><span data-i18n="qs.l1d">Launch the interactive menu, or run <span class="mono">python3 neoz.py nmap</span> to install &amp; run a tool directly.</span></div></li>
+        <li><span class="k">2</span><div><b data-i18n="qs.l2t">Search &amp; advisor</b><span data-i18n="qs.l2d">Type <span class="mono">/query</span> to search, or press <span class="mono">R</span> for "what do you want to do?".</span></div></li>
+        <li><span class="k">3</span><div><b data-i18n="qs.l3t">Keep growing</b><span data-i18n="qs.l3d">Run <span class="mono">--update</span> once, or <span class="mono">--watch</span> to keep scanning for new tools forever.</span></div></li>
       </ol>
     </div>
   </div>
@@ -506,7 +522,7 @@ python3 neoz.py
   </div>
 </section>
 
-<section id="how" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+<section id="how" style="background:linear-gradient(180deg,transparent,rgba(16,16,25,.5),transparent)">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="how.eyebrow">How it works</div>
@@ -514,9 +530,9 @@ python3 neoz.py
       <p data-i18n="how.sub">No more hunting repos, chasing dependencies or memorizing install flags. iw7x turns "I need X" into X running.</p>
     </div>
     <div class="flow">
-      <div class="step reveal"><div class="num" data-i18n="how.s1n">STEP 01</div><div class="ico">🔎</div><h3 data-i18n="how.s1t">Find it</h3><p data-i18n="how.s1d">Search 12,663 tools across 50 categories, filter by tag, or ask the advisor "what do you want to do?".</p></div>
-      <div class="step reveal"><div class="num" data-i18n="how.s2n">STEP 02</div><div class="ico">⚙️</div><h3 data-i18n="how.s2t">Install it</h3><p data-i18n="how.s2d">iw7x runs the right apt / pipx / go / git for Kali — it even rewrites pacman↔apt so BlackArch tools install cleanly.</p></div>
-      <div class="step reveal"><div class="num" data-i18n="how.s3n">STEP 03</div><div class="ico">▶️</div><h3 data-i18n="how.s3t">Run it</h3><p data-i18n="how.s3d">The tool launches immediately. Bad name, missing binary or offline? You get a clear message — never a traceback.</p></div>
+      <div class="step reveal"><div class="num" data-i18n="how.s1n">STEP 01</div><div class="ibox"><svg class="ic"><use href="#i-search"/></svg></div><h3 data-i18n="how.s1t">Find it</h3><p data-i18n="how.s1d">Search 12,663 tools across 50 categories, filter by tag, or ask the advisor "what do you want to do?".</p></div>
+      <div class="step reveal"><div class="num" data-i18n="how.s2n">STEP 02</div><div class="ibox"><svg class="ic"><use href="#i-download"/></svg></div><h3 data-i18n="how.s2t">Install it</h3><p data-i18n="how.s2d">iw7x runs the right apt / pipx / go / git for Kali — it even rewrites pacman/apt so BlackArch tools install cleanly.</p></div>
+      <div class="step reveal"><div class="num" data-i18n="how.s3n">STEP 03</div><div class="ibox"><svg class="ic"><use href="#i-play"/></svg></div><h3 data-i18n="how.s3t">Run it</h3><p data-i18n="how.s3d">The tool launches immediately. Bad name, missing binary or offline? You get a clear message — never a traceback.</p></div>
     </div>
   </div>
 </section>
@@ -528,34 +544,43 @@ python3 neoz.py
       <h2 data-i18n="cmp.title">iw7x vs. doing it by hand</h2>
       <p data-i18n="cmp.sub">BlackArch and Kali give you packages. iw7x gives you the whole world's tooling — installed and launched for you, from one search box.</p>
     </div>
-    <div class="cmp-wrap">
-      <table class="cmp">
-        <thead><tr><th></th><th class="iw">iw7x</th><th data-i18n="cmp.h1">Manual clone</th><th>BlackArch</th><th data-i18n="cmp.h2">Kali meta</th></tr></thead>
-        <tbody>
-          <tr><td data-i18n="cmp.r1">One command to install any tool</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="mid">~</span></td></tr>
-          <tr><td data-i18n="cmp.r2">12,663 tools in one search</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td data-i18n="cmp.r3">Auto-installs deps &amp; launches the tool</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td data-i18n="cmp.r4">Task advisor &amp; tag filters</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td data-i18n="cmp.r5">Self-updating from 30+ sources</td><td class="iw"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="mid">~</span></td><td><span class="no">✕</span></td></tr>
-          <tr><td data-i18n="cmp.r6">Built for Kali · works on Debian &amp; Arch</td><td class="iw"><span class="yes">✓</span></td><td><span class="mid">~</span></td><td>Arch</td><td>Kali</td></tr>
-        </tbody>
-      </table>
+    <div class="cmp-wrap"><table class="cmp">
+      <thead><tr><th></th><th class="iw">iw7x</th><th data-i18n="cmp.h1">Manual clone</th><th>BlackArch</th><th data-i18n="cmp.h2">Kali meta</th></tr></thead>
+      <tbody id="cmpBody"></tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="faq" style="background:linear-gradient(180deg,transparent,rgba(16,16,25,.5),transparent)">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">FAQ</div><h2 data-i18n="faq.title">Questions, answered.</h2></div>
+    <div class="faq">
+      <details><summary><span data-i18n="faq.q1">Is iw7x legal to use?</span><svg class="ic"><use href="#i-plus"/></svg></summary><p data-i18n="faq.a1">iw7x is for authorized security testing and education only — systems you own or have explicit written permission to test, plus CTFs, labs and authorized engagements. Unauthorized access to systems is illegal, and you are solely responsible for how you use it.</p></details>
+      <details><summary><span data-i18n="faq.q2">What OS do I need?</span><svg class="ic"><use href="#i-plus"/></svg></summary><p data-i18n="faq.a2">Kali Linux is the recommended platform — bare-metal, in a VM, or Kali on WSL2 — that's where iw7x installs and launches tools. The menu, search, tags and advisor browse on any OS with Python 3.10+.</p></details>
+      <details><summary><span data-i18n="faq.q3">Does it really have 12,000+ tools?</span><svg class="ic"><use href="#i-plus"/></svg></summary><p data-i18n="faq.a3">Yes — 12,663 deduplicated tools across 50 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.</p></details>
+      <details><summary><span data-i18n="faq.q4">How do I add a tool?</span><svg class="ic"><use href="#i-plus"/></svg></summary><p data-i18n="faq.a4">Add one JSON object to catalog.json and open a pull request — it's the easiest open-source contribution you'll ever make. See CONTRIBUTING.md.</p></details>
+      <details><summary><span data-i18n="faq.q5">Is it free?</span><svg class="ic"><use href="#i-plus"/></svg></summary><p data-i18n="faq.a5">100% free and open source under the MIT license. The individual tools keep their own respective licenses.</p></details>
     </div>
   </div>
 </section>
 
-<section id="faq" style="background:linear-gradient(180deg,transparent,rgba(18,18,31,.5),transparent)">
+<section id="support">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">FAQ</div>
-      <h2 data-i18n="faq.title">Questions, answered.</h2>
-    </div>
-    <div class="faq">
-      <details><summary data-i18n="faq.q1">Is iw7x legal to use?</summary><p data-i18n="faq.a1">iw7x is for authorized security testing and education only — systems you own or have explicit written permission to test, plus CTFs, labs and authorized engagements. Unauthorized access to systems is illegal, and you are solely responsible for how you use it.</p></details>
-      <details><summary data-i18n="faq.q2">What OS do I need?</summary><p data-i18n="faq.a2">Kali Linux is the recommended platform — bare-metal, in a VM, or Kali on WSL2 — that's where iw7x installs and launches tools. The menu, search, tags and advisor browse on any OS with Python 3.10+.</p></details>
-      <details><summary data-i18n="faq.q3">Does it really have 12,000+ tools?</summary><p data-i18n="faq.a3">Yes — 12,663 deduplicated tools across 50 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.</p></details>
-      <details><summary data-i18n="faq.q4">How do I add a tool?</summary><p data-i18n="faq.a4">Add one JSON object to catalog.json and open a pull request — it's the easiest open-source contribution you'll ever make. See CONTRIBUTING.md.</p></details>
-      <details><summary data-i18n="faq.q5">Is it free?</summary><p data-i18n="faq.a5">100% free and open source under the MIT license. The individual tools keep their own respective licenses.</p></details>
+    <div class="support-card reveal">
+      <div class="heart"><svg class="ic"><use href="#i-heart"/></svg></div>
+      <div class="eyebrow" style="justify-content:center" data-i18n="sup.eyebrow">Support the project</div>
+      <h2 data-i18n="sup.title">Help make the dream real.</h2>
+      <p data-i18n="sup.body">iw7x is free and open source, and it always will be. Building and growing it takes real time. There's <b>no obligation whatsoever</b> — but if it saves you time and you'd like to support the work, a small donation is always genuinely appreciated and truly keeps this project alive. Thank you.</p>
+      <a class="pp-btn" href="https://www.paypal.com/paypalme/isneozMspchill" target="_blank" rel="noopener" aria-label="Donate with PayPal">
+        <svg class="pp-mark" viewBox="0 0 24 30" aria-hidden="true">
+          <path fill="#003087" d="M6.4 28.2 6.9 25H3.1c-.5 0-.8-.4-.7-.9L5.6 3.4c.1-.6.6-1 1.2-1h7.9c3.6 0 6 1.9 5.6 5.6-.5 4.4-3.4 6.6-7.5 6.6H9.6c-.5 0-.9.3-1 .8l-1.2 8c-.1.3-.4.8-1 .8Z"/>
+          <path fill="#009cde" d="M20.9 8.6c.6 3.8-2 6.9-6.7 6.9h-2.7c-.5 0-.9.3-1 .8l-1.2 8-.4 2.6c0 .4.2.7.6.7h3.3c.5 0 .9-.3 1-.8v-.2l.7-4.3v-.2c.1-.5.5-.8 1-.8h.6c3.9 0 7-1.6 7.4-6.2.2-1.9 0-3.5-1-4.6-.3-.3-.7-.6-1.1-.8Z"/>
+        </svg>
+        <span class="pp-word"><span class="a">Pay</span><span class="b">Pal</span></span>
+        <span data-i18n="sup.btn" style="font-weight:800;color:#003087">— Donate</span>
+      </a>
+      <div class="support-handle" data-i18n="sup.handle">PayPal: <b>@isneozMspchill</b></div>
+      <div class="support-meta"><svg class="ic"><use href="#i-lock"/></svg><span data-i18n="sup.secure">Secure payment handled entirely by PayPal</span></div>
     </div>
   </div>
 </section>
@@ -573,68 +598,45 @@ python3 neoz.py
 <section id="cta" style="padding-top:40px">
   <div class="wrap">
     <div class="final reveal">
-      <div class="eyebrow" data-i18n="final.eyebrow">Open source · MIT · Free forever</div>
+      <div class="eyebrow" style="justify-content:center" data-i18n="final.eyebrow">Open source · MIT · Free forever</div>
       <h2 data-i18n="final.title">Join the arsenal.<br><span class="grad">Star it. Fork it. Add a tool.</span></h2>
       <p data-i18n="final.sub">Adding a tool is the easiest open-source contribution you'll ever make — one JSON object and a pull request.</p>
       <div class="cta-row" style="justify-content:center">
-        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security"><span data-i18n="final.star">⭐ Star on GitHub</span></a>
-        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md"><span data-i18n="final.add">🧩 Add a tool</span></a>
+        <a class="btn btn-primary" href="https://github.com/isneoz1/iw7x-cyber-security"><svg class="ic"><use href="#i-github"/></svg><span data-i18n="final.star">Star on GitHub</span></a>
+        <a class="btn btn-ghost" href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md"><svg class="ic"><use href="#i-plus"/></svg><span data-i18n="final.add">Add a tool</span></a>
       </div>
-      <div class="disc"><b data-i18n="final.disc.h">⚠️ For authorized security testing and education only.</b> <span data-i18n="final.disc.b">Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.</span></div>
+      <div class="disc"><svg class="ic"><use href="#i-warn"/></svg><div><b data-i18n="final.disc.h">For authorized security testing and education only.</b> <span data-i18n="final.disc.b">Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.</span></div></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="brand">iw<b class="grad">7x</b> <span style="color:var(--faint);font-weight:400;font-size:.85rem">· by NeoZ</span></div>
+    <div class="brand">iw<span class="grad">7x</span> <span style="color:var(--faint);font-weight:400;font-size:.85rem">· by NeoZ</span></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap">
       <a href="https://github.com/isneoz1/iw7x-cyber-security">GitHub</a>
       <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/ARSENAL.md">Arsenal</a>
       <a href="https://github.com/isneoz1/iw7x-cyber-security/blob/main/CONTRIBUTING.md" data-i18n="foot.contribute">Contribute</a>
-      <a href="https://github.com/isneoz1/iw7x-cyber-security/issues">Issues</a>
+      <a href="#support" data-i18n="nav.support">Support</a>
     </div>
     <div data-i18n="foot.quote">The quieter you become, the more you can hear.</div>
   </div>
 </footer>
 
 <script>
-  /* ─────────── i18n ─────────── */
   var TXT={
-    "nav.install":{en:"Install Kali",fr:"Installer Kali"},
-    "gk.eyebrow":{en:"Step 1 · Get Kali Linux",fr:"Étape 1 · Installer Kali Linux"},
-    "gk.title":{en:"New to Kali? Pick a way in.",fr:"Nouveau sur Kali ? Choisissez votre méthode."},
-    "gk.sub":{en:"iw7x runs its tools on Kali Linux. All four methods below are free and official — choose whichever fits your setup, then install iw7x underneath.",fr:"iw7x exécute ses outils sur Kali Linux. Les quatre méthodes ci-dessous sont gratuites et officielles — choisissez celle qui vous convient, puis installez iw7x par-dessus."},
-    "gk.easiest":{en:"easiest",fr:"le + simple"},
-    "gk.novm":{en:"no VM",fr:"sans VM"},
-    "gk.fastest":{en:"fastest",fr:"le + rapide"},
-    "gk.trial":{en:"try it",fr:"à l'essai"},
-    "gk.m1t":{en:"Virtual Machine",fr:"Machine virtuelle"},
-    "gk.m1d":{en:"Run Kali safely inside your current OS — no dual-boot. Install VirtualBox, import Kali's prebuilt VM image, boot (login kali / kali), then update once:",fr:"Faites tourner Kali en sécurité dans votre OS actuel — sans dual-boot. Installez VirtualBox, importez l'image VM prête de Kali, démarrez (identifiants kali / kali), puis mettez à jour :"},
-    "gk.m1l":{en:"Download the Kali VM →",fr:"Télécharger la VM Kali →"},
-    "gk.m2t":{en:"Windows, no VM (WSL2)",fr:"Windows, sans VM (WSL2)"},
-    "gk.m2d":{en:"Run Kali as a Windows app. In an admin PowerShell, then launch Kali from the Start menu:",fr:"Faites tourner Kali comme une appli Windows. Dans un PowerShell admin, puis lancez Kali depuis le menu Démarrer :"},
-    "gk.m2l":{en:"Kali on WSL guide →",fr:"Guide Kali sur WSL →"},
-    "gk.m3t":{en:"Bare metal / dual boot",fr:"Natif / dual boot"},
-    "gk.m3d":{en:"Best performance. Flash the Kali installer ISO to an 8 GB+ USB with balenaEtcher or Rufus, boot from it (F12 / Esc at startup), and run the graphical installer — you can install alongside your current OS.",fr:"Meilleures performances. Flashez l'ISO d'installation Kali sur une clé USB de 8 Go+ avec balenaEtcher ou Rufus, démarrez dessus (F12 / Échap au démarrage), et lancez l'installeur graphique — installable à côté de votre OS actuel."},
-    "gk.m3l":{en:"Download the installer ISO →",fr:"Télécharger l'ISO d'installation →"},
-    "gk.m4t":{en:"Live USB",fr:"Live USB"},
-    "gk.m4d":{en:"Want to test first? Flash the Kali Live image, boot from the USB and choose Live — everything runs from RAM, nothing touches your disk.",fr:"Envie de tester d'abord ? Flashez l'image Kali Live, démarrez sur la clé et choisissez Live — tout tourne en RAM, rien ne touche votre disque."},
-    "gk.m4l":{en:"Download Kali Live →",fr:"Télécharger Kali Live →"},
-    "cr.eyebrow":{en:"Why I built this",fr:"Pourquoi j'ai créé ça"},
-    "cr.body":{en:"I got tired of losing whole evenings to setup instead of hacking — cloning repos, chasing dependencies, re-reading a README for one install flag. So I built the thing I wished existed: <b>one terminal that already knows every tool, installs it the right way for Kali, and launches it for you.</b> iw7x is a passion project. I keep it free and open source, and it grows every week.",fr:"J'en avais assez de perdre des soirées entières à installer au lieu de hacker — cloner des dépôts, réparer des dépendances, relire un README pour une seule option. Alors j'ai créé ce que j'aurais voulu avoir : <b>un terminal qui connaît déjà tous les outils, les installe correctement pour Kali, et les lance pour vous.</b> iw7x est un projet de passion. Je le garde gratuit et open source, et il grandit chaque semaine."},
-    "cr.sig":{en:"creator of iw7x",fr:"créateur d'iw7x"},
     "nav.features":{en:"Features",fr:"Fonctions"},
+    "nav.install":{en:"Install Kali",fr:"Installer Kali"},
     "nav.arsenal":{en:"Arsenal",fr:"Arsenal"},
-    "nav.compare":{en:"Compare",fr:"Comparer"},
+    "nav.support":{en:"Support",fr:"Soutenir"},
     "nav.kali":{en:"Built for Kali Linux",fr:"Conçu pour Kali Linux"},
-    "nav.star":{en:"⭐ Star on GitHub",fr:"⭐ Star sur GitHub"},
+    "nav.star":{en:"Star on GitHub",fr:"Star sur GitHub"},
     "hero.kaliBadge":{en:"Built for Kali Linux — one command, any tool",fr:"Conçu pour Kali Linux — une commande, n'importe quel outil"},
     "hero.eyebrow":{en:"The world's cybersecurity arsenal · by NeoZ",fr:"L'arsenal cybersécurité mondial · par NeoZ"},
     "hero.tag":{en:'Every cybersecurity tool in the world.<br><span class="grad">One Kali terminal. One command.</span>',fr:'Tous les outils de cybersécurité du monde.<br><span class="grad">Un terminal Kali. Une commande.</span>'},
-    "hero.lead":{en:'iw7x unifies <b>12,663</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you on Kali Linux.',fr:'iw7x réunit <b>12 142</b> outils de sécurité offensifs &amp; défensifs — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande qui <b>installe, met à jour et lance</b> n\'importe quel outil pour vous sur Kali Linux.'},
-    "hero.ctaStart":{en:"▶ Quickstart",fr:"▶ Démarrer"},
-    "hero.ctaGithub":{en:"⭐ Star on GitHub",fr:"⭐ Star sur GitHub"},
+    "hero.lead":{en:'iw7x unifies <b>12,663</b> offensive &amp; defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single, beautiful command-line arsenal that <b>installs, updates and launches</b> anything for you on Kali Linux.',fr:'iw7x réunit <b>12 663</b> outils de sécurité offensifs &amp; défensifs — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande qui <b>installe, met à jour et lance</b> n\'importe quel outil pour vous sur Kali Linux.'},
+    "hero.ctaStart":{en:"Quickstart",fr:"Démarrer"},
+    "hero.ctaGithub":{en:"Star on GitHub",fr:"Star sur GitHub"},
     "chip.tools":{en:"tools",fr:"outils"},
     "chip.categories":{en:"categories",fr:"catégories"},
     "chip.kali":{en:"Kali-ready",fr:"Prêt pour Kali"},
@@ -643,7 +645,7 @@ python3 neoz.py
     "stat.tools":{en:"Tools",fr:"Outils"},
     "stat.categories":{en:"Categories",fr:"Catégories"},
     "stat.sources":{en:"Live sources",fr:"Sources en direct"},
-    "stat.command":{en:"Command to rule them",fr:"Commande pour tout gérer"},
+    "stat.command":{en:"Command to rule them",fr:"Une commande pour tout gérer"},
     "kali.eyebrow":{en:"Made for Kali Linux",fr:"Fait pour Kali Linux"},
     "kali.title":{en:"Boot Kali. Run one command.<br>The whole arsenal is yours.",fr:"Démarrez Kali. Une commande.<br>Tout l'arsenal est à vous."},
     "kali.body":{en:'iw7x is designed to run natively on <b>Kali Linux</b> (bare-metal, VM or WSL2). It detects your package managers and rewrites install commands so every tool — even Arch/BlackArch ones — installs cleanly with <span class="mono">apt</span>. Pick a tool, iw7x installs it and launches it. That\'s it.',fr:'iw7x est conçu pour tourner nativement sur <b>Kali Linux</b> (machine réelle, VM ou WSL2). Il détecte vos gestionnaires de paquets et réécrit les commandes d\'installation pour que chaque outil — même ceux d\'Arch/BlackArch — s\'installe proprement avec <span class="mono">apt</span>. Choisissez un outil, iw7x l\'installe et le lance. C\'est tout.'},
@@ -651,17 +653,17 @@ python3 neoz.py
     "kali.f1d":{en:"The interface reads your distro and tells you it's ready.",fr:"L'interface lit votre distribution et vous confirme qu'elle est prête."},
     "kali.f2t":{en:"Auto package-manager",fr:"Gestionnaire de paquets auto"},
     "kali.f2d":{en:"apt · pipx · go · git · gem detected and used automatically.",fr:"apt · pipx · go · git · gem détectés et utilisés automatiquement."},
-    "kali.f3t":{en:"pacman → apt rewriting",fr:"Réécriture pacman → apt"},
+    "kali.f3t":{en:"pacman to apt rewriting",fr:"Réécriture pacman vers apt"},
     "kali.f3d":{en:"BlackArch-sourced tools install on Kali without edits.",fr:"Les outils issus de BlackArch s'installent sur Kali sans modification."},
-    "kali.f4t":{en:"Install → launch, in one step",fr:"Installer → lancer, en une étape"},
+    "kali.f4t":{en:"Install then launch, in one step",fr:"Installer puis lancer, en une étape"},
     "kali.f4d":{en:"The tool opens the moment it finishes installing.",fr:"L'outil s'ouvre dès la fin de l'installation."},
     "feat.eyebrow":{en:"Why iw7x",fr:"Pourquoi iw7x"},
     "feat.title":{en:"Stop hunting for tools.<br>Start using them.",fr:"Arrêtez de chercher des outils.<br>Utilisez-les."},
     "feat.sub":{en:"Security pros waste hours cloning repos, fixing dependencies and remembering install commands. iw7x replaces all of that with one program.",fr:"Les pros de la sécurité perdent des heures à cloner des dépôts, réparer des dépendances et retenir des commandes d'installation. iw7x remplace tout ça par un seul programme."},
     "feat.c1t":{en:"The whole ecosystem",fr:"Tout l'écosystème"},
-    "feat.c1d":{en:"12,663 tools across 50 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.",fr:"12 142 outils sur 50 catégories — OSINT, web, sans-fil, exploitation, forensique, rétro-ingénierie, crypto, AD, cloud, mobile, IoT, threat-intel, blue team et bien plus."},
+    "feat.c1d":{en:"12,663 tools across 50 categories — OSINT, web, wireless, exploitation, forensics, reversing, crypto, AD, cloud, mobile, IoT, threat-intel, blue team and far more.",fr:"12 663 outils sur 50 catégories — OSINT, web, sans-fil, exploitation, forensique, rétro-ingénierie, crypto, AD, cloud, mobile, IoT, threat-intel, blue team et bien plus."},
     "feat.c2t":{en:"Installs &amp; runs for you",fr:"Installe &amp; lance pour vous"},
-    "feat.c2d":{en:"Pick a tool → iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.",fr:"Choisissez un outil → iw7x l'installe (apt / pipx / go / git) et le lance. Fini le copier-coller de commandes depuis douze README."},
+    "feat.c2d":{en:"Pick a tool, iw7x installs it (apt / pipx / go / git) and launches it. No more copy-pasting setup snippets from a dozen READMEs.",fr:"Choisissez un outil, iw7x l'installe (apt / pipx / go / git) et le lance. Fini le copier-coller de commandes depuis douze README."},
     "feat.c3t":{en:"Never stops growing",fr:"Ne s'arrête jamais"},
     "feat.c3d":{en:"A built-in scanner pulls fresh tools from BlackArch, Kali &amp; 75+ awesome-lists — and keeps collecting in the background while you work, so new tools appear automatically.",fr:"Un scanner intégré récupère de nouveaux outils depuis BlackArch, Kali &amp; 75+ awesome-lists — et continue de collecter en arrière-plan pendant que vous travaillez, donc les nouveaux outils apparaissent automatiquement."},
     "feat.c4t":{en:"Find anything",fr:"Trouvez tout"},
@@ -672,8 +674,27 @@ python3 neoz.py
     "leg.title":{en:"Industry-standard tools,<br>one keystroke from running.",fr:"Les outils de référence,<br>à une touche de s'exécuter."},
     "leg.sub":{en:"The names every pentester knows are already in the catalog — installed and launched for you. Here are twelve of them.",fr:"Les noms que tout pentester connaît sont déjà dans le catalogue — installés et lancés pour vous. En voici douze."},
     "ars.eyebrow":{en:"The arsenal",fr:"L'arsenal"},
-    "ars.title":{en:"50 categories. 12,663 tools.<br>And counting.",fr:"50 catégories. 12 142 outils.<br>Et ça continue."},
+    "ars.title":{en:"50 categories. 12,663 tools.<br>And counting.",fr:"50 catégories. 12 663 outils.<br>Et ça continue."},
     "ars.sub":{en:"Every domain of offensive and defensive security, in one place — each tool one keystroke from installed.",fr:"Chaque domaine de la sécurité offensive et défensive, au même endroit — chaque outil à une touche d'être installé."},
+    "gk.eyebrow":{en:"Step 1 · Get Kali Linux",fr:"Étape 1 · Installer Kali Linux"},
+    "gk.title":{en:"New to Kali? Pick a way in.",fr:"Nouveau sur Kali ? Choisissez votre méthode."},
+    "gk.sub":{en:"iw7x runs its tools on Kali Linux. All four methods below are free and official — choose whichever fits your setup, then install iw7x underneath.",fr:"iw7x exécute ses outils sur Kali Linux. Les quatre méthodes ci-dessous sont gratuites et officielles — choisissez celle qui vous convient, puis installez iw7x par-dessus."},
+    "gk.easiest":{en:"easiest",fr:"le + simple"},
+    "gk.novm":{en:"no VM",fr:"sans VM"},
+    "gk.fastest":{en:"fastest",fr:"le + rapide"},
+    "gk.trial":{en:"try it",fr:"à l'essai"},
+    "gk.m1t":{en:"Virtual Machine",fr:"Machine virtuelle"},
+    "gk.m1d":{en:"Run Kali safely inside your current OS — no dual-boot. Install VirtualBox, import Kali's prebuilt VM image, boot (login kali / kali), then update once:",fr:"Faites tourner Kali en sécurité dans votre OS actuel — sans dual-boot. Installez VirtualBox, importez l'image VM prête de Kali, démarrez (identifiants kali / kali), puis mettez à jour :"},
+    "gk.m1l":{en:"Download the Kali VM",fr:"Télécharger la VM Kali"},
+    "gk.m2t":{en:"Windows, no VM (WSL2)",fr:"Windows, sans VM (WSL2)"},
+    "gk.m2d":{en:"Run Kali as a Windows app. In an admin PowerShell, then launch Kali from the Start menu:",fr:"Faites tourner Kali comme une appli Windows. Dans un PowerShell admin, puis lancez Kali depuis le menu Démarrer :"},
+    "gk.m2l":{en:"Kali on WSL guide",fr:"Guide Kali sur WSL"},
+    "gk.m3t":{en:"Bare metal / dual boot",fr:"Natif / dual boot"},
+    "gk.m3d":{en:"Best performance. Flash the Kali installer ISO to an 8 GB+ USB with balenaEtcher or Rufus, boot from it (F12 / Esc at startup), and run the graphical installer — you can install alongside your current OS.",fr:"Meilleures performances. Flashez l'ISO d'installation Kali sur une clé USB de 8 Go+ avec balenaEtcher ou Rufus, démarrez dessus (F12 / Échap au démarrage), et lancez l'installeur graphique — installable à côté de votre OS actuel."},
+    "gk.m3l":{en:"Download the installer ISO",fr:"Télécharger l'ISO d'installation"},
+    "gk.m4t":{en:"Live USB",fr:"Live USB"},
+    "gk.m4d":{en:"Want to test first? Flash the Kali Live image, boot from the USB and choose Live — everything runs from RAM, nothing touches your disk.",fr:"Envie de tester d'abord ? Flashez l'image Kali Live, démarrez sur la clé et choisissez Live — tout tourne en RAM, rien ne touche votre disque."},
+    "gk.m4l":{en:"Download Kali Live",fr:"Télécharger Kali Live"},
     "qs.eyebrow":{en:"Step 2 · Install iw7x",fr:"Étape 2 · Installer iw7x"},
     "qs.step1":{en:"# 1 · clone (on Kali Linux)",fr:"# 1 · cloner (sur Kali Linux)"},
     "qs.step2":{en:"# 2 · install deps (git, python, pipx, go…)",fr:"# 2 · installer les dépendances (git, python, pipx, go…)"},
@@ -692,14 +713,11 @@ python3 neoz.py
     "how.eyebrow":{en:"How it works",fr:"Comment ça marche"},
     "how.title":{en:"One command does<br>the boring part.",fr:"Une commande fait<br>la partie pénible."},
     "how.sub":{en:'No more hunting repos, chasing dependencies or memorizing install flags. iw7x turns "I need X" into X running.',fr:'Fini la chasse aux dépôts, aux dépendances et aux options d\'installation. iw7x transforme « il me faut X » en X qui tourne.'},
-    "how.s1n":{en:"STEP 01",fr:"ÉTAPE 01"},
-    "how.s1t":{en:"Find it",fr:"Trouvez-le"},
-    "how.s1d":{en:'Search 12,663 tools across 50 categories, filter by tag, or ask the advisor "what do you want to do?".',fr:'Cherchez parmi 12 142 outils sur 50 catégories, filtrez par tag, ou demandez au conseiller « que voulez-vous faire ? ».'},
-    "how.s2n":{en:"STEP 02",fr:"ÉTAPE 02"},
-    "how.s2t":{en:"Install it",fr:"Installez-le"},
-    "how.s2d":{en:"iw7x runs the right apt / pipx / go / git for Kali — it even rewrites pacman↔apt so BlackArch tools install cleanly.",fr:"iw7x exécute le bon apt / pipx / go / git pour Kali — il réécrit même pacman↔apt pour que les outils BlackArch s'installent proprement."},
-    "how.s3n":{en:"STEP 03",fr:"ÉTAPE 03"},
-    "how.s3t":{en:"Run it",fr:"Lancez-le"},
+    "how.s1n":{en:"STEP 01",fr:"ÉTAPE 01"},"how.s1t":{en:"Find it",fr:"Trouvez-le"},
+    "how.s1d":{en:'Search 12,663 tools across 50 categories, filter by tag, or ask the advisor "what do you want to do?".',fr:'Cherchez parmi 12 663 outils sur 50 catégories, filtrez par tag, ou demandez au conseiller « que voulez-vous faire ? ».'},
+    "how.s2n":{en:"STEP 02",fr:"ÉTAPE 02"},"how.s2t":{en:"Install it",fr:"Installez-le"},
+    "how.s2d":{en:"iw7x runs the right apt / pipx / go / git for Kali — it even rewrites pacman/apt so BlackArch tools install cleanly.",fr:"iw7x exécute le bon apt / pipx / go / git pour Kali — il réécrit même pacman/apt pour que les outils BlackArch s'installent proprement."},
+    "how.s3n":{en:"STEP 03",fr:"ÉTAPE 03"},"how.s3t":{en:"Run it",fr:"Lancez-le"},
     "how.s3d":{en:"The tool launches immediately. Bad name, missing binary or offline? You get a clear message — never a traceback.",fr:"L'outil se lance immédiatement. Mauvais nom, binaire absent ou hors-ligne ? Vous obtenez un message clair — jamais une erreur brute."},
     "cmp.eyebrow":{en:"Why not just…",fr:"Pourquoi pas juste…"},
     "cmp.title":{en:"iw7x vs. doing it by hand",fr:"iw7x contre le faire à la main"},
@@ -707,7 +725,7 @@ python3 neoz.py
     "cmp.h1":{en:"Manual clone",fr:"Clone manuel"},
     "cmp.h2":{en:"Kali meta",fr:"Méta Kali"},
     "cmp.r1":{en:"One command to install any tool",fr:"Une commande pour installer n'importe quel outil"},
-    "cmp.r2":{en:"12,663 tools in one search",fr:"12 142 outils dans une seule recherche"},
+    "cmp.r2":{en:"12,663 tools in one search",fr:"12 663 outils dans une seule recherche"},
     "cmp.r3":{en:"Auto-installs deps &amp; launches the tool",fr:"Installe les dépendances &amp; lance l'outil"},
     "cmp.r4":{en:"Task advisor &amp; tag filters",fr:"Conseiller de tâches &amp; filtres par tag"},
     "cmp.r5":{en:"Self-updating from 30+ sources",fr:"Auto-mise à jour depuis 30+ sources"},
@@ -718,122 +736,135 @@ python3 neoz.py
     "faq.q2":{en:"What OS do I need?",fr:"Quel OS faut-il ?"},
     "faq.a2":{en:"Kali Linux is the recommended platform — bare-metal, in a VM, or Kali on WSL2 — that's where iw7x installs and launches tools. The menu, search, tags and advisor browse on any OS with Python 3.10+.",fr:"Kali Linux est la plateforme recommandée — machine réelle, VM ou Kali sur WSL2 — c'est là qu'iw7x installe et lance les outils. Le menu, la recherche, les tags et le conseiller fonctionnent sur tout OS avec Python 3.10+."},
     "faq.q3":{en:"Does it really have 12,000+ tools?",fr:"Il y a vraiment 12 000+ outils ?"},
-    "faq.a3":{en:"Yes — 12,663 deduplicated tools across 50 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.",fr:"Oui — 12 142 outils dédoublonnés sur 50 catégories sont livrés dans le catalogue, et un scanner intégré en ajoute continuellement depuis BlackArch, Kali et des dizaines d'awesome-lists."},
+    "faq.a3":{en:"Yes — 12,663 deduplicated tools across 50 categories ship in the catalog, and a built-in scanner keeps pulling new ones from BlackArch, Kali and dozens of awesome-lists.",fr:"Oui — 12 663 outils dédoublonnés sur 50 catégories sont livrés dans le catalogue, et un scanner intégré en ajoute continuellement depuis BlackArch, Kali et des dizaines d'awesome-lists."},
     "faq.q4":{en:"How do I add a tool?",fr:"Comment ajouter un outil ?"},
     "faq.a4":{en:"Add one JSON object to catalog.json and open a pull request — it's the easiest open-source contribution you'll ever make. See CONTRIBUTING.md.",fr:"Ajoutez un objet JSON à catalog.json et ouvrez une pull request — c'est la contribution open-source la plus simple qui soit. Voir CONTRIBUTING.md."},
     "faq.q5":{en:"Is it free?",fr:"Est-ce gratuit ?"},
     "faq.a5":{en:"100% free and open source under the MIT license. The individual tools keep their own respective licenses.",fr:"100% gratuit et open source sous licence MIT. Chaque outil conserve sa propre licence."},
+    "sup.eyebrow":{en:"Support the project",fr:"Soutenir le projet"},
+    "sup.title":{en:"Help make the dream real.",fr:"Aidez à réaliser le rêve."},
+    "sup.body":{en:"iw7x is free and open source, and it always will be. Building and growing it takes real time. There's <b>no obligation whatsoever</b> — but if it saves you time and you'd like to support the work, a small donation is always genuinely appreciated and truly keeps this project alive. Thank you.",fr:"iw7x est gratuit et open source, et le restera toujours. Le construire et le faire grandir demande beaucoup de temps. Il n'y a <b>aucune obligation</b> — mais s'il vous fait gagner du temps et que vous voulez soutenir le travail, un petit don fait toujours énormément plaisir et fait vraiment vivre ce projet. Merci."},
+    "sup.btn":{en:"— Donate",fr:"— Faire un don"},
+    "sup.handle":{en:"PayPal: <b>@isneozMspchill</b>",fr:"PayPal : <b>@isneozMspchill</b>"},
+    "sup.secure":{en:"Secure payment handled entirely by PayPal",fr:"Paiement sécurisé, entièrement géré par PayPal"},
+    "cr.eyebrow":{en:"Why I built this",fr:"Pourquoi j'ai créé ça"},
+    "cr.body":{en:"I got tired of losing whole evenings to setup instead of hacking — cloning repos, chasing dependencies, re-reading a README for one install flag. So I built the thing I wished existed: <b>one terminal that already knows every tool, installs it the right way for Kali, and launches it for you.</b> iw7x is a passion project. I keep it free and open source, and it grows every week.",fr:"J'en avais assez de perdre des soirées entières à installer au lieu de hacker — cloner des dépôts, réparer des dépendances, relire un README pour une seule option. Alors j'ai créé ce que j'aurais voulu avoir : <b>un terminal qui connaît déjà tous les outils, les installe correctement pour Kali, et les lance pour vous.</b> iw7x est un projet de passion. Je le garde gratuit et open source, et il grandit chaque semaine."},
+    "cr.sig":{en:"creator of iw7x",fr:"créateur d'iw7x"},
     "final.eyebrow":{en:"Open source · MIT · Free forever",fr:"Open source · MIT · Gratuit à vie"},
     "final.title":{en:'Join the arsenal.<br><span class="grad">Star it. Fork it. Add a tool.</span>',fr:'Rejoignez l\'arsenal.<br><span class="grad">Star. Fork. Ajoutez un outil.</span>'},
     "final.sub":{en:"Adding a tool is the easiest open-source contribution you'll ever make — one JSON object and a pull request.",fr:"Ajouter un outil est la contribution open-source la plus simple — un objet JSON et une pull request."},
-    "final.star":{en:"⭐ Star on GitHub",fr:"⭐ Star sur GitHub"},
-    "final.add":{en:"🧩 Add a tool",fr:"🧩 Ajouter un outil"},
-    "final.disc.h":{en:"⚠️ For authorized security testing and education only.",fr:"⚠️ Pour les tests de sécurité autorisés et l'éducation uniquement."},
+    "final.star":{en:"Star on GitHub",fr:"Star sur GitHub"},
+    "final.add":{en:"Add a tool",fr:"Ajouter un outil"},
+    "final.disc.h":{en:"For authorized security testing and education only.",fr:"Pour les tests de sécurité autorisés et l'éducation uniquement."},
     "final.disc.b":{en:"Only use iw7x on systems you own or have explicit written permission to test. Unauthorized access to computer systems is illegal — you are solely responsible for your actions.",fr:"N'utilisez iw7x que sur des systèmes que vous possédez ou pour lesquels vous avez une autorisation écrite explicite. L'accès non autorisé à un système informatique est illégal — vous êtes seul responsable de vos actes."},
     "foot.contribute":{en:"Contribute",fr:"Contribuer"},
     "foot.quote":{en:"The quieter you become, the more you can hear.",fr:"Plus vous devenez silencieux, plus vous pouvez entendre."}
   };
 
-  /* Categories: [en_name, emoji, count, fr_name] — mirrors catalog.json */
-  var CATS=[["OSINT / Recon","🕵️",2309,"OSINT / Recon"],["Other Tools / OSINT","🧰",1983,"Boîte à outils / OSINT"],["Web Attack","🌐",1722,"Attaque Web"],["Information Gathering","🔍",1273,"Collecte d'infos"],["Forensics / DFIR","🔬",686,"Forensique / DFIR"],["Reverse Engineering","🧠",503,"Rétro-ingénierie"],["Sniffing & Network MITM","📶",364,"Sniffing & MITM réseau"],["Malware Analysis","🧬",342,"Analyse de malware"],["Honeypots / Deception","🍯",241,"Honeypots / Déception"],["Cryptography / Encryption","🔐",237,"Cryptographie"],["IoT / Firmware / Hardware","🔌",227,"IoT / Firmware / Matériel"],["Wordlist / Password","🔑",226,"Wordlists / Mots de passe"],["Blue Team / Defense","🛡️",208,"Blue Team / Défense"],["Active Directory","🏰",205,"Active Directory"],["Mobile Security","📱",203,"Sécurité mobile"],["Exploit Framework","💥",202,"Framework d'exploit"],["API Security","🔗",168,"Sécurité API"],["Wireless Attack","📡",126,"Attaque sans-fil"],["Privilege Escalation","⏫",121,"Élévation de privilèges"],["Binary Exploitation / CTF","🧨",117,"Exploitation binaire / CTF"],["Payload Creation","🎯",116,"Création de payloads"],["Threat Intelligence","🔭",91,"Threat Intelligence"],["Vulnerability Scanning","🩻",89,"Scan de vulnérabilités"],["CTF / Wargames","🚩",79,"CTF / Wargames"],["Fuzzing","🐝",75,"Fuzzing"],["Phishing","🎣",59,"Phishing"],["Physical / RFID / Badge","🚪",57,"Physique / RFID / Badge"],["Automotive / CAN","🚗",55,"Automobile / CAN"],["Steganography","🖼️",53,"Stéganographie"],["Post-Exploitation / C2","🎛️",47,"Post-exploitation / C2"],["Social Engineering","🎭",46,"Ingénierie sociale"],["DDoS / Stress Test","💣",43,"DDoS / Stress test"],["Radio / SDR / RF","📻",41,"Radio / SDR / RF"],["Blockchain / Web3","⛓️",41,"Blockchain / Web3"],["Container / Kubernetes","📦",38,"Conteneurs / Kubernetes"],["Cloud Security","☁️",33,"Sécurité cloud"],["VoIP Security","☎️",31,"Sécurité VoIP"],["Threat Hunting","🐺",27,"Chasse aux menaces"],["Data Exfiltration","📤",26,"Exfiltration de données"],["DevSecOps / SAST-DAST","♻️",25,"DevSecOps / SAST-DAST"],["SQL Injection","💉",21,"Injection SQL"],["Supply Chain / SBOM","🧱",17,"Supply Chain / SBOM"],["Malware Sandbox / Detonation","🧪",15,"Sandbox de malware"],["XSS Attack","🩹",14,"Attaque XSS"],["Anonymity / Hiding","🥷",13,"Anonymat"],["Remote Admin (RAT)","🖥️",11,"Admin distant (RAT)"],["AI / ML Security","🤖",10,"Sécurité IA / ML"],["Satellite / GNSS / Space","🛰️",9,"Satellite / GNSS"],["ICS / SCADA / OT","🏭",9,"ICS / SCADA / OT"],["Game Hacking","🎮",7,"Piratage de jeux"]];
+  /* Categories: [en_name, emoji(unused in UI), count, fr_name] — synced from catalog.json */
+  var CATS=[["OSINT / Recon","",2309,"OSINT / Recon"],["Other Tools / OSINT","",1983,"Boîte à outils / OSINT"],["Web Attack","",1722,"Attaque Web"],["Information Gathering","",1273,"Collecte d'infos"],["Forensics / DFIR","",686,"Forensique / DFIR"],["Reverse Engineering","",503,"Rétro-ingénierie"],["Sniffing & Network MITM","",364,"Sniffing & MITM réseau"],["Malware Analysis","",342,"Analyse de malware"],["Honeypots / Deception","",241,"Honeypots / Déception"],["Cryptography / Encryption","",237,"Cryptographie"],["IoT / Firmware / Hardware","",227,"IoT / Firmware / Matériel"],["Wordlist / Password","",226,"Wordlists / Mots de passe"],["Blue Team / Defense","",208,"Blue Team / Défense"],["Active Directory","",205,"Active Directory"],["Mobile Security","",203,"Sécurité mobile"],["Exploit Framework","",202,"Framework d'exploit"],["API Security","",168,"Sécurité API"],["Wireless Attack","",126,"Attaque sans-fil"],["Privilege Escalation","",121,"Élévation de privilèges"],["Binary Exploitation / CTF","",117,"Exploitation binaire / CTF"],["Payload Creation","",116,"Création de payloads"],["Threat Intelligence","",91,"Threat Intelligence"],["Vulnerability Scanning","",89,"Scan de vulnérabilités"],["CTF / Wargames","",79,"CTF / Wargames"],["Fuzzing","",75,"Fuzzing"],["Phishing","",59,"Phishing"],["Physical / RFID / Badge","",57,"Physique / RFID / Badge"],["Automotive / CAN","",55,"Automobile / CAN"],["Steganography","",53,"Stéganographie"],["Post-Exploitation / C2","",47,"Post-exploitation / C2"],["Social Engineering","",46,"Ingénierie sociale"],["DDoS / Stress Test","",43,"DDoS / Stress test"],["Radio / SDR / RF","",41,"Radio / SDR / RF"],["Blockchain / Web3","",41,"Blockchain / Web3"],["Container / Kubernetes","",38,"Conteneurs / Kubernetes"],["Cloud Security","",33,"Sécurité cloud"],["VoIP Security","",31,"Sécurité VoIP"],["Threat Hunting","",27,"Chasse aux menaces"],["Data Exfiltration","",26,"Exfiltration de données"],["DevSecOps / SAST-DAST","",25,"DevSecOps / SAST-DAST"],["SQL Injection","",21,"Injection SQL"],["Supply Chain / SBOM","",17,"Supply Chain / SBOM"],["Malware Sandbox / Detonation","",15,"Sandbox de malware"],["XSS Attack","",14,"Attaque XSS"],["Anonymity / Hiding","",13,"Anonymat"],["Remote Admin (RAT)","",11,"Admin distant (RAT)"],["AI / ML Security","",10,"Sécurité IA / ML"],["Satellite / GNSS / Space","",9,"Satellite / GNSS"],["ICS / SCADA / OT","",9,"ICS / SCADA / OT"],["Game Hacking","",7,"Piratage de jeux"]];
 
-  /* Legendary tools: [name, emoji, tag, cmd, en_desc, fr_desc] */
+  /* Legends: [name, colorHue, tag, cmd, en, fr] */
   var LEGENDS=[
-    ["Nmap","🛰️","Recon","iw7x nmap","The network mapper — host discovery, port &amp; service scanning.","Le cartographe réseau — découverte d'hôtes, scan de ports &amp; services."],
-    ["Metasploit","💥","Exploit","iw7x metasploit","The exploitation framework for developing and running exploits.","Le framework d'exploitation pour développer et lancer des exploits."],
-    ["BloodHound","🏰","AD","iw7x bloodhound","Map Active Directory attack paths as a graph.","Cartographie les chemins d'attaque Active Directory sous forme de graphe."],
-    ["SQLmap","💉","Web","iw7x sqlmap","Automatic SQL injection detection and exploitation.","Détection et exploitation automatiques d'injections SQL."],
-    ["Nuclei","🩻","Scanner","iw7x nuclei","Fast, template-based vulnerability scanner.","Scanner de vulnérabilités rapide, basé sur des templates."],
-    ["ffuf","🐝","Fuzzing","iw7x ffuf","Blazing-fast web fuzzer for content &amp; parameter discovery.","Fuzzer web ultra-rapide pour découvrir contenus &amp; paramètres."],
-    ["Hashcat","🔑","Cracking","iw7x hashcat","The world's fastest password recovery / hash cracker.","Le casseur de hash le plus rapide du monde."],
-    ["Burp Suite","🌐","Web","iw7x burp suite","The industry-standard web application proxy &amp; scanner.","Le proxy &amp; scanner d'applications web de référence."],
-    ["Wireshark","📶","Network","iw7x wireshark","Deep packet inspection and network protocol analysis.","Inspection de paquets et analyse de protocoles réseau."],
-    ["Ghidra","🧠","RE","iw7x ghidra","NSA's software reverse-engineering suite.","La suite de rétro-ingénierie logicielle de la NSA."],
-    ["Impacket","🎛️","AD","iw7x impacket","Python classes for crafting &amp; abusing network protocols.","Classes Python pour forger &amp; abuser des protocoles réseau."],
-    ["Aircrack-ng","📡","Wireless","iw7x aircrack-ng","Complete suite to assess Wi-Fi network security.","Suite complète pour évaluer la sécurité des réseaux Wi-Fi."]
+    ["Nmap",190,"Recon","iw7x nmap","The network mapper — host discovery, port &amp; service scanning.","Le cartographe réseau — découverte d'hôtes, scan de ports &amp; services."],
+    ["Metasploit",345,"Exploit","iw7x metasploit","The exploitation framework for developing and running exploits.","Le framework d'exploitation pour développer et lancer des exploits."],
+    ["BloodHound",275,"AD","iw7x bloodhound","Map Active Directory attack paths as a graph.","Cartographie les chemins d'attaque Active Directory sous forme de graphe."],
+    ["SQLmap",15,"Web","iw7x sqlmap","Automatic SQL injection detection and exploitation.","Détection et exploitation automatiques d'injections SQL."],
+    ["Nuclei",160,"Scanner","iw7x nuclei","Fast, template-based vulnerability scanner.","Scanner de vulnérabilités rapide, basé sur des templates."],
+    ["ffuf",50,"Fuzzing","iw7x ffuf","Blazing-fast web fuzzer for content &amp; parameter discovery.","Fuzzer web ultra-rapide pour découvrir contenus &amp; paramètres."],
+    ["Hashcat",120,"Cracking","iw7x hashcat","The world's fastest password recovery / hash cracker.","Le casseur de hash le plus rapide du monde."],
+    ["Burp Suite",25,"Web","iw7x burp suite","The industry-standard web application proxy &amp; scanner.","Le proxy &amp; scanner d'applications web de référence."],
+    ["Wireshark",210,"Network","iw7x wireshark","Deep packet inspection and network protocol analysis.","Inspection de paquets et analyse de protocoles réseau."],
+    ["Ghidra",300,"RE","iw7x ghidra","NSA's software reverse-engineering suite.","La suite de rétro-ingénierie logicielle de la NSA."],
+    ["Impacket",265,"AD","iw7x impacket","Python classes for crafting &amp; abusing network protocols.","Classes Python pour forger &amp; abuser des protocoles réseau."],
+    ["Aircrack-ng",95,"Wireless","iw7x aircrack-ng","Complete suite to assess Wi-Fi network security.","Suite complète pour évaluer la sécurité des réseaux Wi-Fi."]
   ];
 
-  /* Cheatsheet: [cmd, en, fr] */
   var CHEATS=[
     ["iw7x","open the interactive menu","ouvrir le menu interactif"],
     ["iw7x nmap","install (if needed) and run a tool","installer (si besoin) et lancer un outil"],
     ["iw7x search ad","search the whole catalog","chercher dans tout le catalogue"],
+    ["iw7x bundle web","install a whole task kit at once","installer tout un kit de tâche d'un coup"],
     ["iw7x list","list every category","lister toutes les catégories"],
     ["iw7x install nuclei","install a tool by name","installer un outil par son nom"],
     ["iw7x --update","fetch every tool from online sources","récupérer tous les outils en ligne"],
-    ["iw7x --watch","keep scanning for new tools","scanner en continu de nouveaux outils"],
     ["iw7x --help","show the full CLI help","afficher l'aide complète du CLI"]
   ];
+
+  var CMP=[
+    ["cmp.r1","yes","no","mid","mid"],
+    ["cmp.r2","yes","no","mid","no"],
+    ["cmp.r3","yes","no","no","no"],
+    ["cmp.r4","yes","no","no","no"],
+    ["cmp.r5","yes","no","mid","no"],
+    ["cmp.r6","yes","mid","Arch","Kali"]
+  ];
+
+  var CHK='<span class="yes"><svg class="ic"><use href="#i-check"/></svg></span>';
+  var CRS='<span class="no"><svg class="ic"><use href="#i-x"/></svg></span>';
+  function cell(v){return v==="yes"?CHK:v==="no"?CRS:'<span class="mid">'+(v==="mid"?"~":v)+'</span>';}
 
   var lang="en";
   function applyLang(l){
     lang=(l==="fr")?"fr":"en";
     document.documentElement.setAttribute("lang",lang);
     document.documentElement.setAttribute("data-lang",lang);
-    document.querySelectorAll("[data-i18n]").forEach(function(el){
-      var k=el.getAttribute("data-i18n"); if(TXT[k]) el.innerHTML=TXT[k][lang];
-    });
-    document.querySelectorAll(".lang button").forEach(function(b){
-      b.classList.toggle("on", b.getAttribute("data-set-lang")===lang);
-    });
-    renderCats(); renderLegends(); renderCheats();
+    document.querySelectorAll("[data-i18n]").forEach(function(el){var k=el.getAttribute("data-i18n");if(TXT[k])el.innerHTML=TXT[k][lang];});
+    document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-set-lang")===lang);});
+    renderCats();renderLegends();renderCheats();renderCmp();
     try{localStorage.setItem("iw7x-lang",lang);}catch(e){}
   }
-  document.querySelectorAll(".lang button").forEach(function(b){
-    b.addEventListener("click",function(){applyLang(b.getAttribute("data-set-lang"));});
-  });
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){applyLang(b.getAttribute("data-set-lang"));});});
 
-  /* Renderers */
   var g=document.getElementById("catGrid");
+  function hue(i){return (i*63)%360;}
   function renderCats(){
-    g.innerHTML=CATS.map(function(c){
+    g.innerHTML=CATS.map(function(c,i){
       var name=(lang==="fr")?c[3]:c[0];
-      return '<div class="cat"><span class="ce">'+c[1]+'</span><span class="ct">'+name+'</span><span class="cn">'+c[2].toLocaleString()+'</span></div>';
+      var col="hsl("+hue(i)+" 80% 62%)";
+      return '<div class="cat"><span class="bar" style="background:'+col+'"></span><span class="ct">'+name+'</span><span class="cn">'+c[2].toLocaleString()+'</span></div>';
     }).join("");
   }
   var lg=document.getElementById("legendGrid");
   function renderLegends(){
     lg.innerHTML=LEGENDS.map(function(t){
       var d=(lang==="fr")?t[5]:t[4];
-      return '<div class="legend reveal in"><div class="lh"><span class="le">'+t[1]+'</span><span class="ln">'+t[0]+'</span><span class="lt">'+t[2]+'</span></div><p>'+d+'</p><code>'+t[3]+'</code></div>';
+      return '<div class="legend reveal in"><div class="lh"><span class="ld" style="background:hsl('+t[1]+' 85% 62%)"></span><span class="ln">'+t[0]+'</span><span class="lt">'+t[2]+'</span></div><p>'+d+'</p><code>'+t[3]+'</code></div>';
     }).join("");
   }
   var cg=document.getElementById("cheatGrid");
   function renderCheats(){
-    cg.innerHTML=CHEATS.map(function(c){
-      var d=(lang==="fr")?c[2]:c[1];
-      return '<div class="row"><span class="cmd">'+c[0]+'</span><span class="desc">'+d+'</span></div>';
+    cg.innerHTML=CHEATS.map(function(c){var d=(lang==="fr")?c[2]:c[1];return '<div class="row"><span class="cmd">'+c[0]+'</span><span class="desc">'+d+'</span></div>';}).join("");
+  }
+  var cb=document.getElementById("cmpBody");
+  function renderCmp(){
+    cb.innerHTML=CMP.map(function(r){
+      return '<tr><td>'+TXT[r[0]][lang]+'</td><td class="iw">'+cell(r[1])+'</td><td>'+cell(r[2])+'</td><td>'+cell(r[3])+'</td><td>'+cell(r[4])+'</td></tr>';
     }).join("");
   }
 
-  /* Tool marquee */
   var TOOLS=["Nmap","Masscan","theHarvester","Amass","SpiderFoot","Sherlock","Nuclei","Burp Suite","OWASP ZAP","SQLmap","ffuf","Gobuster","Aircrack-ng","Bettercap","Wifite","Hashcat","John the Ripper","Hydra","Metasploit","Sliver","Havoc","Empire","BloodHound","Impacket","NetExec","Responder","Certipy","Ghidra","radare2","Frida","jadx","Volatility","Autopsy","binwalk","YARA","Prowler","Pacu","MobSF","Wireshark","evilginx","MISP","LinPEAS"];
-  document.getElementById("mq").innerHTML=(function(){var l=TOOLS.map(function(t){return '<span>▹ <b>'+t+'</b></span>'}).join("");return l+l;})();
+  document.getElementById("mq").innerHTML=(function(){var l=TOOLS.map(function(t){return '<span><i>/</i><b>'+t+'</b></span>'}).join("");return l+l;})();
 
-  /* Count-up + reveal on view */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;
     e.target.classList.add("in");
-    var n=e.target.querySelector?e.target.querySelector("[data-count]"):null;
-    if(e.target.hasAttribute&&e.target.hasAttribute("data-count"))n=e.target;
+    var n=(e.target.hasAttribute&&e.target.hasAttribute("data-count"))?e.target:(e.target.querySelector?e.target.querySelector("[data-count]"):null);
     if(n&&!n.dataset.done){n.dataset.done=1;var to=+n.dataset.count,su=n.dataset.suffix||"",st=performance.now();
-      (function tick(t){var p=Math.min(1,(t-st)/1100);var v=Math.floor((1-Math.pow(1-p,3))*to);
-        n.textContent=v.toLocaleString()+(p===1?su:"");if(p<1)requestAnimationFrame(tick)})(st);}
+      (function tick(t){var p=Math.min(1,(t-st)/1200);var v=Math.floor((1-Math.pow(1-p,3))*to);n.textContent=v.toLocaleString()+(p===1?su:"");if(p<1)requestAnimationFrame(tick);})(st);}
     io.unobserve(e.target);
-  })},{threshold:.3});
-  document.querySelectorAll(".reveal,.stat").forEach(function(el){io.observe(el)});
+  });},{threshold:.25});
+  function observe(){document.querySelectorAll(".reveal,.stat").forEach(function(el){io.observe(el);});}
 
-  /* Copy button */
   document.addEventListener("click",function(ev){
-    var b=ev.target.closest(".copy"); if(!b)return;
-    navigator.clipboard.writeText(b.dataset.copy).then(function(){var o=b.textContent;b.textContent=(lang==="fr")?"copié ✓":"copied ✓";setTimeout(function(){b.textContent=o},1600)});
+    var b=ev.target.closest(".copy");if(!b)return;
+    navigator.clipboard.writeText(b.dataset.copy).then(function(){var o=b.textContent;b.textContent=(lang==="fr")?"copié":"copied";setTimeout(function(){b.textContent=o;},1600);});
   });
 
-  /* Init: detect saved / browser language */
   (function(){
-    var saved=null; try{saved=localStorage.getItem("iw7x-lang");}catch(e){}
+    var saved=null;try{saved=localStorage.getItem("iw7x-lang");}catch(e){}
     var l=saved||((navigator.language||"en").toLowerCase().indexOf("fr")===0?"fr":"en");
-    applyLang(l);
+    applyLang(l);observe();
   })();
 </script>
 </body>
