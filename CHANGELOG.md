@@ -3,6 +3,19 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.1.0] — 2026-07-06
+
+### Added
+- **52 more flagship tools curated with correct, Kali-ready commands**
+  (`scripts/curate_essentials.py`): Recon-ng, Sublist3r, hakrawler, gf/anew/unfurl,
+  Medusa, Ncrack, Patator, evil-winrm, ldapsearch, RouterSploit, PowerShell-Empire,
+  Scapy, tshark, Reaver, Kismet, airgeddon, capa, FLOSS, Syft, Grype, osv-scanner,
+  Sigma CLI, Lynis, OpenVAS/GVM and more — so the most-used tools "just work".
+
+### Changed
+- Catalog at **12,142 tools across 50 categories**; counts refreshed across the
+  README, `README.fr.md`, `ARSENAL.md` and the site.
+
 ## [2.0.0] — 2026-07-06
 
 ### Added
