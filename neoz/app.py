@@ -410,11 +410,41 @@ def update_screen() -> Catalog | None:
 
 # ── Main loop ──────────────────────────────────────────────────────────────────
 
+def bundles_screen() -> None:
+    """Pick a task bundle and install the whole kit in one go."""
+    from rich import box
+    from rich.table import Table
+    from . import bundles as _b
+    from .cli import cli_bundle
+    ui.clear()
+    names = list(_b.ALL.items())
+    table = Table(title="Task bundles — install a whole kit for a job", box=box.SIMPLE_HEAD)
+    table.add_column("No.", justify="right", style="accent", width=5)
+    table.add_column("Bundle", style="brand", min_width=26)
+    table.add_column("Tools", justify="right", style="dim cyan")
+    for i, (name, b) in enumerate(names, 1):
+        table.add_row(str(i), f"{b['title']}  [dim]({name})[/dim]", str(len(b["tools"])))
+    table.add_row("99", "[dim]Back to main menu[/dim]", "")
+    console.print(table)
+    choice = _ask("[accent]Bundle number[/accent]")
+    if not choice or not choice.strip().isdigit():
+        return
+    n = int(choice.strip())
+    if n == 99 or not (1 <= n <= len(names)):
+        return
+    name = names[n - 1][0]
+    console.print(f"[dim]Installing the '{name}' kit — this can take a while...[/dim]")
+    cli_bundle([name])   # reuses the tested installer (Kali-guarded, error-wrapped)
+    _pause()
+
+
 def _dispatch(raw: str, catalog: Catalog) -> bool:
     """Return False to quit, True to keep looping."""
     low = raw.lower()
     if low in ("?", "help"):
         ui.render_help(); _pause(); return True
+    if low in ("b", "bundle", "bundles", "kit", "kits"):
+        bundles_screen(); return True
     if raw.startswith("/"):
         search_screen(raw[1:].strip() or None); return True
     if low in ("s", "search"):

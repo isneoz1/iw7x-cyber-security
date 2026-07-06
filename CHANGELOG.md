@@ -3,6 +3,22 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.5.0] — 2026-07-06
+
+### Added
+- **Bundles in the interactive menu**: press `B` to pick a task kit and install it
+  from the TUI (not just the CLI). New menu hint + `bundles_screen`.
+- **4 more bundles** (15 total): bugbounty, malware, container, stego.
+- **Fourth curation wave** (`scripts/curate_essentials3.py`): 22 tools with
+  Kali-ready commands for the thinner categories (OpenCanary, Slither, Mythril,
+  garak, ModelScan, firejail, pip-audit, Safety, multimon-ng, Gqrx, hping3,
+  slowhttptest, Modlishka, socat, seccomp-tools and more).
+- **Test suite** (`tests/test_catalog.py`) run in CI (`pytest`): catalog validity,
+  model load, bundle resolution, flagship install commands, repo-link name filter.
+
+### Changed
+- Catalog at **13,026 tools across 50 categories**.
+
 ## [2.4.0] — 2026-07-06
 
 ### Added

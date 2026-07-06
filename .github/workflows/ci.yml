@@ -27,19 +27,23 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt pytest
 
       - name: Validate catalog.json
         run: |
           python -c "import json; d=json.load(open('catalog.json', encoding='utf-8')); n=sum(len(c.get('tools',[])) for c in d['categories']); print(f'catalog OK — {len(d[\"categories\"])} categories, {n} tools')"
 
       - name: Import smoke test
-        run: python -c "import neoz, neoz.cli, neoz.models, neoz.system, neoz.ui, neoz.updater"
+        run: python -c "import neoz, neoz.cli, neoz.models, neoz.system, neoz.ui, neoz.updater, neoz.bundles"
+
+      - name: Unit tests
+        run: pytest -q
 
       - name: CLI runs
         run: |
           python neoz.py --help
           python neoz.py list
+          python neoz.py bundles
 
   lint:
     name: Lint (non-blocking)

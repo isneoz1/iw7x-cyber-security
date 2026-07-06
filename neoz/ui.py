@@ -219,7 +219,7 @@ def render_main_menu(catalog: Catalog) -> None:
     console.print(Rule(style=_BORDER))
     console.print("     ".join([
         _cmd("/", t("h_search")), _cmd("T", t("h_tags")), _cmd("R", t("h_recommend")),
-        _cmd("U", t("h_update")), _cmd("?", t("h_help")), _cmd("Q", t("h_quit")),
+        _cmd("B", "bundles"), _cmd("U", t("h_update")), _cmd("?", t("h_help")), _cmd("Q", t("h_quit")),
     ]))
 
 

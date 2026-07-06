@@ -49,6 +49,17 @@ ALL: dict[str, dict] = {
     "recon": {"title": "Fast Recon Pipeline", "tools": [
         "subfinder", "assetfinder", "amass", "dnsx", "httpx", "httprobe", "naabu",
         "katana", "gau", "waybackurls", "nuclei"]},
+    "bugbounty": {"title": "Bug Bounty", "tools": [
+        "subfinder", "httpx", "nuclei", "ffuf", "katana", "gau", "waybackurls",
+        "dalfox", "gf", "qsreplace", "anew", "arjun", "gowitness"]},
+    "malware": {"title": "Malware Analysis", "tools": [
+        "yara", "capa", "floss", "binwalk", "radare2", "jadx", "apktool", "exiftool"]},
+    "container": {"title": "Container & K8s Security", "tools": [
+        "trivy", "kube-hunter", "kube-bench", "kubescape", "kubeaudit", "popeye",
+        "peirates", "grype", "syft"]},
+    "stego": {"title": "Steganography", "tools": [
+        "steghide", "zsteg", "stegseek", "outguess", "exiftool", "binwalk",
+        "stegcracker"]},
 }
 
 
