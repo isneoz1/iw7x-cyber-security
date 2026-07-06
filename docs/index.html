@@ -25,11 +25,11 @@
 </script>
 <style>
   :root{
-    --bg:#07070d; --bg2:#0b0b16; --surface:#101019; --surface2:#15151f; --raised:#181826;
-    --line:#22223a; --line2:#2c2c48; --text:#eef0ff; --muted:#99a0c2; --faint:#666c92;
-    --pink:#FF47B3; --violet:#9652FF; --cyan:#48DCFF; --green:#4AE3A8; --amber:#FFC24B;
-    --grad:linear-gradient(100deg,#FF47B3 0%,#9652FF 46%,#48DCFF 100%);
-    --grad-soft:linear-gradient(100deg,rgba(255,71,179,.14),rgba(150,82,255,.12),rgba(72,220,255,.12));
+    --bg:#0a0b12; --bg2:#0e0f18; --surface:#12131d; --surface2:#171826; --raised:#1c1d2c;
+    --line:#242637; --line2:#2f3145; --text:#eef1fa; --muted:#a2a8c2; --faint:#6b7192;
+    --pink:#e86aa6; --violet:#8b7bff; --cyan:#57cdf0; --green:#48d3a0; --amber:#f2b34d;
+    --grad:linear-gradient(100deg,#e86aa6 0%,#8b7bff 46%,#57cdf0 100%);
+    --grad-soft:linear-gradient(100deg,rgba(232,106,166,.12),rgba(139,123,255,.11),rgba(87,205,240,.1));
     --mono:"SFMono-Regular",ui-monospace,"JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --maxw:1160px; --ease:cubic-bezier(.16,1,.3,1);
@@ -40,9 +40,9 @@
   /* ambient animated background */
   body::before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;
     background:
-      radial-gradient(50% 40% at 12% 0%, rgba(255,71,179,.13), transparent 60%),
-      radial-gradient(45% 40% at 90% 6%, rgba(72,220,255,.11), transparent 60%),
-      radial-gradient(60% 50% at 50% 108%, rgba(150,82,255,.13), transparent 62%);
+      radial-gradient(52% 42% at 12% 0%, rgba(232,106,166,.10), transparent 62%),
+      radial-gradient(46% 42% at 90% 6%, rgba(87,205,240,.09), transparent 62%),
+      radial-gradient(62% 52% at 50% 108%, rgba(139,123,255,.11), transparent 64%);
     animation:drift 22s ease-in-out infinite alternate}
   @keyframes drift{to{transform:translate3d(0,-2.5%,0) scale(1.06)}}
   body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.025;pointer-events:none;
@@ -86,7 +86,7 @@
   .up2{animation-delay:.08s}.up3{animation-delay:.16s}.up4{animation-delay:.24s}.up5{animation-delay:.32s}.up6{animation-delay:.4s}
   @keyframes up{to{opacity:1;transform:none}}
   .wordmark{font-family:var(--mono);font-weight:800;font-size:clamp(3.8rem,12vw,7.6rem);line-height:.88;letter-spacing:-.03em;margin:8px 0 8px;
-    background:linear-gradient(100deg,#FF47B3,#9652FF,#48DCFF,#9652FF,#FF47B3);background-size:220% auto;
+    background:linear-gradient(100deg,#e86aa6,#8b7bff,#57cdf0,#8b7bff,#e86aa6);background-size:220% auto;
     -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 7s linear infinite}
   @keyframes shimmer{to{background-position:220% center}}
   h1.tag{font-size:clamp(1.55rem,3.4vw,2.4rem);line-height:1.14;font-weight:760;letter-spacing:-.015em;margin:8px 0 18px;text-wrap:balance}
@@ -163,8 +163,9 @@
   .legend{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px;transition:transform .18s var(--ease),border-color .2s,box-shadow .3s}
   .legend:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:0 18px 44px -28px rgba(72,220,255,.5)}
   .legend .lh{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-  .legend .ld{width:9px;height:9px;border-radius:50%;flex:none}
-  .legend .ln{font-weight:750;font-size:1.06rem}
+  .legend .lm{width:36px;height:36px;border-radius:10px;flex:none;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:.82rem;color:#fff;letter-spacing:-.02em;box-shadow:0 5px 16px -5px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.18)}
+  .legend .ln{font-weight:750;font-size:1.06rem;color:var(--text);transition:color .2s}
+  a.ln:hover{color:var(--cyan)}
   .legend .lt{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--violet);border:1px solid var(--line2);border-radius:999px;padding:3px 9px;white-space:nowrap;text-transform:uppercase;letter-spacing:.05em}
   .legend p{color:var(--muted);font-size:.9rem;line-height:1.5}
   .legend code{font-family:var(--mono);font-size:.78rem;color:var(--cyan);background:#0a0a14;border:1px solid var(--line);border-radius:8px;padding:5px 10px;display:inline-block;margin-top:11px}
@@ -765,19 +766,20 @@ python3 neoz.py
   var CATS=[["OSINT / Recon","",2309,"OSINT / Recon"],["Other Tools / OSINT","",1983,"Boîte à outils / OSINT"],["Web Attack","",1722,"Attaque Web"],["Information Gathering","",1273,"Collecte d'infos"],["Forensics / DFIR","",686,"Forensique / DFIR"],["Reverse Engineering","",503,"Rétro-ingénierie"],["Sniffing & Network MITM","",364,"Sniffing & MITM réseau"],["Malware Analysis","",342,"Analyse de malware"],["Honeypots / Deception","",241,"Honeypots / Déception"],["Cryptography / Encryption","",237,"Cryptographie"],["IoT / Firmware / Hardware","",227,"IoT / Firmware / Matériel"],["Wordlist / Password","",226,"Wordlists / Mots de passe"],["Blue Team / Defense","",208,"Blue Team / Défense"],["Active Directory","",205,"Active Directory"],["Mobile Security","",203,"Sécurité mobile"],["Exploit Framework","",202,"Framework d'exploit"],["API Security","",168,"Sécurité API"],["Wireless Attack","",126,"Attaque sans-fil"],["Privilege Escalation","",121,"Élévation de privilèges"],["Binary Exploitation / CTF","",117,"Exploitation binaire / CTF"],["Payload Creation","",116,"Création de payloads"],["Threat Intelligence","",91,"Threat Intelligence"],["Vulnerability Scanning","",89,"Scan de vulnérabilités"],["CTF / Wargames","",79,"CTF / Wargames"],["Fuzzing","",75,"Fuzzing"],["Phishing","",59,"Phishing"],["Physical / RFID / Badge","",57,"Physique / RFID / Badge"],["Automotive / CAN","",55,"Automobile / CAN"],["Steganography","",53,"Stéganographie"],["Post-Exploitation / C2","",47,"Post-exploitation / C2"],["Social Engineering","",46,"Ingénierie sociale"],["DDoS / Stress Test","",43,"DDoS / Stress test"],["Radio / SDR / RF","",41,"Radio / SDR / RF"],["Blockchain / Web3","",41,"Blockchain / Web3"],["Container / Kubernetes","",38,"Conteneurs / Kubernetes"],["Cloud Security","",33,"Sécurité cloud"],["VoIP Security","",31,"Sécurité VoIP"],["Threat Hunting","",27,"Chasse aux menaces"],["Data Exfiltration","",26,"Exfiltration de données"],["DevSecOps / SAST-DAST","",25,"DevSecOps / SAST-DAST"],["SQL Injection","",21,"Injection SQL"],["Supply Chain / SBOM","",17,"Supply Chain / SBOM"],["Malware Sandbox / Detonation","",15,"Sandbox de malware"],["XSS Attack","",14,"Attaque XSS"],["Anonymity / Hiding","",13,"Anonymat"],["Remote Admin (RAT)","",11,"Admin distant (RAT)"],["AI / ML Security","",10,"Sécurité IA / ML"],["Satellite / GNSS / Space","",9,"Satellite / GNSS"],["ICS / SCADA / OT","",9,"ICS / SCADA / OT"],["Game Hacking","",7,"Piratage de jeux"]];
 
   /* Legends: [name, colorHue, tag, cmd, en, fr] */
+  /* [name, brandColor, tag, cmd, en, fr, officialUrl] */
   var LEGENDS=[
-    ["Nmap",190,"Recon","iw7x nmap","The network mapper — host discovery, port &amp; service scanning.","Le cartographe réseau — découverte d'hôtes, scan de ports &amp; services."],
-    ["Metasploit",345,"Exploit","iw7x metasploit","The exploitation framework for developing and running exploits.","Le framework d'exploitation pour développer et lancer des exploits."],
-    ["BloodHound",275,"AD","iw7x bloodhound","Map Active Directory attack paths as a graph.","Cartographie les chemins d'attaque Active Directory sous forme de graphe."],
-    ["SQLmap",15,"Web","iw7x sqlmap","Automatic SQL injection detection and exploitation.","Détection et exploitation automatiques d'injections SQL."],
-    ["Nuclei",160,"Scanner","iw7x nuclei","Fast, template-based vulnerability scanner.","Scanner de vulnérabilités rapide, basé sur des templates."],
-    ["ffuf",50,"Fuzzing","iw7x ffuf","Blazing-fast web fuzzer for content &amp; parameter discovery.","Fuzzer web ultra-rapide pour découvrir contenus &amp; paramètres."],
-    ["Hashcat",120,"Cracking","iw7x hashcat","The world's fastest password recovery / hash cracker.","Le casseur de hash le plus rapide du monde."],
-    ["Burp Suite",25,"Web","iw7x burp suite","The industry-standard web application proxy &amp; scanner.","Le proxy &amp; scanner d'applications web de référence."],
-    ["Wireshark",210,"Network","iw7x wireshark","Deep packet inspection and network protocol analysis.","Inspection de paquets et analyse de protocoles réseau."],
-    ["Ghidra",300,"RE","iw7x ghidra","NSA's software reverse-engineering suite.","La suite de rétro-ingénierie logicielle de la NSA."],
-    ["Impacket",265,"AD","iw7x impacket","Python classes for crafting &amp; abusing network protocols.","Classes Python pour forger &amp; abuser des protocoles réseau."],
-    ["Aircrack-ng",95,"Wireless","iw7x aircrack-ng","Complete suite to assess Wi-Fi network security.","Suite complète pour évaluer la sécurité des réseaux Wi-Fi."]
+    ["Nmap","#4a86c5","Recon","iw7x nmap","The network mapper — host discovery, port &amp; service scanning.","Le cartographe réseau — découverte d'hôtes, scan de ports &amp; services.","https://nmap.org"],
+    ["Metasploit","#4a6fa5","Exploit","iw7x metasploit","The exploitation framework for developing and running exploits.","Le framework d'exploitation pour développer et lancer des exploits.","https://www.metasploit.com"],
+    ["BloodHound","#d1503f","AD","iw7x bloodhound","Map Active Directory attack paths as a graph.","Cartographie les chemins d'attaque Active Directory sous forme de graphe.","https://github.com/SpecterOps/BloodHound"],
+    ["SQLmap","#c0392b","Web","iw7x sqlmap","Automatic SQL injection detection and exploitation.","Détection et exploitation automatiques d'injections SQL.","https://sqlmap.org"],
+    ["Nuclei","#6c5ce7","Scanner","iw7x nuclei","Fast, template-based vulnerability scanner.","Scanner de vulnérabilités rapide, basé sur des templates.","https://github.com/projectdiscovery/nuclei"],
+    ["ffuf","#2e86de","Fuzzing","iw7x ffuf","Blazing-fast web fuzzer for content &amp; parameter discovery.","Fuzzer web ultra-rapide pour découvrir contenus &amp; paramètres.","https://github.com/ffuf/ffuf"],
+    ["Hashcat","#e0533d","Cracking","iw7x hashcat","The world's fastest password recovery / hash cracker.","Le casseur de hash le plus rapide du monde.","https://hashcat.net"],
+    ["Burp Suite","#ec6a2b","Web","iw7x burp suite","The industry-standard web application proxy &amp; scanner.","Le proxy &amp; scanner d'applications web de référence.","https://portswigger.net/burp"],
+    ["Wireshark","#1679a7","Network","iw7x wireshark","Deep packet inspection and network protocol analysis.","Inspection de paquets et analyse de protocoles réseau.","https://www.wireshark.org"],
+    ["Ghidra","#cf4a3c","RE","iw7x ghidra","NSA's software reverse-engineering suite.","La suite de rétro-ingénierie logicielle de la NSA.","https://ghidra-sre.org"],
+    ["Impacket","#2c8a8a","AD","iw7x impacket","Python classes for crafting &amp; abusing network protocols.","Classes Python pour forger &amp; abuser des protocoles réseau.","https://github.com/fortra/impacket"],
+    ["Aircrack-ng","#2d9cdb","Wireless","iw7x aircrack-ng","Complete suite to assess Wi-Fi network security.","Suite complète pour évaluer la sécurité des réseaux Wi-Fi.","https://www.aircrack-ng.org"]
   ];
 
   var CHEATS=[
@@ -829,7 +831,9 @@ python3 neoz.py
   function renderLegends(){
     lg.innerHTML=LEGENDS.map(function(t){
       var d=(lang==="fr")?t[5]:t[4];
-      return '<div class="legend reveal in"><div class="lh"><span class="ld" style="background:hsl('+t[1]+' 85% 62%)"></span><span class="ln">'+t[0]+'</span><span class="lt">'+t[2]+'</span></div><p>'+d+'</p><code>'+t[3]+'</code></div>';
+      var mono=t[0].replace(/[^A-Za-z0-9]/g,"").slice(0,2);
+      var nm=t[6]?'<a class="ln" href="'+t[6]+'" target="_blank" rel="noopener">'+t[0]+'</a>':'<span class="ln">'+t[0]+'</span>';
+      return '<div class="legend reveal in"><div class="lh"><span class="lm" style="background:linear-gradient(150deg,'+t[1]+','+t[1]+'cc)">'+mono+'</span>'+nm+'<span class="lt">'+t[2]+'</span></div><p>'+d+'</p><code>'+t[3]+'</code></div>';
     }).join("");
   }
   var cg=document.getElementById("cheatGrid");
