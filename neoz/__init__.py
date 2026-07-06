@@ -9,4 +9,4 @@ For authorized security testing and education only.
 
 __product__ = "iw7x"
 __author__ = "iw7x"
-__version__ = "2.6.0"
+__version__ = "2.6.1"
