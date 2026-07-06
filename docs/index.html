@@ -56,12 +56,12 @@
   body::before{
     content:""; position:fixed; inset:0; z-index:-2;
     background:
-      radial-gradient(700px 500px at 12% -5%, rgba(255,71,179,.16), transparent 60%),
-      radial-gradient(760px 560px at 92% 4%, rgba(72,220,255,.14), transparent 60%),
-      radial-gradient(900px 700px at 50% 108%, rgba(150,82,255,.14), transparent 60%);
+      radial-gradient(620px 440px at 14% -8%, rgba(255,71,179,.10), transparent 64%),
+      radial-gradient(680px 500px at 88% 2%, rgba(72,220,255,.085), transparent 64%),
+      radial-gradient(820px 640px at 50% 114%, rgba(150,82,255,.10), transparent 64%);
   }
   body::after{
-    content:""; position:fixed; inset:0; z-index:-1; opacity:.04; pointer-events:none;
+    content:""; position:fixed; inset:0; z-index:-1; opacity:.03; pointer-events:none;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   a{color:inherit;text-decoration:none}
@@ -140,10 +140,11 @@
   @keyframes scroll{to{transform:translateX(-50%)}}
 
   /* SECTION */
-  section{padding:74px 0}
-  .sec-head{max-width:42em;margin-bottom:40px}
-  .sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.02em;font-weight:780;margin:12px 0 12px}
-  .sec-head p{color:var(--muted);font-size:1.06rem}
+  section{padding:92px 0}
+  @media(max-width:720px){section{padding:64px 0}}
+  .sec-head{max-width:44em;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(1.75rem,3.6vw,2.5rem);line-height:1.12;letter-spacing:-.02em;font-weight:760;margin:14px 0 14px;text-wrap:balance}
+  .sec-head p{color:var(--muted);font-size:1.05rem;line-height:1.65;max-width:60ch}
 
   /* STAT STRIP */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -166,8 +167,8 @@
 
   /* FEATURES */
   .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s,box-shadow .3s}
-  .card:hover{transform:translateY(-4px);border-color:rgba(150,82,255,.5);box-shadow:0 20px 50px -24px rgba(150,82,255,.5)}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;transition:transform .2s,border-color .2s,box-shadow .3s}
+  .card:hover{transform:translateY(-3px);border-color:rgba(150,82,255,.42);box-shadow:0 16px 40px -26px rgba(150,82,255,.42)}
   .card .ico{font-size:1.7rem;margin-bottom:12px}
   .card h3{font-size:1.16rem;font-weight:700;margin-bottom:8px}
   .card p{color:var(--muted);font-size:.96rem}
@@ -259,8 +260,9 @@
   .faq summary::after{content:"+";font-family:var(--mono);color:var(--cyan);font-size:1.3rem}
   .faq details[open] summary::after{content:"\2212"}
   .faq p{color:var(--muted);padding:0 0 18px;font-size:.97rem}
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
   .reveal.in{opacity:1;transform:none}
+  a:focus-visible,button:focus-visible,summary:focus-visible,details:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
   /* KALI INSTALL METHODS */
   .methods{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   @media(max-width:760px){.methods{grid-template-columns:1fr}}
@@ -339,7 +341,7 @@
 ██║ ██║███╗██║    ██╔╝   ██╔██╗
 ██║ ╚███╔███╔╝    ██║   ██╔╝ ██╗
 ╚═╝  ╚══╝╚══╝     ╚═╝   ╚═╝  ╚═╝</div>
-        <div class="term-stats">CYBERSECURITY ARSENAL &nbsp;·&nbsp; <b>12139</b> TOOLS &nbsp; <b>50</b> CATEGORIES</div>
+        <div class="term-stats">CYBERSECURITY ARSENAL &nbsp;·&nbsp; <b>12142</b> TOOLS &nbsp; <b>50</b> CATEGORIES</div>
         <div class="term-kali">🐉 KALI LINUX READY &nbsp;·&nbsp; apt · pipx · go · git auto-detected</div>
         <div class="term-menu">
           <div><span class="n">01</span> OSINT / RECON</div><div><span class="n">02</span> WEB ATTACK</div>
@@ -360,7 +362,7 @@
 <section id="stats" style="padding-top:20px">
   <div class="wrap">
     <div class="stats">
-      <div class="stat reveal"><div class="num grad" data-count="12139">0</div><div class="lbl" data-i18n="stat.tools">Tools</div></div>
+      <div class="stat reveal"><div class="num grad" data-count="12142">0</div><div class="lbl" data-i18n="stat.tools">Tools</div></div>
       <div class="stat reveal"><div class="num grad" data-count="50">0</div><div class="lbl" data-i18n="stat.categories">Categories</div></div>
       <div class="stat reveal"><div class="num grad" data-count="30" data-suffix="+">0</div><div class="lbl" data-i18n="stat.sources">Live sources</div></div>
       <div class="stat reveal"><div class="num grad" data-count="1">0</div><div class="lbl" data-i18n="stat.command">Command to rule them</div></div>
