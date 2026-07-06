@@ -24,6 +24,7 @@ import ssl
 import tempfile
 import time
 import urllib.request
+import threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -156,6 +157,9 @@ _AWESOME_URLS = [
     ("https://raw.githubusercontent.com/EnableSecurity/awesome-rtc-hacking/master/README.md", "voip"),
     ("https://raw.githubusercontent.com/mytechnotalent/Reverse-Engineering/main/README.md", "reversing"),
     ("https://raw.githubusercontent.com/tanprathan/OWASP-Testing-Checklist/master/README.md", "webapp"),
+    # ── Batch 4 (2026-07-06): vulnerable labs + serverless security ─────────────
+    ("https://raw.githubusercontent.com/kaiiyer/awesome-vulnerable/master/README.md", "misc"),
+    ("https://raw.githubusercontent.com/puresec/awesome-serverless-security/master/README.md", "misc"),
 ]
 
 # Map an "awesome list" section heading -> a group keyword (fed to _GROUP_MAP).
@@ -585,3 +589,52 @@ def watch(interval_minutes: float = 60.0, log=None) -> None:
         except KeyboardInterrupt:
             log("\n[iw7x] Auto-scan stopped.")
             return
+
+
+# ── Background collector (non-blocking, never stops) ─────────────────────────────
+_BG_THREAD: threading.Thread | None = None
+
+
+def start_background_watch(interval_minutes: float = 20.0, on_added=None) -> None:
+    """Spawn a daemon thread that keeps merging new tools from every source while
+    the app runs — so the arsenal never stops growing during a session.
+
+    Non-blocking and fully error-wrapped: a bad cycle (offline, rate-limit, parse
+    error) can never crash or freeze the UI. Idempotent — only one collector runs.
+    After a cycle that adds tools it clears the model caches so a running menu
+    shows the new tools (and the climbing count) on its next render.
+
+    ``on_added(added, total)`` is an optional callback fired after each productive
+    cycle. The interval is clamped to a responsible minimum (sources refresh at
+    most daily; scanning faster just gets you rate-limited, never more tools).
+    """
+    global _BG_THREAD
+    if _BG_THREAD is not None and _BG_THREAD.is_alive():
+        return
+    interval = max(300.0, float(interval_minutes) * 60.0)
+
+    def _loop() -> None:
+        # Let the launch scan settle first, then keep collecting forever.
+        time.sleep(interval)
+        while True:
+            try:
+                if online():
+                    added, total, _ = update_catalog()
+                    if added:
+                        try:
+                            from .models import load_catalog, tag_index
+                            load_catalog.cache_clear()
+                            tag_index.cache_clear()
+                        except Exception:
+                            pass
+                        if on_added:
+                            try:
+                                on_added(added, total)
+                            except Exception:
+                                pass
+            except Exception:
+                pass          # one bad cycle must never kill the collector
+            time.sleep(interval)
+
+    _BG_THREAD = threading.Thread(target=_loop, name="iw7x-bg-collector", daemon=True)
+    _BG_THREAD.start()

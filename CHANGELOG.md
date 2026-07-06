@@ -3,6 +3,21 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.2.0] — 2026-07-06
+
+### Added
+- **Continuous background collector** (`updater.start_background_watch`): when you
+  launch the interactive menu, a daemon thread keeps scanning every source and
+  merging new tools **while you work** — the arsenal never stops growing during a
+  session. Non-blocking, fully error-wrapped, and the running menu picks up new
+  tools live (caches are cleared each productive cycle). Interval is configurable
+  (`bg_scan_minutes`, default 20) and clamped to a responsible minimum.
+- **2 new catalog sources**: awesome-vulnerable (practice labs/targets) and
+  awesome-serverless-security.
+
+### Changed
+- Catalog at **12,297 tools across 50 categories**; counts refreshed everywhere.
+
 ## [2.1.0] — 2026-07-06
 
 ### Added

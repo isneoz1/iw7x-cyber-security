@@ -461,12 +461,27 @@ def _auto_scan_on_launch() -> None:
         pass   # never let auto-scan break startup
 
 
+def _start_background_collector() -> None:
+    """Keep collecting new tools in the background while the menu is open, so the
+    arsenal never stops growing during a session. Disabled by IW7X_NO_UPDATE or the
+    auto_update config. Never blocks or crashes the UI (daemon thread)."""
+    import os
+    if os.environ.get("IW7X_NO_UPDATE") == "1" or not config.get("auto_update", True):
+        return
+    try:
+        from . import updater
+        updater.start_background_watch(interval_minutes=float(config.get("bg_scan_minutes", 20)))
+    except Exception:
+        pass
+
+
 def run() -> None:
     config.get_tools_dir()
     _auto_scan_on_launch()
-    catalog = load_catalog()
+    _start_background_collector()
     while True:
         try:
+            catalog = load_catalog()   # re-read each loop so background-collected tools appear live
             ui.render_main_menu(catalog)
             raw = _ask("[accent]╰─>[/accent]")
             if not raw:

@@ -4,7 +4,7 @@
 
 ### Tous les outils de cybersécurité du monde — dans un seul terminal Kali Linux.
 
-**iw7x** réunit **12 142** outils de sécurité offensifs & défensifs — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande qui **installe, met à jour et lance** n'importe lequel pour vous. Conçu pour Kali Linux. Gratuit pour toujours.
+**iw7x** réunit **12 297** outils de sécurité offensifs & défensifs — de Nmap à BloodHound, de Metasploit à Volatility — dans un seul arsenal en ligne de commande qui **installe, met à jour et lance** n'importe lequel pour vous. Conçu pour Kali Linux. Gratuit pour toujours.
 
 <br/>
 
@@ -12,8 +12,8 @@
 [![Forks](https://img.shields.io/github/forks/isneoz1/iw7x-cyber-security?style=for-the-badge&color=9652FF&labelColor=1a1a2e&logo=github)](https://github.com/isneoz1/iw7x-cyber-security/network/members)
 [![License](https://img.shields.io/badge/Licence-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
-[![Outils](https://img.shields.io/badge/Outils-12%2C142-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
-[![Catégories](https://img.shields.io/badge/Cat%C3%A9gories-50-9652FF?style=for-the-badge&labelColor=1a1a2e)](#larsenal--50-catégories-12-142-outils)
+[![Outils](https://img.shields.io/badge/Outils-12%2C297-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
+[![Catégories](https://img.shields.io/badge/Cat%C3%A9gories-50-9652FF?style=for-the-badge&labelColor=1a1a2e)](#larsenal--50-catégories-12-297-outils)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Pr%C3%AAt-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
 [![Site](https://img.shields.io/badge/Site_en_ligne-Visiter-48DCFF?style=for-the-badge&labelColor=1a1a2e)](https://isneoz1.github.io/iw7x-cyber-security/)
@@ -22,7 +22,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 12 142 outils dans 50 catégories, conçu pour Kali Linux, par NeoZ" width="840">
+<img src="assets/iw7x-preview.svg" alt="iw7x — arsenal cybersécurité : 12 297 outils dans 50 catégories, conçu pour Kali Linux, par NeoZ" width="840">
 
 </div>
 
@@ -46,10 +46,10 @@ C'est un projet de passion. Je le garde gratuit, open source, et il grandit sans
 
 | | |
 |---|---|
-| **Tout l'écosystème** | **12 142 outils** dans **50 catégories** — OSINT, web, sans‑fil, exploitation, forensique, reverse, crypto, cloud, Active Directory, mobile, IoT, CTF, honeypots, threat hunting, blue team et bien plus. |
+| **Tout l'écosystème** | **12 297 outils** dans **50 catégories** — OSINT, web, sans‑fil, exploitation, forensique, reverse, crypto, cloud, Active Directory, mobile, IoT, CTF, honeypots, threat hunting, blue team et bien plus. |
 | **Il installe & lance pour vous** | Choisissez un outil → iw7x exécute le bon `apt` / `pipx` / `go` / `git` et le lance. Fini le copier‑coller depuis douze README. |
 | **Conçu pour Kali** | Il détecte votre distribution et réécrit même `pacman` ↔ `apt`, pour que les outils issus de BlackArch s'installent proprement sur Kali. |
-| **Toujours plus grand** | Un scanner intégré récupère de nouveaux outils depuis **BlackArch, Kali & 70+ awesome‑lists** — votre arsenal grandit tout seul. |
+| **Ne s'arrête jamais de grandir** | Un scanner intégré récupère de nouveaux outils depuis **BlackArch, Kali & 75+ awesome‑lists** — et continue de collecter **en arrière‑plan pendant que vous travaillez**, donc les nouveaux outils apparaissent automatiquement, sans jamais redémarrer. |
 | **Trouvez tout, vite** | Recherche plein‑texte, filtres par tag (`osint`, `c2`, `web`…) et un **conseiller** qui recommande des outils selon la tâche que vous décrivez. |
 | **Jamais de traceback** | Mauvais nom, binaire absent, hors‑ligne ? Vous obtenez un message clair — jamais une erreur brute. |
 
@@ -190,7 +190,7 @@ python3 neoz.py list active_directory # parcourir une catégorie entière
 
 ---
 
-## L'arsenal — 50 catégories, 12 142 outils
+## L'arsenal — 50 catégories, 12 297 outils
 
 Chaque domaine de la sécurité offensive et défensive, au même endroit — et ça grandit à chaque `--update`.
 
