@@ -3,6 +3,21 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.3.0] — 2026-07-06
+
+### Added
+- **Looser repo-link harvester** (`updater.fetch_repo_links`, now in `SOURCES`):
+  captures code-host tool repos that awesome-lists link **without** an inline
+  description — the strict parser skipped these. Names are de-noised (derived
+  from the repo slug when the link text is prose; stop-list + filters reject
+  lists/cheatsheets/write-ups), so only real tool repos land, git-clone-installable.
+  Runs in every scan, including the background collector → keeps capturing forever.
+- **`scripts/sync_site_counts.py`**: regenerates the site's category grid from the
+  live catalog so the public site stays accurate as the catalog grows.
+
+### Changed
+- Catalog crossed **13,000 → 13,022 tools across 50 categories** (+725).
+
 ## [2.2.0] — 2026-07-06
 
 ### Added

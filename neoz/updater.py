@@ -415,9 +415,96 @@ def fetch_heading_lists() -> list[dict]:
     return tools
 
 
+# Capture tool repos that are linked from awesome lists WITHOUT an inline
+# description (the strict parser needs "* [name](url) - desc"). We keep only
+# code-host repo links and de-noise the name so real tools land, not prose.
+_REPO_URL = re.compile(
+    r"^https?://(?:www\.)?(?:github|gitlab|bitbucket|codeberg)\.(?:com|org)/([^/\s]+)/([^/\s#?)]+)",
+    re.I)
+_NAME_NOISE = re.compile(
+    r"(awesome|cheat.?sheet|write.?up|slides?|\btalks?\b|blog|roadmap|\bbook\b|wiki|"
+    r"methodology|mindmap|tutorial|course|reference|resources?|collection|understanding|"
+    r"introduction|\bguide\b|paper|article|walkthrough|checklist|playbook)", re.I)
+_URL_NOISE = re.compile(r"(/blob/|/tree/|/wiki|/releases|/issues|/actions|/sponsors|awesome-)", re.I)
+_STOP_NAMES = {
+    "source", "open source", "open-source", "tools", "scripts", "tool", "script",
+    "docs", "home", "link", "repo", "code", "demo", "example", "misc", "other",
+    "project", "projects", "index", "readme", "main", "master", "here", "github",
+    "list", "lists", "framework", "library", "utils", "util", "cli", "gui",
+}
+
+
+def _repo_tool_name(text: str, repo: str) -> str | None:
+    """Pick a clean tool name: the link text if it's a short token, else the repo
+    slug. Returns None when the result is still prose/noise."""
+    t = _strip(re.sub(r"[`*_]", "", text or "")).strip()
+    words = t.split()
+    if (1 <= len(words) <= 4 and 2 <= len(t) <= 42
+            and re.match(r"^[A-Za-z0-9]", t) and ":" not in t and "/" not in t
+            and not t.endswith((".", ",", ";")) and not _NAME_NOISE.search(t)):
+        name = t
+    else:
+        slug = re.sub(r"\.git$", "", repo).replace("_", " ").replace("-", " ").strip()
+        if len(slug) < 2 or _NAME_NOISE.search(slug) or len(slug.split()) > 5:
+            return None
+        name = slug
+    low = name.lower()
+    if low in _STOP_NAMES or "open source" in low or "open-source" in low:
+        return None
+    if len(name.split()) >= 3 and re.search(r"\b(tools?|scripts?|lists?|resources?)\b", low):
+        return None
+    return name
+
+
+def fetch_repo_links() -> list[dict]:
+    """Looser awesome parser: harvest code-host tool repos even when the bullet has
+    no description. Filtered to real repos and de-noised. Everything wrapped."""
+    tools: list[dict] = []
+    seen: set[str] = set()
+    head_re = re.compile(r"^#{2,4}\s+(.+?)\s*$")
+    pages = _http_get_many([u for u, _ in _AWESOME_URLS])
+    for src_url, default_group in _AWESOME_URLS:
+        text = pages.get(src_url)
+        if not text:
+            continue
+        section = ""
+        for line in text.splitlines():
+            h = head_re.match(line)
+            if h:
+                section = h.group(1)
+                continue
+            s = line.lstrip()
+            if not (s[:2] in ("- ", "* ", "+ ") or s.startswith("|")):
+                continue
+            for m in _MD_LINK.finditer(line):
+                name, url = m.group(1), m.group(2)
+                mm = _REPO_URL.match(url)
+                if not mm or _URL_NOISE.search(url):
+                    continue
+                owner, repo = mm.group(1), mm.group(2)
+                if repo.lower().startswith("awesome-"):
+                    continue
+                nm = _repo_tool_name(name, repo)
+                if not nm:
+                    continue
+                key = nm.strip().lower()
+                if key in seen:
+                    continue
+                seen.add(key)
+                group = _section_to_group(section)
+                if group == "misc":
+                    group = default_group
+                desc = _strip(section) or "Open-source security tool."
+                tools.append({
+                    "name": nm, "description": desc[:200],
+                    "url": mm.group(0), "group": group, "source": "awesome",
+                })
+    return tools
+
+
 # All tool sources, tried in order. Each returns a list of normalized records
 # or [] on failure. Add more callables here to widen coverage.
-SOURCES = [fetch_blackarch, fetch_kali, fetch_awesome, fetch_heading_lists]
+SOURCES = [fetch_blackarch, fetch_kali, fetch_awesome, fetch_heading_lists, fetch_repo_links]
 
 
 def _entry_from_record(rec: dict) -> tuple[str, dict]:
