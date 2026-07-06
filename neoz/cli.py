@@ -7,6 +7,8 @@
     iw7x uninstall <tool>    remove a tool
     iw7x search <query>      list matching tools
     iw7x list [category]     list categories, or tools in a category
+    iw7x bundle <name>       install a whole kit for a job (web, ad, osint, …)
+    iw7x bundles             list every task bundle
     iw7x --update            fetch every tool from online sources, then exit
     iw7x --watch [minutes]   live auto-scan: keep adding new tools
     iw7x --no-update         launch without the startup scan
@@ -215,6 +217,50 @@ def cli_watch(rest: list[str]) -> None:
         _print("Auto-scan stopped.")
 
 
+def cli_bundles() -> None:
+    from . import bundles
+    _print("Task bundles — install a whole kit for a job in one command:")
+    for name, b in bundles.ALL.items():
+        print(f"    {name:<11} {b['title']:<28} ({len(b['tools'])} tools)")
+    _print("Use: iw7x bundle <name>   (e.g. iw7x bundle web)")
+
+
+def cli_bundle(args: list[str]) -> None:
+    from . import system, bundles
+    if not args:
+        cli_bundles()
+        return
+    name = args[0].strip().lower()
+    b = bundles.get(name)
+    if not b:
+        _print(f"No bundle named '{name}'.")
+        cli_bundles()
+        return
+    if not _require_kali():
+        return
+    _print(f"Installing bundle '{b['title']}' — {len(b['tools'])} tools. This can take a while ...")
+    installed = skipped = 0
+    for want in b["tools"]:
+        tool, _sugg = _resolve(want)
+        if not tool:
+            _print(f"  skip (not found): {want}")
+            skipped += 1
+            continue
+        t, _ = tool
+        if not t.install:
+            _print(f"  skip (no auto-install): {t.title}")
+            skipped += 1
+            continue
+        _print(f"  → {t.title}")
+        try:
+            system.run_commands(list(t.install))
+            installed += 1
+        except Exception as exc:
+            _print(f"    failed: {exc}")
+            skipped += 1
+    _print(f"Bundle '{name}' done — {installed} installed, {skipped} skipped.")
+
+
 def print_usage() -> None:
     print(__doc__.strip())
 
@@ -255,6 +301,11 @@ def run_entry(argv: list[str]) -> None:
         elif cmd == "install":
             _maybe_autoscan()
             cli_install(" ".join(args[1:]))
+        elif cmd in ("bundle", "kit"):
+            _maybe_autoscan()
+            cli_bundle(args[1:])
+        elif cmd in ("bundles", "kits"):
+            cli_bundles()
         elif cmd == "uninstall":
             cli_uninstall(" ".join(args[1:]))
         elif cmd in ("run", "launch", "start", "use"):

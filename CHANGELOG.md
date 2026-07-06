@@ -3,6 +3,21 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.4.0] — 2026-07-06
+
+### Added
+- **Task bundles** (`neoz/bundles.py` + `iw7x bundle <name>` / `iw7x bundles`):
+  install a whole curated kit for a job in one command — **web, ad, osint,
+  wireless, pwn, forensics, cloud, passwords, c2, mobile, recon** (11 kits, every
+  tool resolves to a curated catalog entry with Kali-ready commands).
+- **Third curation wave** (`scripts/curate_essentials2.py`): 31 more essential
+  tools upgraded to correct, Kali-ready commands (massdns, httprobe, GHunt,
+  Wifiphisher, pixiewps, RegRipper, Plaso, Rizin, APKiD, Cloudsplaining, Jaeles,
+  ropr, dnscat2, rtl_433, URH, can-utils, SIPVicious, netsniff-ng and more).
+
+### Changed
+- Catalog at **13,023 tools across 50 categories**.
+
 ## [2.3.0] — 2026-07-06
 
 ### Added
