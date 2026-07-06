@@ -3,6 +3,26 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.6.0] — 2026-07-06
+
+### Fixed / Changed
+- **Zero duplicates.** Removed **363 near-duplicate tools** (same tool under
+  `cloud_enum` / `cloud-enum` / `CloudEnum`) via `scripts/dedup_catalog.py`,
+  keeping the best copy (flagship > real commands > fuller description). Catalog
+  is now **12,663 unique tools**.
+- **Stronger dedup engine:** the updater now keys tools by an alphanumeric-only
+  name, so background/online scans can never re-add a near-duplicate.
+- **Better auto-categorisation:** the scanner now routes `cloud` → Cloud Security
+  and `container`/`kubernetes`/`docker` → Container/K8s (were falling into the
+  generic bucket).
+- **`_resolve` is normalisation-aware:** `bulk_extractor` resolves `Bulk Extractor`,
+  so bundle/CLI lookups are robust to title formatting.
+
+### Notes
+- Evaluated new categories (Reporting, Adversary Emulation): too few real tools
+  in the catalog to justify them — the 50 categories already cover the population.
+  Added `scripts/recategorize.py` (dry-run tool) for future use.
+
 ## [2.5.0] — 2026-07-06
 
 ### Added

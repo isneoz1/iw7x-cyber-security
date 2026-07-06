@@ -21,6 +21,7 @@ produces a clear message — never a traceback.
 from __future__ import annotations
 
 import os
+import re
 import sys
 
 
@@ -64,6 +65,13 @@ def _resolve(name: str):
     exact = [(t, c) for t, c in pairs if t.title.strip().lower() == q]
     if exact:
         return exact[0], []
+    # Normalised match (ignore spaces/underscores/dashes) so 'bulk_extractor'
+    # resolves 'Bulk Extractor' etc. Titles are de-duplicated, so this is unique.
+    nq = re.sub(r"[^a-z0-9]+", "", q)
+    if nq:
+        norm_exact = [(t, c) for t, c in pairs if re.sub(r"[^a-z0-9]+", "", t.title.lower()) == nq]
+        if norm_exact:
+            return norm_exact[0], []
     starts = [(t, c) for t, c in pairs if t.title.lower().startswith(q)]
     if len(starts) == 1:
         return starts[0], []

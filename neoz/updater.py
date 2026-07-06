@@ -60,6 +60,7 @@ _GROUP_MAP = {
     "ctf": "ctf_tools", "gamehacking": "game_hacking", "honeypot": "honeypots",
     "supplychain": "supply_chain", "threathunt": "threat_hunting",
     "sandbox": "sandbox_analysis", "exfil": "data_exfiltration", "ics": "ics_scada",
+    "cloud": "cloud_security", "container": "container_k8s",
 }
 
 _GROUP_TAG = {
@@ -180,7 +181,9 @@ def _section_to_group(section: str) -> str:
         ("contract", "web3"), ("solidity", "web3"), ("blockchain", "web3"),
         ("web3", "web3"), ("ethereum", "web3"), ("crypto", "crypto"),
         ("denial", "dos"), ("ddos", "dos"), ("dos ", "dos"),
-        ("cloud", "misc"), ("hardware", "hardware"), ("firmware", "firmware"),
+        ("kubernetes", "container"), ("container", "container"), ("docker", "container"),
+        ("cloud", "cloud"), ("aws", "cloud"), ("azure", "cloud"), ("gcp", "cloud"), ("serverless", "cloud"),
+        ("hardware", "hardware"), ("firmware", "firmware"),
         ("radio", "radio"), ("sdr", "radio"), ("smartcard", "nfc"),
         ("c2", "backdoor"), ("post", "backdoor"), ("payload", "backdoor"),
         ("api ", "api"), ("graphql", "api"), ("rest api", "api"), ("swagger", "api"),
@@ -279,6 +282,12 @@ def _md_plain(text: str) -> str:
     return _strip(text)
 
 
+def _dedup_key(name: str) -> str:
+    """Alphanumeric-only lowercase key so 'cloud_enum', 'cloud-enum' and
+    'CloudEnum' all collapse to one — guarantees no near-duplicate tools."""
+    return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
+
+
 def _awesome_line(line: str, line_re) -> tuple[str, str, str] | None:
     """Extract (name, url, description) from a bullet OR a table row."""
     m = line_re.match(line)
@@ -327,7 +336,7 @@ def fetch_awesome() -> list[dict]:
             if not entry:
                 continue
             name, url, desc = entry
-            key = name.strip().lower()
+            key = _dedup_key(name)
             if not name or not desc or key in seen:
                 continue
             seen.add(key)
@@ -393,7 +402,7 @@ def fetch_heading_lists() -> list[dict]:
                 continue
             name, tool_url = links[-1]          # last link on the heading = the tool
             name = _strip(name)
-            key = name.strip().lower()
+            key = _dedup_key(name)
             if not name or key in seen or not _CODE_HOST.search(tool_url):
                 continue
             desc = ""
@@ -487,7 +496,7 @@ def fetch_repo_links() -> list[dict]:
                 nm = _repo_tool_name(name, repo)
                 if not nm:
                     continue
-                key = nm.strip().lower()
+                key = _dedup_key(nm)
                 if key in seen:
                     continue
                 seen.add(key)
@@ -589,7 +598,7 @@ def update_catalog(catalog_path: Path | None = None, progress=None) -> tuple[int
     categories = data.get("categories", [])
     by_id = {c["id"]: c for c in categories}
     existing = {
-        tl["title"].strip().lower()
+        _dedup_key(tl["title"])
         for c in categories for tl in c.get("tools", [])
     }
     current_total = sum(len(c.get("tools", [])) for c in categories)
@@ -600,7 +609,7 @@ def update_catalog(catalog_path: Path | None = None, progress=None) -> tuple[int
 
     added = 0
     for rec in records:
-        key = rec["name"].strip().lower()
+        key = _dedup_key(rec["name"])
         if not key or key in existing:
             continue
         cid, tool = _entry_from_record(rec)
