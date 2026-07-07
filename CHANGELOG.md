@@ -3,6 +3,19 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.7.0] — 2026-07-06
+
+### Added
+- **Broader IT tooling in dedicated categories** (2 new categories, +1,800 tools):
+  **CLI Apps & Utilities** (718) and **Self-Hosted & Infrastructure** (953),
+  scanned from awesome-cli-apps, awesome-shell and awesome-selfhosted. Routed to
+  their own categories so the security categories stay clean — `other_tools` did
+  not balloon. Skipped noise (awesome-go/python = libraries, list-of-lists, talks).
+
+### Changed
+- Catalog at **14,469 tools across 52 categories**, zero duplicates. Counts and
+  the site category grid synced (`scripts/sync_site_counts.py` now maps the new ids).
+
 ## [2.6.0] — 2026-07-06
 
 ### Fixed / Changed

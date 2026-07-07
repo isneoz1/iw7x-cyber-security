@@ -43,6 +43,7 @@ ID_TO_EN = {
     "anonymously_hiding": "Anonymity / Hiding", "remote_admin_rat": "Remote Admin (RAT)",
     "ics_scada": "ICS / SCADA / OT", "satellite": "Satellite / GNSS / Space",
     "ai_ml_security": "AI / ML Security", "game_hacking": "Game Hacking",
+    "cli_utilities": "CLI Apps & Utilities", "self_hosted": "Self-Hosted & Infrastructure",
 }
 
 ENTRY = re.compile(r'\["((?:[^"\\]|\\.)*)","([^"]*)",(\d+),"((?:[^"\\]|\\.)*)"\]')

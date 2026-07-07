@@ -61,6 +61,7 @@ _GROUP_MAP = {
     "supplychain": "supply_chain", "threathunt": "threat_hunting",
     "sandbox": "sandbox_analysis", "exfil": "data_exfiltration", "ics": "ics_scada",
     "cloud": "cloud_security", "container": "container_k8s",
+    "cli": "cli_utilities", "selfhosted": "self_hosted", "sysadmin": "sysadmin_devops",
 }
 
 _GROUP_TAG = {
@@ -161,6 +162,10 @@ _AWESOME_URLS = [
     # ── Batch 4 (2026-07-06): vulnerable labs + serverless security ─────────────
     ("https://raw.githubusercontent.com/kaiiyer/awesome-vulnerable/master/README.md", "misc"),
     ("https://raw.githubusercontent.com/puresec/awesome-serverless-security/master/README.md", "misc"),
+    # ── Batch 5 (2026-07-06): broader IT tooling in dedicated categories ────────
+    ("https://raw.githubusercontent.com/agarrharr/awesome-cli-apps/master/readme.md", "cli"),
+    ("https://raw.githubusercontent.com/alebcay/awesome-shell/master/README.md", "cli"),
+    ("https://raw.githubusercontent.com/awesome-selfhosted/awesome-selfhosted/master/README.md", "selfhosted"),
 ]
 
 # Map an "awesome list" section heading -> a group keyword (fed to _GROUP_MAP).
