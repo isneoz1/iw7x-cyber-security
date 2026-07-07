@@ -1,8 +1,0 @@
-blank_issues_enabled: false
-contact_links:
-  - name: 💬 Discussions & feature votes
-    url: https://github.com/isneoz1/iw7x-cyber-security/discussions
-    about: Ask questions, share setups, and vote on what to build next.
-  - name: 🔒 Report a security vulnerability
-    url: https://github.com/isneoz1/iw7x-cyber-security/security/advisories/new
-    about: Privately report a vulnerability in iw7x itself.
