@@ -3,6 +3,19 @@
 All notable changes to **iw7x** are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/); versions track `neoz/__init__.py`.
 
+## [2.7.1] — 2026-07-06
+
+### Added
+- **Filled the thin categories** (`scripts/curate_thin.py`): hand-added 7 real
+  tools and verified 25 more with Kali-ready commands across AI/ML Security
+  (PyRIT, ART, Foolbox, TextAttack, Giskard, LLM Guard, promptmap), ICS/SCADA
+  (Conpot, pymodbus, ISF, s7scan, OpenPLC), Satellite/GNSS (GNSS-SDR, gr-gsm,
+  gpredict, SatDump, gps-sdr-sim), Game Hacking (PINCE, Il2CppDumper, BepInEx),
+  VoIP (sngrep, SIPp, sipsak, Mr.SIP) and DDoS (GoldenEye, HULK, UFONet, MHDDoS).
+
+### Changed
+- Catalog at **14,476 tools across 52 categories**, zero duplicates.
+
 ## [2.7.0] — 2026-07-06
 
 ### Added
