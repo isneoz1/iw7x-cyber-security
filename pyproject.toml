@@ -1,0 +1,23 @@
+# Tooling configuration for iw7x — linting, formatting and tests.
+# The app itself has no build step: run it with `python3 neoz.py`.
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+ignore = [
+  "E501",  # line length is handled by the formatter, not enforced hard
+  "E402",  # deliberate late imports (lazy loading in the CLI/UI)
+  "B008",  # allow function calls in argument defaults where intentional
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py310", "py311", "py312"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
