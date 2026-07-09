@@ -580,6 +580,23 @@ _GH_TOPICS: dict[str, str] = {
     "ios-pentesting": "mobile", "frida": "mobile", "web-fuzzing": "fuzzer",
     "memory-forensics": "forensic", "mobile-forensics": "forensic", "threat-detection": "defensive",
     "network-security-tools": "networking", "firewall": "networking",
+    # ── Round 3 widening ────────────────────────────────────────────────────────
+    "security-audit": "misc", "intrusion-detection": "defensive", "intrusion-prevention": "defensive",
+    "network-monitoring": "networking", "vulnerability-assessment": "scanner", "antivirus": "malware",
+    "container-scanning": "container", "secrets-management": "devsecops", "secrets-detection": "devsecops",
+    "dns-security": "networking", "email-security": "webapp", "anti-phishing": "phishing",
+    "deception": "honeypot", "canarytokens": "honeypot", "osint-framework": "recon",
+    "shodan": "recon", "censys": "recon", "nuclei-templates": "scanner", "burp-extension": "webapp",
+    "burpsuite-extension": "webapp", "frida-scripts": "mobile", "ghidra-scripts": "reversing",
+    "ida-plugin": "reversing", "volatility-plugin": "forensic", "pcap": "sniffer", "zeek": "defensive",
+    "suricata": "defensive", "snort": "defensive", "nmap-scripts": "scanner", "webshell": "webapp",
+    "reverse-shell": "backdoor", "bind-shell": "backdoor", "dns-tunneling": "exfil",
+    "covert-channel": "exfil", "insider-threat": "threathunt", "tls-security": "crypto",
+    "deserialization": "webapp", "subdomain-takeover": "recon", "attack-surface-management": "recon",
+    "cloud-pentest": "cloud", "kubernetes-pentest": "container", "ad-security": "windows",
+    "phishing-simulation": "phishing", "malware-development": "malware", "edr-evasion": "backdoor",
+    "threat-modeling": "defensive", "red-teaming": "backdoor", "blue-teaming": "defensive",
+    "web-application-firewall": "webapp", "api-fuzzing": "fuzzer", "grc": "misc",
 }
 
 
