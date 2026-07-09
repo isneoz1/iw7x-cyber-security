@@ -244,10 +244,7 @@ def category_screen(cat: Category) -> None:
         title = t("available_tools")
         if total_pages > 1:
             title = t("page_of", p=page + 1, tp=total_pages, total=total)
-        table = Table(title=title, box=box.SIMPLE_HEAD, show_lines=False)
-        table.add_column(t("no"), justify="right", style="accent", width=5)
-        table.add_column(t("tool"), style="brand", min_width=24)
-        table.add_column(t("description"), style="white", overflow="fold")
+        table = ui.tools_table(title)
         for offset, tool in enumerate(page_tools):
             idx = start + offset + 1   # global 1-based index (stable across pages)
             table.add_row(str(idx), ui.tool_cell(tool), tool.short_description())

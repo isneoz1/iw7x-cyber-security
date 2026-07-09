@@ -223,15 +223,33 @@ def render_main_menu(catalog: Catalog) -> None:
     ]))
 
 
-# ── Reusable results table ─────────────────────────────────────────────────────
+# ── Reusable tools table ───────────────────────────────────────────────────────
+
+# Faint alternating row bands so the eye never loses which description belongs to
+# which tool, even when a description folds onto a second line.
+_ZEBRA = ["", "on #191527"]
+
+
+def tools_table(title: str, with_category: bool = False) -> Table:
+    """A consistent, scan-friendly tool listing: one tool per row, its own
+    description in its own cell. Used by every browse/search screen so the layout
+    never changes under the reader."""
+    table = Table(
+        title=title, box=box.SIMPLE_HEAD, show_lines=False,
+        header_style=f"bold {_CYAN}", row_styles=_ZEBRA,
+        expand=True, pad_edge=False, padding=(0, 1),
+    )
+    table.add_column(t("no"), justify="right", style="accent", width=4, no_wrap=True)
+    table.add_column(t("tool"), style="brand", min_width=18, max_width=34, overflow="fold")
+    if with_category:
+        table.add_column(t("category"), style="dim cyan", min_width=12,
+                         max_width=20, overflow="fold")
+    table.add_column(t("description"), style="white", ratio=1, overflow="fold")
+    return table
+
 
 def render_results(title: str, results: list[tuple[Tool, Category]]) -> None:
-    table = Table(title=title, box=box.SIMPLE_HEAD, show_lines=False)
-    table.add_column(t("no"), justify="right", style="accent", width=5)
-    table.add_column(t("tool"), style="brand", min_width=22)
-    table.add_column(t("category"), style="dim cyan", min_width=15)
-    table.add_column(t("description"), style="white", overflow="fold")
-
+    table = tools_table(title, with_category=True)
     for i, (tool, cat) in enumerate(results, start=1):
         table.add_row(str(i), tool_cell(tool), cat.title, tool.short_description())
     table.add_row("99", Text(t("back_main"), style="dim"), "", "")

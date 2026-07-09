@@ -28,6 +28,7 @@ import threading
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from . import curate
 from .models import CATALOG_PATH
 
 _UA = "iw7x-updater/1.5 (+https://github.com/iw7x)"
@@ -539,7 +540,7 @@ def _entry_from_record(rec: dict) -> tuple[str, dict]:
     tags = [_GROUP_TAG[group]] if group in _GROUP_TAG else []
     tool = {
         "title": name,
-        "description": rec["description"],
+        "description": curate.clean_description(rec["description"], name, cid),
         "install": install,
         "run": [],
         "uninstall": [],
@@ -614,6 +615,9 @@ def update_catalog(catalog_path: Path | None = None, progress=None) -> tuple[int
 
     added = 0
     for rec in records:
+        # Clean the name *before* the dedup key so a scraped variant of a tool
+        # already in the catalog collapses to the same key (no near-duplicates).
+        rec["name"] = curate.clean_title(rec.get("name", ""))
         key = _dedup_key(rec["name"])
         if not key or key in existing:
             continue
