@@ -517,9 +517,100 @@ def fetch_repo_links() -> list[dict]:
     return tools
 
 
+# ── GitHub topic harvest — the real "every security tool on GitHub" index ────────
+#
+# GitHub indexes tools by topic. Sorting each security topic by stars and keeping
+# only repos above a star floor gives us the tools people actually use, while
+# skipping the infinite tail of dead/empty repos that would only add noise. Names
+# are de-noised (_repo_tool_name) and descriptions cleaned (curate) like any other
+# source, so the catalog stays readable no matter how much we pull in.
+_GH_SEARCH = "https://api.github.com/search/repositories?q={q}&sort=stars&order=desc&per_page=100&page={page}"
+
+# GitHub topic -> group keyword (routed through _GROUP_MAP to a category id).
+_GH_TOPICS: dict[str, str] = {
+    "hacking-tool": "misc", "hacking-tools": "misc", "pentesting": "misc",
+    "penetration-testing": "misc", "pentest-tool": "misc", "security-tools": "misc",
+    "cybersecurity": "misc", "ethical-hacking": "misc", "red-team": "backdoor",
+    "redteam": "backdoor", "offensive-security": "exploitation", "blue-team": "defensive",
+    "osint": "recon", "reconnaissance": "recon", "information-gathering": "recon",
+    "bug-bounty": "webapp", "bugbounty": "webapp", "web-security": "webapp",
+    "web-application-security": "webapp", "sql-injection": "database", "xss": "webapp",
+    "vulnerability-scanner": "scanner", "vulnerability-scanners": "scanner",
+    "vulnerability-detection": "scanner", "network-security": "networking",
+    "reverse-engineering": "reversing", "malware-analysis": "malware", "malware": "malware",
+    "forensics": "forensic", "dfir": "forensic", "incident-response": "forensic",
+    "exploit": "exploitation", "exploitation": "exploitation", "exploit-development": "exploitation",
+    "privilege-escalation": "privesc", "post-exploitation": "backdoor", "c2": "backdoor",
+    "command-and-control": "backdoor", "wifi": "wireless", "wireless-security": "wireless",
+    "wifi-security": "wireless", "bluetooth": "bluetooth", "password-cracking": "cracker",
+    "wordlist": "wordlist", "brute-force": "cracker", "active-directory": "windows",
+    "cloud-security": "cloud", "aws-security": "cloud", "kubernetes-security": "container",
+    "container-security": "container", "mobile-security": "mobile", "android-security": "mobile",
+    "ios-security": "mobile", "ctf": "ctf", "ctf-tools": "ctf", "steganography": "stego",
+    "phishing": "social", "social-engineering": "social", "threat-intelligence": "threatintel",
+    "threat-hunting": "threathunt", "api-security": "api", "fuzzing": "fuzzer",
+    "sast": "devsecops", "dast": "devsecops", "devsecops": "devsecops", "iot-security": "hardware",
+    "firmware-security": "firmware", "ics": "ics", "scada": "ics", "smart-contract-security": "web3",
+    "web3-security": "web3", "blockchain-security": "web3", "honeypot": "honeypot",
+    "cryptography": "crypto", "sdr": "radio", "game-hacking": "gamehacking",
+    "supply-chain-security": "supplychain", "sandbox": "sandbox", "data-exfiltration": "exfil",
+}
+
+
+def fetch_github_topics(topics: dict | None = None, min_stars: int = 40,
+                        pages: int = 1, pause: float = 6.5) -> list[dict]:
+    """Harvest real security tools straight from GitHub's topic index.
+
+    For each topic, pull the most-starred repos (>= ``min_stars``) and turn them
+    into tool records. Unauthenticated: GitHub allows ~10 search calls/min, so we
+    space calls out and bail gracefully on rate-limit/parse errors. Fully wrapped
+    — a throttled or offline run just returns fewer tools, never raises."""
+    topics = topics or _GH_TOPICS
+    tools: list[dict] = []
+    seen: set[str] = set()
+    for topic, group in topics.items():
+        for page in range(1, max(1, pages) + 1):
+            url = _GH_SEARCH.format(q=f"topic:{topic}+stars:>={min_stars}", page=page)
+            text = _http_get(url)
+            if not text:
+                break
+            try:
+                items = json.loads(text).get("items")
+            except Exception:
+                items = None
+            if not items:                      # rate-limited, empty, or error
+                time.sleep(pause)
+                break
+            for it in items:
+                if it.get("fork"):
+                    continue
+                repo = (it.get("name") or "").strip()
+                full = it.get("full_name") or repo
+                nm = _repo_tool_name(repo, repo)
+                if not nm:
+                    continue
+                key = _dedup_key(nm)
+                if not key or key in seen:
+                    continue
+                seen.add(key)
+                tools.append({
+                    "name": nm,
+                    "description": (it.get("description") or "")[:400],
+                    "url": it.get("html_url") or f"https://github.com/{full}",
+                    "group": group,
+                    "source": "awesome",       # -> git clone install, reference-safe
+                })
+            if len(items) < 100:               # no more pages for this topic
+                break
+            time.sleep(pause)
+        time.sleep(pause)
+    return tools
+
+
 # All tool sources, tried in order. Each returns a list of normalized records
 # or [] on failure. Add more callables here to widen coverage.
-SOURCES = [fetch_blackarch, fetch_kali, fetch_awesome, fetch_heading_lists, fetch_repo_links]
+SOURCES = [fetch_blackarch, fetch_kali, fetch_awesome, fetch_heading_lists,
+           fetch_repo_links, fetch_github_topics]
 
 
 def _entry_from_record(rec: dict) -> tuple[str, dict]:
