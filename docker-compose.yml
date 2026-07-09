@@ -1,0 +1,14 @@
+# Run iw7x anywhere with one command:  docker compose run --rm iw7x
+# (add args after the service name, e.g. `docker compose run --rm iw7x nmap`)
+services:
+  iw7x:
+    build: .
+    image: iw7x
+    stdin_open: true      # keep STDIN open for the interactive menu
+    tty: true             # allocate a TTY so the rich UI renders
+    # Persist installed tools & config between runs (optional):
+    volumes:
+      - iw7x-home:/root
+
+volumes:
+  iw7x-home:

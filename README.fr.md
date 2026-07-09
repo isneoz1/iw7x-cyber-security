@@ -59,6 +59,8 @@ C'est un projet de passion. Je le garde gratuit, open source, et il grandit sans
 
 iw7x exécute ses outils sur **[Kali Linux](https://www.kali.org/)**. Si vous avez déjà Kali, passez à l'[Étape 2](#étape-2--installer-iw7x). Sinon, choisissez la méthode qui vous convient — toutes sont gratuites et officielles.
 
+> **Pas sur Kali ? iw7x tourne sur tous les appareils** — Windows, macOS, Android, Raspberry Pi, ARM/Apple Silicon et le cloud. La méthode universelle, c'est **Docker** : `docker run -it --rm iw7x`. Voir le **[Guide de compatibilité →](COMPATIBILITY.fr.md)** complet, étape par étape pour chaque plateforme.
+
 <details open>
 <summary><b>🖥️ Option A — Machine virtuelle (le plus simple, recommandé)</b></summary>
 
