@@ -143,6 +143,14 @@ git clone https://github.com/isneoz1/iw7x-cyber-security.git && cd iw7x-cyber-se
 
 ## See it in action
 
+<div align="center">
+
+<a href="https://claude.ai/code/artifact/5210489a-74c0-4eb2-a04f-f33aa3080b3b" target="_blank"><img src="assets/iw7x-demo.svg" alt="iw7x installs and launches Nmap from a single command — click to watch the full animated demo" width="820"></a>
+
+**[▶ Watch the full interactive demo →](https://claude.ai/code/artifact/5210489a-74c0-4eb2-a04f-f33aa3080b3b)**
+
+</div>
+
 **Install and run any tool by name** — iw7x handles the install, then opens it:
 
 ```console

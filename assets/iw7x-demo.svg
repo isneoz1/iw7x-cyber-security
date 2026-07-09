@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 486" width="820" height="486" font-family="ui-monospace, SFMono-Regular, 'Cascadia Code', 'Fira Code', Menlo, Consolas, monospace" role="img" aria-label="iw7x installs and runs Nmap from one command">
+  <defs>
+    <linearGradient id="wm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff47b3"/>
+      <stop offset="0.5" stop-color="#9a6bff"/>
+      <stop offset="1" stop-color="#4bd6ff"/>
+    </linearGradient>
+    <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141020"/>
+      <stop offset="1" stop-color="#0f0c1a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0" r="1">
+      <stop offset="0" stop-color="#9a6bff" stop-opacity="0.20"/>
+      <stop offset="0.6" stop-color="#9a6bff" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .ln{ font-size:15.5px; opacity:1; animation:rise .5s cubic-bezier(.16,1,.3,1) both; }
+      @keyframes rise{ from{ opacity:0; transform:translateY(4px); } to{ opacity:1; transform:translateY(0); } }
+      .cur{ animation:blink 1.05s steps(1) infinite; }
+      @keyframes blink{ 50%{ opacity:0; } }
+      @media (prefers-reduced-motion: reduce){ .ln{ animation:none; } .cur{ animation:none; } }
+    </style>
+  </defs>
+
+  <rect width="820" height="486" fill="#0d0b16"/>
+  <rect width="820" height="240" fill="url(#glow)"/>
+
+  <!-- masthead -->
+  <text x="20" y="46" font-size="34" font-weight="700" fill="url(#wm)" letter-spacing="-0.5">iw7x</text>
+  <text x="116" y="46" font-size="14" fill="#8f89ab" letter-spacing="2">30,000+ TOOLS · ONE COMMAND</text>
+
+  <!-- terminal -->
+  <rect x="20" y="74" width="780" height="392" rx="14" fill="url(#scr)" stroke="#241d3a"/>
+  <path d="M20 108 h780" stroke="#241d3a"/>
+  <circle cx="42" cy="91" r="6" fill="#ff5f57"/>
+  <circle cx="62" cy="91" r="6" fill="#febc2e"/>
+  <circle cx="82" cy="91" r="6" fill="#28c840"/>
+  <text x="110" y="96" font-size="13" fill="#8f89ab">kali@kali: ~</text>
+  <circle cx="730" cy="91" r="4.5" fill="#ff47b3"/>
+  <text x="742" y="96" font-size="12" fill="#ff47b3">REC</text>
+
+  <text class="ln" x="40" y="138" style="animation-delay:0.35s"><tspan fill="#54e6a8">$ </tspan><tspan fill="#ffd36b">python3 neoz.py nmap</tspan></text><text class="ln" x="40" y="164" style="animation-delay:0.77s"><tspan fill="#4bd6ff">[iw7x] resolving 'nmap'  →  Network Map (nmap)</tspan></text><text class="ln" x="40" y="190" style="animation-delay:1.19s"><tspan fill="#4bd6ff">[iw7x] installing the right way for Kali…</tspan></text><text class="ln" x="40" y="216" style="animation-delay:1.61s"><tspan fill="#6f6a8a">  $ sudo apt install -y nmap</tspan></text><text class="ln" x="40" y="242" style="animation-delay:2.03s"><tspan fill="#6f6a8a">  Setting up nmap (7.94+dfsg-1) ...</tspan></text><text class="ln" x="40" y="268" style="animation-delay:2.45s"><tspan fill="#54e6a8">[iw7x] ✔ installed — launching</tspan></text><text class="ln" x="40" y="294" style="animation-delay:2.87s"><tspan fill="#54e6a8">$ </tspan><tspan fill="#ffd36b">nmap -sV scanme.nmap.org</tspan></text><text class="ln" x="40" y="320" style="animation-delay:3.29s"><tspan fill="#8f89ab">PORT     STATE  SERVICE   VERSION</tspan></text><text class="ln" x="40" y="346" style="animation-delay:3.71s"><tspan fill="#e8e5f7">22/tcp   open   ssh       OpenSSH 6.6.1p1</tspan></text><text class="ln" x="40" y="372" style="animation-delay:4.13s"><tspan fill="#e8e5f7">80/tcp   open   http      Apache httpd 2.4.7</tspan></text><text class="ln" x="40" y="398" style="animation-delay:4.55s"><tspan fill="#54e6a8">Nmap done: 1 host scanned in 6.21s</tspan></text><text class="ln" x="40" y="424" font-weight="600" style="animation-delay:4.97s"><tspan fill="#4bd6ff">▶  watch the full animated demo</tspan></text>
+
+  <rect class="cur" x="245" y="282" width="9" height="17" fill="#4bd6ff"/>
+</svg>
