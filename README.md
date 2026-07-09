@@ -13,7 +13,7 @@
 [![License](https://img.shields.io/badge/License-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
 [![Tools](https://img.shields.io/badge/Tools-28%2C376-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
-[![Categories](https://img.shields.io/badge/Categories-52-9652FF?style=for-the-badge&labelColor=1a1a2e)](#the-arsenal--52-categories-28376-tools)
+[![Categories](https://img.shields.io/badge/Categories-53-9652FF?style=for-the-badge&labelColor=1a1a2e)](#the-arsenal--53-categories-28376-tools)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
 [![Website](https://img.shields.io/badge/Live_Site-Visit-48DCFF?style=for-the-badge&labelColor=1a1a2e)](https://isneoz1.github.io/iw7x-cyber-security/)
@@ -22,7 +22,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 28,376 tools across 52 categories, built for Kali Linux, by NeoZ" width="840">
+<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 28,376 tools across 53 categories, built for Kali Linux, by NeoZ" width="840">
 
 </div>
 
@@ -46,7 +46,7 @@ This is a passion project. I keep it free, open source, and growing. If it saves
 
 | | |
 |---|---|
-| **The whole ecosystem** | **28,376 tools** across **52 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, Active Directory, mobile, IoT, CTF, honeypots, threat hunting, blue team and far more. |
+| **The whole ecosystem** | **28,376 tools** across **53 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, Active Directory, mobile, IoT, CTF, honeypots, threat hunting, blue team and far more. |
 | **It installs & runs for you** | Pick a tool → iw7x runs the right `apt` / `pipx` / `go` / `git` and launches it. No more copy‑pasting setup from a dozen READMEs. |
 | **Built for Kali** | It detects your distro and even rewrites `pacman` ↔ `apt`, so BlackArch‑sourced tools install cleanly on Kali. |
 | **Never stops growing** | A built‑in scanner pulls fresh tools from **BlackArch, Kali & 75+ awesome‑lists** — and keeps collecting **in the background while you work**, so new tools appear automatically without ever restarting. |
@@ -200,7 +200,7 @@ python3 neoz.py bundle osint          # OSINT recon kit
 
 ---
 
-## The Arsenal — 52 categories, 28,376 tools
+## The Arsenal — 53 categories, 28,376 tools
 
 Every domain of offensive and defensive security, in one place — and growing with every `--update`.
 

@@ -70,6 +70,7 @@ CATEGORY_BLURB: dict[str, str] = {
     "cli_utilities": "Command-line utility.",
     "self_hosted": "Self-hosted open-source application.",
     "sysadmin_devops": "System administration / DevOps tool.",
+    "security_learning": "Learning resource, notes or cheat sheet.",
     "update_uninstall": "Maintenance action.",
 }
 
@@ -185,3 +186,46 @@ def clean_description(desc: str, title: str, category_id: str) -> str:
     if is_junk_description(desc, title):
         return CATEGORY_BLURB.get(category_id, _DEFAULT_BLURB)
     return _cap(_collapse(desc))
+
+
+# Ordered keyword -> category routing for the generic "other_tools" bucket, so
+# imported misc tools land where the reader expects them. First match wins;
+# specific patterns are listed before generic ones. Used both by the live
+# updater and the one-off recategorisation pass, so both agree.
+_ROUTES: list[tuple[re.Pattern, str]] = [
+    (re.compile(r"\b(cheat[- ]?sheets?|notes?|study|roadmap|awesome|write[- ]?ups?|walkthroughs?|tutorials?|guides?|methodology|mindmaps?|courses?|training|e?books?|certification|oscp|ejpt|pnpt|resources?|reference|wiki|playbooks?|checklists?)\b", re.I), "security_learning"),
+    (re.compile(r"\b(active[- ]?directory|kerberoast\w*|bloodhound|ntlm|impacket|netexec|crackmapexec|responder|adcs|certipy|password[- ]?spray\w*|silver[- ]?ticket|golden[- ]?ticket)\b", re.I), "active_directory"),
+    (re.compile(r"\b(sqlmap|sql[- ]?injection|sqli)\b", re.I), "sql_injection"),
+    (re.compile(r"\b(xss|cross[- ]?site[- ]?scripting)\b", re.I), "xss_attack"),
+    (re.compile(r"\b(wi[- ]?fi|wpa2?|\bwps\b|deauth\w*|802\.11|wireless|bluetooth|zigbee|evil[- ]?twin|aircrack\w*|wifite)\b", re.I), "wireless_attack"),
+    (re.compile(r"\b(burp\w*|\bwaf\b|xxe|ssrf|csrf|\blfi\b|\brfi\b|web[- ]?shell|webshell|owasp|gobuster|ffuf|dirb|dirsearch|web[- ]?app\w*)\b", re.I), "web_attack"),
+    (re.compile(r"\b(android|\bios\b|\bapk\b|frida|objection|smali|\bdex\b|\bipa\b|jailbreak|mobsf)\b", re.I), "mobile_security"),
+    (re.compile(r"\b(aws|azure|\bgcp\b|s3[- ]?bucket|\biam\b|lambda|serverless|cloudtrail|pacu|prowler|scoutsuite)\b", re.I), "cloud_security"),
+    (re.compile(r"\b(docker|kubernetes|k8s|kubectl|helm|container)\b", re.I), "container_k8s"),
+    (re.compile(r"\b(reverse[- ]?engineer\w*|ghidra|radare2?|\bida\b|disassembl\w*|decompil\w*|debugger|binary[- ]?analysis)\b", re.I), "reverse_engineering"),
+    (re.compile(r"\b(malware|ransomware|trojan|botnet|yara|unpack\w*|stealer|implant|\bc2\b|command[- ]?and[- ]?control)\b", re.I), "malware_analysis"),
+    (re.compile(r"\b(forensics?|dfir|volatility|autopsy|disk[- ]?imag\w*|carv\w*|incident[- ]?response|memory[- ]?forensics?)\b", re.I), "forensics"),
+    (re.compile(r"\b(privesc|privilege[- ]?escalation|linpeas|winpeas|peass)\b", re.I), "privilege_escalation"),
+    (re.compile(r"\b(payload\w*|msfvenom|obfuscat\w*|dropper|maldoc|reverse[- ]?shell|backdoor|shellcode)\b", re.I), "payload_creation"),
+    (re.compile(r"\b(exploit\w*|cve-\d|\brce\b|metasploit|0day|vulnerabilit\w*)\b", re.I), "exploit_framework"),
+    (re.compile(r"\b(password\w*|wordlists?|hashcat|john[- ]?the[- ]?ripper|brute[- ]?forc\w*|credential\w*|hash[- ]?crack\w*)\b", re.I), "wordlist_generator"),
+    (re.compile(r"\b(phish\w*|smish\w*|social[- ]?engineer\w*|evilginx|gophish)\b", re.I), "phishing_attack"),
+    (re.compile(r"\b(steg\w*|steganograph\w*)\b", re.I), "steganography"),
+    (re.compile(r"\b(sniff\w*|packet[- ]?captur\w*|\bmitm\b|arp[- ]?spoof\w*|wireshark|tcpdump)\b", re.I), "network_sniffing"),
+    (re.compile(r"\b(subdomain\w*|recon\w*|osint|whois|dns[- ]?enum\w*|fingerprint\w*|nmap|masscan|port[- ]?scan\w*|footprint\w*)\b", re.I), "information_gathering"),
+    (re.compile(r"\b(ddos|dos[- ]?attack|stress[- ]?test\w*|flood\w*|slowloris)\b", re.I), "ddos_attack"),
+    (re.compile(r"\b(api[- ]?security|graphql|swagger|openapi)\b", re.I), "api_security"),
+    (re.compile(r"\b(cipher\w*|encryption|cryptograph\w*|cryptanalys\w*)\b", re.I), "cryptography"),
+]
+
+
+def refine_category(title: str, description: str, cid: str) -> str:
+    """When a tool lands in the generic 'other_tools' bucket, route it to a
+    clearer category by keyword. Leaves every other category untouched."""
+    if cid != "other_tools":
+        return cid
+    blob = f"{title} {description}"
+    for pat, target in _ROUTES:
+        if pat.search(blob):
+            return target
+    return cid

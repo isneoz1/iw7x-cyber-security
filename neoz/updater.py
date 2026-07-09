@@ -554,6 +554,32 @@ _GH_TOPICS: dict[str, str] = {
     "web3-security": "web3", "blockchain-security": "web3", "honeypot": "honeypot",
     "cryptography": "crypto", "sdr": "radio", "game-hacking": "gamehacking",
     "supply-chain-security": "supplychain", "sandbox": "sandbox", "data-exfiltration": "exfil",
+    # ── Widened coverage (maximum harvest) ──────────────────────────────────────
+    "security": "misc", "infosec": "misc", "hacking": "misc", "pentest": "misc",
+    "pentest-tools": "misc", "pentesting-tools": "misc", "security-scanner": "scanner",
+    "vulnerability": "scanner", "vulnerability-management": "scanner", "port-scanner": "scanner",
+    "network-scanner": "networking", "shellcode": "exploitation", "rce": "exploitation",
+    "cve": "exploitation", "exploit-database": "exploitation", "0day": "exploitation",
+    "binary-exploitation": "exploitation", "pwn": "exploitation", "heap-exploitation": "exploitation",
+    "rootkit": "backdoor", "keylogger": "backdoor", "botnet": "backdoor", "ransomware": "malware",
+    "trojan": "malware", "mitm": "sniffer", "packet-analyzer": "sniffer", "packet-sniffer": "sniffer",
+    "subdomain-enumeration": "recon", "dns-enumeration": "recon", "email-osint": "recon",
+    "username-osint": "recon", "people-search": "recon", "geoint": "recon", "dark-web": "recon",
+    "waf": "webapp", "ssrf": "webapp", "xxe": "webapp", "csrf": "webapp", "jwt": "webapp",
+    "directory-bruteforce": "webapp", "graphql-security": "api", "api-testing": "api",
+    "hashcat": "cracker", "john-the-ripper": "cracker", "wordlists": "wordlist",
+    "credential-access": "cracker", "yara": "malware", "sigma": "threathunt", "ioc": "threatintel",
+    "misp": "threatintel", "siem": "defensive", "edr": "defensive", "purple-team": "defensive",
+    "adversary-emulation": "backdoor", "anti-detection": "backdoor", "av-evasion": "backdoor",
+    "obfuscation": "backdoor", "wifi-hacking": "wireless", "rfid": "physical",
+    "hardware-hacking": "hardware", "badusb": "hardware", "car-hacking": "automobile",
+    "gsm": "radio", "lockpicking": "physical", "cryptography-tools": "crypto",
+    "cryptanalysis": "crypto", "cloud-native-security": "cloud", "aws-pentest": "cloud",
+    "azure-security": "cloud", "gcp-security": "cloud", "serverless-security": "cloud",
+    "docker-security": "container", "kubernetes": "container", "android-pentesting": "mobile",
+    "ios-pentesting": "mobile", "frida": "mobile", "web-fuzzing": "fuzzer",
+    "memory-forensics": "forensic", "mobile-forensics": "forensic", "threat-detection": "defensive",
+    "network-security-tools": "networking", "firewall": "networking",
 }
 
 
@@ -653,6 +679,8 @@ def _entry_from_record(rec: dict) -> tuple[str, dict]:
     name, url, group = rec["name"], rec.get("url", ""), rec.get("group", "")
     src = rec.get("source", "")
     cid = _GROUP_MAP.get(group, _DEFAULT_CATEGORY)
+    # Route generic "misc" imports into a clearer category by keyword.
+    cid = curate.refine_category(name, rec.get("description", ""), cid)
     installable = True
     if src == "kali":
         install = [f"sudo apt install -y {name}"]
