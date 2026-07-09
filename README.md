@@ -4,7 +4,7 @@
 
 ### Every cybersecurity tool in the world — in one Kali Linux terminal.
 
-**iw7x** brings **17,501** offensive & defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single command‑line arsenal that **installs, updates and launches** any of them for you. Built for Kali Linux. Free forever.
+**iw7x** brings **28,376** offensive & defensive security tools — from Nmap to BloodHound, Metasploit to Volatility — into a single command‑line arsenal that **installs, updates and launches** any of them for you. Built for Kali Linux. Free forever.
 
 <br/>
 
@@ -12,8 +12,8 @@
 [![Forks](https://img.shields.io/github/forks/isneoz1/iw7x-cyber-security?style=for-the-badge&color=9652FF&labelColor=1a1a2e&logo=github)](https://github.com/isneoz1/iw7x-cyber-security/network/members)
 [![License](https://img.shields.io/badge/License-MIT-4AE3A8?style=for-the-badge&labelColor=1a1a2e)](LICENSE)
 
-[![Tools](https://img.shields.io/badge/Tools-17%2C501-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
-[![Categories](https://img.shields.io/badge/Categories-52-9652FF?style=for-the-badge&labelColor=1a1a2e)](#the-arsenal--52-categories-17501-tools)
+[![Tools](https://img.shields.io/badge/Tools-28%2C376-FF47B3?style=for-the-badge&labelColor=1a1a2e)](catalog.json)
+[![Categories](https://img.shields.io/badge/Categories-52-9652FF?style=for-the-badge&labelColor=1a1a2e)](#the-arsenal--52-categories-28376-tools)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-48DCFF?style=for-the-badge&logo=python&logoColor=white&labelColor=1a1a2e)](https://www.python.org/)
 [![Kali](https://img.shields.io/badge/Kali%20Linux-Ready-4AE3A8?style=for-the-badge&logo=kalilinux&logoColor=white&labelColor=1a1a2e)](https://www.kali.org/)
 [![Website](https://img.shields.io/badge/Live_Site-Visit-48DCFF?style=for-the-badge&labelColor=1a1a2e)](https://isneoz1.github.io/iw7x-cyber-security/)
@@ -22,7 +22,7 @@
 
 <br/>
 
-<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 17,501 tools across 52 categories, built for Kali Linux, by NeoZ" width="840">
+<img src="assets/iw7x-preview.svg" alt="iw7x — cybersecurity arsenal: 28,376 tools across 52 categories, built for Kali Linux, by NeoZ" width="840">
 
 </div>
 
@@ -46,7 +46,7 @@ This is a passion project. I keep it free, open source, and growing. If it saves
 
 | | |
 |---|---|
-| **The whole ecosystem** | **17,501 tools** across **52 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, Active Directory, mobile, IoT, CTF, honeypots, threat hunting, blue team and far more. |
+| **The whole ecosystem** | **28,376 tools** across **52 categories** — OSINT, web, wireless, exploitation, forensics, reversing, crypto, cloud, Active Directory, mobile, IoT, CTF, honeypots, threat hunting, blue team and far more. |
 | **It installs & runs for you** | Pick a tool → iw7x runs the right `apt` / `pipx` / `go` / `git` and launches it. No more copy‑pasting setup from a dozen READMEs. |
 | **Built for Kali** | It detects your distro and even rewrites `pacman` ↔ `apt`, so BlackArch‑sourced tools install cleanly on Kali. |
 | **Never stops growing** | A built‑in scanner pulls fresh tools from **BlackArch, Kali & 75+ awesome‑lists** — and keeps collecting **in the background while you work**, so new tools appear automatically without ever restarting. |
@@ -200,7 +200,7 @@ python3 neoz.py bundle osint          # OSINT recon kit
 
 ---
 
-## The Arsenal — 52 categories, 17,501 tools
+## The Arsenal — 52 categories, 28,376 tools
 
 Every domain of offensive and defensive security, in one place — and growing with every `--update`.
 
@@ -250,7 +250,29 @@ python3 neoz.py --update          # one‑off full scan
 python3 neoz.py --watch 60        # keep scanning every hour
 ```
 
+It also indexes **GitHub's own security topics** (`hacking-tool`, `osint`, `bug-bounty`, `red-team`, `reverse-engineering`, `ctf`, `malware-analysis`…), keeping the most‑starred real tools.
+
 The goal is simple: **every security tool on Earth, always current, in one place.**
+
+### Go deeper — optional GitHub token
+
+Without a token the GitHub crawl stays gentle (rate‑limited). Give iw7x a **read‑only** token and it goes far deeper and faster — thousands more tools.
+
+1. Create one at **[github.com/settings/tokens](https://github.com/settings/tokens)** → *Tokens (classic)* → **Generate** with **no scopes ticked** (public search needs none, so the token can read nothing private — it's safe).
+2. Expose it to iw7x as an **environment variable** — never in the code, never committed:
+
+   **Windows (PowerShell), once:**
+   ```powershell
+   setx IW7X_GITHUB_TOKEN "ghp_your_token_here"
+   ```
+   Then reopen your terminal.
+
+   **Linux / macOS** — add to `~/.bashrc` or `~/.zshrc`:
+   ```bash
+   export IW7X_GITHUB_TOKEN="ghp_your_token_here"
+   ```
+
+iw7x reads `IW7X_GITHUB_TOKEN` (or `GITHUB_TOKEN` / `GH_TOKEN`) automatically on the next launch. A **user‑scoped** environment variable is private to your account: other users of the machine can't read it, and it never touches the repository. If a token ever leaks, revoke it on that same page and generate a new one.
 
 ---
 

@@ -557,21 +557,56 @@ _GH_TOPICS: dict[str, str] = {
 }
 
 
-def fetch_github_topics(topics: dict | None = None, min_stars: int = 40,
-                        pages: int = 1, pause: float = 6.5) -> list[dict]:
+def _gh_token() -> str:
+    """A GitHub token from the environment, if the user set one. Lifts the search
+    rate limit from ~10 to ~30 calls/min so the crawl can go far deeper. A plain
+    read-only token (no scopes) is enough — public search needs no permissions."""
+    for var in ("IW7X_GITHUB_TOKEN", "GITHUB_TOKEN", "GH_TOKEN"):
+        val = os.environ.get(var, "").strip()
+        if val:
+            return val
+    return ""
+
+
+def _gh_get(url: str, token: str = "") -> str | None:
+    """GET a GitHub API URL as text (with auth when a token is present). Never
+    raises — returns None on any failure."""
+    headers = {"User-Agent": _UA, "Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    try:
+        ctx = ssl.create_default_context()
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=_TIMEOUT, context=ctx) as resp:
+            return resp.read().decode("utf-8", errors="replace")
+    except Exception:
+        return None
+
+
+def fetch_github_topics(topics: dict | None = None, min_stars: int | None = None,
+                        pages: int | None = None, start_page: int = 1,
+                        pause: float | None = None) -> list[dict]:
     """Harvest real security tools straight from GitHub's topic index.
 
     For each topic, pull the most-starred repos (>= ``min_stars``) and turn them
-    into tool records. Unauthenticated: GitHub allows ~10 search calls/min, so we
-    space calls out and bail gracefully on rate-limit/parse errors. Fully wrapped
-    — a throttled or offline run just returns fewer tools, never raises."""
+    into tool records. With a token (see ``_gh_token``) the crawl goes far deeper
+    and faster (lower star floor, more pages); without one it stays gentle so the
+    unauthenticated ~10 calls/min limit is respected. Fully wrapped — a throttled
+    or offline run just returns fewer tools, never raises."""
+    token = _gh_token()
+    if min_stars is None:
+        min_stars = 10 if token else 40
+    if pages is None:
+        pages = 4 if token else 1
+    if pause is None:
+        pause = 2.2 if token else 6.5
     topics = topics or _GH_TOPICS
     tools: list[dict] = []
     seen: set[str] = set()
     for topic, group in topics.items():
-        for page in range(1, max(1, pages) + 1):
+        for page in range(start_page, start_page + max(1, pages)):
             url = _GH_SEARCH.format(q=f"topic:{topic}+stars:>={min_stars}", page=page)
-            text = _http_get(url)
+            text = _gh_get(url, token)
             if not text:
                 break
             try:
